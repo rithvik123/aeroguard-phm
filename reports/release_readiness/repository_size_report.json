@@ -1,7 +1,7 @@
 {
   "total_files": 1080,
-  "total_working_tree_size_bytes": 389139223,
-  "estimated_staged_size_bytes": 33182681,
+  "total_working_tree_size_bytes": 389139769,
+  "estimated_staged_size_bytes": 33183227,
   "largest_30_files": [
     {
       "path": "artifacts/physics_guided_rul/checkpoints/final_train_transformed.pkl",

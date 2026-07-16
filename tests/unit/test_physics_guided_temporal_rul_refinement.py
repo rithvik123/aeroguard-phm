@@ -27,7 +27,6 @@ from aeroguard.pipelines.refine_physics_guided_temporal_rul import (
     uncertainty_candidate_selection,
 )
 from aeroguard.pipelines.train_physics_guided_temporal_rul import (
-    load_config as load_phase5c_config,
     normalize_cv_prediction_frames,
     run_full_experiment,
 )
@@ -100,8 +99,13 @@ def _validation_frame() -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
+def _phase5c_config_for_summary_test() -> dict:
+    with Path("configs/physics_guided_temporal_rul.yaml").open("r", encoding="utf-8") as handle:
+        return yaml.safe_load(handle) or {}
+
+
 def test_successful_future_run_summary_becomes_completed(tmp_path: Path) -> None:
-    config = load_phase5c_config("configs/physics_guided_temporal_rul.yaml")
+    config = _phase5c_config_for_summary_test()
     config["general"]["output_dir"] = str(tmp_path / "reports")
     config["general"]["checkpoint_dir"] = str(tmp_path / "checkpoints")
     config["general"]["overwrite_existing"] = True
@@ -151,7 +155,7 @@ def test_successful_future_run_summary_becomes_completed(tmp_path: Path) -> None
 
 
 def test_failed_future_run_summary_becomes_failed(tmp_path: Path) -> None:
-    config = load_phase5c_config("configs/physics_guided_temporal_rul.yaml")
+    config = _phase5c_config_for_summary_test()
     config["general"]["output_dir"] = str(tmp_path / "reports")
     config["general"]["checkpoint_dir"] = str(tmp_path / "checkpoints")
     config["general"]["overwrite_existing"] = True

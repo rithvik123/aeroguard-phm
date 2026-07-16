@@ -1,6 +1,6 @@
 Path,File type,File size,Category,Proposed action,Reason,Attribution required,Safe to delete,Final action
 .env.example,.example,471,Keep,Keep,Public release metadata.,No,No,Kept
-.gitattributes,.gitattributes,503,Keep,Keep,Public release metadata.,No,No,Kept
+.gitattributes,.gitattributes,956,Keep,Keep,Public release metadata.,No,No,Kept
 .gitignore,.gitignore,2147,Keep,Keep,Public release metadata.,No,No,Kept
 CITATION.cff,.cff,1499,Keep,Keep,Public release metadata.,No,No,Kept
 CODE_OF_CONDUCT.md,.md,696,Keep,Keep,Public release metadata.,No,No,Kept
@@ -1057,7 +1057,7 @@ tests/unit/test_physics_candidate_registry.py,.py,1488,Keep,Keep,"Project source
 tests/unit/test_physics_composite_loss.py,.py,2910,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
 tests/unit/test_physics_full_run_orchestration.py,.py,29440,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
 tests/unit/test_physics_guided_patch_transformer.py,.py,3318,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
-tests/unit/test_physics_guided_temporal_rul_refinement.py,.py,14408,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_physics_guided_temporal_rul_refinement.py,.py,14501,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
 tests/unit/test_physics_loss_components.py,.py,1485,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
 tests/unit/test_physics_violation_metrics.py,.py,1614,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
 tests/unit/test_policy_registry.py,.py,3205,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept

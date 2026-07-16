@@ -14,6 +14,12 @@
 
 artifacts/aerokan_phm_critical_gate/cascade_metadata.json binary -eol
 reports/aerokan_phm_critical_gate/metric_definition_audit.json binary -eol
+reports/aerokan_phm_critical_gate/benchmark_predictions.csv binary -eol
+reports/aerokan_phm_critical_gate/benchmark_metrics.json binary -eol
+reports/aerokan_phm_critical_gate/benchmark_fixed_policy_metrics.json binary -eol
+reports/aerokan_phm_critical_gate/locked_uncertainty_method.json binary -eol
+reports/aerokan_phm_critical_gate/locked_maintenance_policy.json binary -eol
+reports/aerokan_phm_critical_gate/locked_abstention_policy.json binary -eol
 
 *.png binary
 *.jpg binary
