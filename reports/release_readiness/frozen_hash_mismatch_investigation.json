@@ -1,0 +1,58 @@
+{
+  "summary": {
+    "root_cause": "The frozen manifest was generated from Windows working-tree JSON files with CRLF line endings, but the initial Git commit stored those JSON files as LF-normalized blobs because .gitattributes forced *.json text eol=lf. GitHub Actions checked out the LF-normalized blobs, so byte-level SHA-256 validation failed even though parsed JSON content was unchanged.",
+    "resolution_option": "OPTION A - restore/preserve the authoritative original bytes referenced by the frozen manifest",
+    "frozen_manifest_changed": false,
+    "release_behavior_changed": false,
+    "safety_guard_changed": false,
+    "metric_definitions_changed": false,
+    "notes": "The two authoritative Windows working-tree files already matched the hashes recorded in artifacts/final_release/frozen_system_manifest.json. The repair preserves those exact bytes in Git by exempting only the two immutable frozen JSON records from line-ending normalization."
+  },
+  "components": [
+    {
+      "component": "critical_boundary_guard",
+      "manifest_path": "artifacts/final_release/frozen_system_manifest.json",
+      "referenced_path": "artifacts/aerokan_phm_critical_gate/cascade_metadata.json",
+      "expected_sha256": "26ae319d9301cd8aadc540e540877c7fc5c709a723950c045055bdea249d29a2",
+      "actual_sha256": "5cab94aede2d361d2c4d0c3ae79665ba4235ab088c8152cba5eda60382d15f51",
+      "actual_sha256_before_repair_in_ci": "5cab94aede2d361d2c4d0c3ae79665ba4235ab088c8152cba5eda60382d15f51",
+      "actual_sha256_after_repair": "26ae319d9301cd8aadc540e540877c7fc5c709a723950c045055bdea249d29a2",
+      "first_known_modification": "Commit 0ad84a7 introduced the file as an LF-normalized Git blob while the frozen manifest expected the CRLF working-tree bytes generated before Git normalization.",
+      "semantic_changes": false,
+      "formatting_only_changes": true,
+      "sanitization_changes": false,
+      "authoritative_original_found": true,
+      "authoritative_original_source": "Existing Windows working-tree file bytes matched the frozen manifest SHA-256 exactly.",
+      "recommended_resolution": "Preserve the exact frozen CRLF bytes and prevent Git line-ending normalization for this immutable record.",
+      "final_resolution": ".gitattributes now treats this file as a binary frozen record and unsets eol normalization; the file is re-added byte-for-byte without editing the manifest.",
+      "validation_status": "validated_pass"
+    },
+    {
+      "component": "metric_definition_registry",
+      "manifest_path": "artifacts/final_release/frozen_system_manifest.json",
+      "referenced_path": "reports/aerokan_phm_critical_gate/metric_definition_audit.json",
+      "expected_sha256": "e0024671c19f3900044cdd12886e3eeeb36e5f61ee26ccfe2c4f2076115579d9",
+      "actual_sha256": "5dc48b06437a25cbe57eb8806895cb38a381cc08ed9352aaeda921936c12a1d7",
+      "actual_sha256_before_repair_in_ci": "5dc48b06437a25cbe57eb8806895cb38a381cc08ed9352aaeda921936c12a1d7",
+      "actual_sha256_after_repair": "e0024671c19f3900044cdd12886e3eeeb36e5f61ee26ccfe2c4f2076115579d9",
+      "first_known_modification": "Commit 0ad84a7 introduced the file as an LF-normalized Git blob while the frozen manifest expected the CRLF working-tree bytes generated before Git normalization.",
+      "semantic_changes": false,
+      "formatting_only_changes": true,
+      "sanitization_changes": false,
+      "authoritative_original_found": true,
+      "authoritative_original_source": "Existing Windows working-tree file bytes matched the frozen manifest SHA-256 exactly.",
+      "recommended_resolution": "Preserve the exact frozen CRLF bytes and prevent Git line-ending normalization for this immutable record.",
+      "final_resolution": ".gitattributes now treats this file as a binary frozen record and unsets eol normalization; the file is re-added byte-for-byte without editing the manifest.",
+      "validation_status": "validated_pass"
+    }
+  ],
+  "semantic_confirmation": {
+    "guard_activation_condition": "15 < base_rul <= 25",
+    "correction": "min(10, base_rul - 15 + 0.5)",
+    "downward_only_correction": true,
+    "final_predictive_model_unchanged": true,
+    "maintenance_policy_unchanged": true,
+    "metric_definitions_unchanged": true,
+    "final_reported_benchmark_values_unchanged": true
+  }
+}

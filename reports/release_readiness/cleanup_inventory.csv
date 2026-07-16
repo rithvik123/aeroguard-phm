@@ -1,13 +1,13 @@
 Path,File type,File size,Category,Proposed action,Reason,Attribution required,Safe to delete,Final action
 .env.example,.example,471,Keep,Keep,Public release metadata.,No,No,Kept
-.gitattributes,.gitattributes,308,Keep,Keep,Public release metadata.,No,No,Kept
+.gitattributes,.gitattributes,503,Keep,Keep,Public release metadata.,No,No,Kept
 .gitignore,.gitignore,2147,Keep,Keep,Public release metadata.,No,No,Kept
 CITATION.cff,.cff,1499,Keep,Keep,Public release metadata.,No,No,Kept
 CODE_OF_CONDUCT.md,.md,696,Keep,Keep,Public release metadata.,No,No,Kept
 CONTRIBUTING.md,.md,1240,Keep,Keep,Public release metadata.,No,No,Kept
 LICENSE,LICENSE,11389,Keep,Keep,Public release metadata.,No,No,Kept
 MODEL_CARD.md,.md,4165,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
-pyproject.toml,.toml,1369,Keep,Keep,Public release metadata.,No,No,Kept
+pyproject.toml,.toml,1375,Keep,Keep,Public release metadata.,No,No,Kept
 pytest.ini,.ini,107,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
 README.md,.md,35591,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
 REPRODUCIBILITY.md,.md,2050,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
@@ -184,8 +184,10 @@ docs/assets/readme/SCREENSHOT_CHECKLIST.md,.md,1498,Keep,Keep,README asset or as
 docs/assets/readme/architecture/critical_boundary_safety_guard.png,.png,5789750,Keep,Keep,README asset or asset plan.,No,No,Kept
 docs/assets/readme/architecture/final_system_design.png,.png,5612778,Keep,Keep,README asset or asset plan.,No,No,Kept
 docs/assets/readme/architecture/model_development_journey.png,.png,3911414,Keep,Keep,README asset or asset plan.,No,No,Kept
+docs/assets/readme/charts/.gitkeep,.gitkeep,48,Keep,Keep,README asset or asset plan.,No,No,Kept
 docs/assets/readme/hero/aeroguard_phm_hero.png,.png,6801018,Keep,Keep,README asset or asset plan.,No,No,Kept
 docs/assets/readme/hero/rul_problem_statement.png,.png,5421019,Keep,Keep,README asset or asset plan.,No,No,Kept
+docs/assets/readme/screenshots/.gitkeep,.gitkeep,53,Keep,Keep,README asset or asset plan.,No,No,Kept
 examples/api_request.json,.json,48462,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
 examples/batch_inference_example.py,.py,416,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
 examples/sample_engine_history.csv,.csv,15337,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
@@ -808,14 +810,15 @@ reports/physics_guided_rul_safety_refined/figures/support_category_vs_assigned_a
 reports/physics_guided_rul_safety_refined/figures/urgent_precision_vs_critical_recall.png,.png,19133,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
 reports/physics_guided_rul_safety_refined/figures/validation_missed_critical_feature_distribution.png,.png,8393,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
 reports/physics_guided_rul_safety_refined/figures/weighted_cost_vs_workload.png,.png,17059,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
-reports/release_readiness/cleanup_inventory.csv,.csv,166820,Keep,Keep,Public release-readiness report.,No,No,Kept
+reports/release_readiness/cleanup_inventory.csv,.csv,160964,Keep,Keep,Public release-readiness report.,No,No,Kept
 reports/release_readiness/dependency_audit.csv,.csv,2476,Keep,Keep,Public release-readiness report.,No,No,Kept
-reports/release_readiness/git_staging_preview.txt,.txt,15492,Keep,Keep,Public release-readiness report.,No,No,Kept
+reports/release_readiness/frozen_hash_mismatch_investigation.json,.json,4309,Keep,Keep,Public release-readiness report.,No,No,Kept
+reports/release_readiness/git_staging_preview.txt,.txt,16040,Keep,Keep,Public release-readiness report.,No,No,Kept
 reports/release_readiness/large_files.csv,.csv,829,Keep,Keep,Public release-readiness report.,No,No,Kept
 reports/release_readiness/license_compatibility_audit.csv,.csv,2432,Keep,Keep,Public release-readiness report.,No,No,Kept
 reports/release_readiness/monitoring_demo.json,.json,1833,Keep,Keep,Public release-readiness report.,No,No,Kept
 reports/release_readiness/private_information_audit.json,.json,197,Keep,Keep,Public release-readiness report.,No,No,Kept
-reports/release_readiness/public_release_manifest.json,.json,76974,Keep,Keep,Public release-readiness report.,No,No,Kept
+reports/release_readiness/public_release_manifest.json,.json,74093,Keep,Keep,Public release-readiness report.,No,No,Kept
 reports/release_readiness/release_integrity_check.json,.json,62,Keep,Keep,Public release-readiness report.,No,No,Kept
 reports/release_readiness/repository_size_report.json,.json,4330,Keep,Keep,Public release-readiness report.,No,No,Kept
 reports/release_readiness/upstream_reference_audit.csv,.csv,3820,Keep,Keep,Public release-readiness report.,No,No,Kept
@@ -964,16 +967,6 @@ src/aeroguard/inference/safety_guard.py,.py,884,Keep,Keep,"Project source, confi
 src/aeroguard/inference/schemas.py,.py,3052,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
 src/aeroguard/inference/uncertainty.py,.py,731,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
 src/aeroguard/inference/__init__.py,.py,168,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
-src/aeroguard/inference/__pycache__/artifact_loader.cpython-311.pyc,.pyc,5511,Remove,Remove,Generated Python/test cache.,No,Yes,Removed or ignored
-src/aeroguard/inference/__pycache__/explanations.cpython-311.pyc,.pyc,1745,Remove,Remove,Generated Python/test cache.,No,Yes,Removed or ignored
-src/aeroguard/inference/__pycache__/maintenance.cpython-311.pyc,.pyc,1619,Remove,Remove,Generated Python/test cache.,No,Yes,Removed or ignored
-src/aeroguard/inference/__pycache__/monitoring.cpython-311.pyc,.pyc,3511,Remove,Remove,Generated Python/test cache.,No,Yes,Removed or ignored
-src/aeroguard/inference/__pycache__/predictor.cpython-311.pyc,.pyc,17700,Remove,Remove,Generated Python/test cache.,No,Yes,Removed or ignored
-src/aeroguard/inference/__pycache__/preprocessing.cpython-311.pyc,.pyc,9622,Remove,Remove,Generated Python/test cache.,No,Yes,Removed or ignored
-src/aeroguard/inference/__pycache__/safety_guard.cpython-311.pyc,.pyc,1520,Remove,Remove,Generated Python/test cache.,No,Yes,Removed or ignored
-src/aeroguard/inference/__pycache__/schemas.cpython-311.pyc,.pyc,3844,Remove,Remove,Generated Python/test cache.,No,Yes,Removed or ignored
-src/aeroguard/inference/__pycache__/uncertainty.cpython-311.pyc,.pyc,1618,Remove,Remove,Generated Python/test cache.,No,Yes,Removed or ignored
-src/aeroguard/inference/__pycache__/__init__.cpython-311.pyc,.pyc,368,Remove,Remove,Generated Python/test cache.,No,Yes,Removed or ignored
 src/aeroguard/kan/interpretability.py,.py,3213,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
 src/aeroguard/kan/kan_linear.py,.py,3253,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
 src/aeroguard/kan/pruning.py,.py,1169,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
@@ -1011,7 +1004,6 @@ src/aeroguard/uncertainty/quantile_regression.py,.py,3619,Keep,Keep,"Project sou
 src/aeroguard/uncertainty/support.py,.py,5901,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
 src/aeroguard/uncertainty/tree_quantiles.py,.py,1859,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
 src/aeroguard/uncertainty/__init__.py,.py,51,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
-src/aeroguard/__pycache__/__init__.cpython-311.pyc,.pyc,317,Remove,Remove,Generated Python/test cache.,No,Yes,Removed or ignored
 tests/integration/test_aerokan_rul_corrector_smoke.py,.py,366,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
 tests/integration/test_critical_gate_aerokan_corrector_smoke.py,.py,452,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
 tests/integration/test_fd001_alert_generalization_smoke.py,.py,9226,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept

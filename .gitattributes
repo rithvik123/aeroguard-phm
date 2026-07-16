@@ -1,5 +1,8 @@
 * text=auto
 
+.gitattributes text eol=lf
+*.gitkeep text eol=lf
+
 *.py text eol=lf
 *.md text eol=lf
 *.yaml text eol=lf
@@ -8,6 +11,9 @@
 *.json text eol=lf
 *.csv text eol=lf
 *.txt text eol=lf
+
+artifacts/aerokan_phm_critical_gate/cascade_metadata.json binary -eol
+reports/aerokan_phm_critical_gate/metric_definition_audit.json binary -eol
 
 *.png binary
 *.jpg binary
@@ -20,4 +26,3 @@
 *.npy binary
 *.npz binary
 *.ipynb binary
-
