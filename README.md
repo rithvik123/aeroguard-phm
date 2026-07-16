@@ -1,784 +1,592 @@
 # AeroGuard-PHM
 
-> A production-style turbofan predictive-maintenance system combining physics-guided temporal modelling, calibrated uncertainty and an interpretable safety guard for reliable remaining-useful-life decisions.
+AeroGuard-PHM is an end-to-end predictive-maintenance system for turbofan engines. It studies an engine's recent operating conditions and sensor measurements, estimates how many operating cycles remain before failure, quantifies uncertainty, identifies risky predictions near the maintenance boundary, and converts the result into a clear maintenance decision.
 
-**Frozen v1.0.0 release** | **64 model and system candidates evaluated** | **99.02% operational critical recall** | **FastAPI and Streamlit deployment**
+`Frozen v1.0.0 release` | `Python >=3.11` | `Apache-2.0` | `aeroguard-phm-safety-v1`
 
-<!--
-IMAGE NOT RENDERED:
-docs/assets/readme/hero/aeroguard_phm_hero.png
-Reason: Generated image contains visible typo "Concluse maintenance recommendation".
-Regenerate before enabling:
 <p align="center">
   <img
     src="docs/assets/readme/hero/aeroguard_phm_hero.png"
-    alt="AeroGuard-PHM converts turbofan sensor histories into uncertainty-aware and safety-adjusted maintenance decisions"
+    alt="AeroGuard-PHM transforms turbofan sensor history into Remaining Useful Life estimates, uncertainty intervals and safety-aware maintenance recommendations"
     width="100%">
 </p>
--->
+
+> AeroGuard-PHM converts multivariate turbofan sensor histories into an estimated Remaining Useful Life, measures prediction uncertainty, applies a transparent safety safeguard near the critical maintenance boundary, and produces an actionable maintenance recommendation.
+
+The project is not just a neural-network benchmark. It covers data validation, operating-regime-aware preprocessing, classical machine-learning baselines, deep-learning sequence models, Transformer-based temporal modelling, physics-guided learning, KAN-based residual-correction experiments, conformal uncertainty estimation, safety-aware decision logic, maintenance-policy evaluation, Python inference, a CLI, FastAPI, Streamlit, monitoring, testing, reproducibility and release integrity.
 
 ## Release Snapshot
 
-The complete production system is the **AeroGuard-PHM Safety-Guarded RUL System**. The final selected predictive system is the **Critical-Boundary Safety-Guarded Physics-Guided Transformer**. Its final architecture is the **Critical-Boundary Safety-Guarded Physics-Guided Patch Transformer**, built around the **Regime-Consistent Physics-Guided Patch Transformer** backbone and a deterministic safety guard.
+| Item | Value |
+| --- | --- |
+| Complete system | AeroGuard-PHM Safety-Guarded RUL System |
+| Final selected system | Critical-Boundary Safety-Guarded Physics-Guided Transformer |
+| Selected predictive backbone | Regime-Consistent Physics-Guided Patch Transformer |
+| Model version | aeroguard-phm-safety-v1 |
+| Release state | Frozen v1.0.0 release |
+| Model/system candidates evaluated | 64 |
+| Window length | 50-cycle past-only engine history |
+| Minimum inference history | 10 cycles, with short-history warnings |
+| Safety rule | `15 < base_rul <= 25` |
+| Critical misses | 1 |
+| Final MAE | 14.5632 |
+| Final RMSE | 20.9603 |
+| Severe optimism | 0.0566 |
+| Operational recall | 0.9902 |
+| Review workload | 0.1924 |
 
-| Metric | Final v1.0.0 value | Source |
-| --- | ---: | --- |
-| Overall MAE | 14.5632 cycles | [`headline_model_comparison.csv`](reports/final_release/headline_model_comparison.csv) |
-| Overall RMSE | 20.9603 cycles | [`headline_model_comparison.csv`](reports/final_release/headline_model_comparison.csv) |
-| Severe optimistic rate | 0.0566 | [`point_prediction_comparison.csv`](reports/final_release/point_prediction_comparison.csv) |
-| Critical misses | 1 | [`fixed_policy_safety_comparison.csv`](reports/final_release/fixed_policy_safety_comparison.csv) |
-| Operational critical recall | 0.9902 | [`fixed_policy_safety_comparison.csv`](reports/final_release/fixed_policy_safety_comparison.csv) |
-| Review workload | 0.1924 | [`fixed_policy_safety_comparison.csv`](reports/final_release/fixed_policy_safety_comparison.csv) |
-| Model/system candidates evaluated | 64 | [`model_registry.csv`](reports/final_release/model_registry.csv) |
+The final system is a safety-guarded Transformer release pipeline. It is not a learned KAN component. KAN experiments were not selected for deployment, although they were useful development evidence.
 
 ## Quick Navigation
 
-- [What AeroGuard-PHM solves](#what-aeroguard-phm-solves)
-- [Why RMSE alone is not enough](#why-rmse-alone-is-not-enough)
+- [What AeroGuard-PHM Solves](#what-aeroguard-phm-solves)
 - [Dataset: NASA C-MAPSS](#dataset-nasa-c-mapss)
-- [End-to-end data pipeline](#end-to-end-data-pipeline)
-- [Models evaluated](#models-evaluated)
-- [Development journey](#development-journey)
-- [Final architecture](#final-architecture)
-- [Physics-Guided Patch Transformer](#physics-guided-patch-transformer)
-- [Final safety guard](#final-safety-guard)
-- [Final results](#final-results)
-- [Uncertainty quantification](#uncertainty-quantification)
+- [End-to-End Data Pipeline](#end-to-end-data-pipeline)
+- [Models Evaluated](#models-evaluated)
+- [Development Journey](#development-journey)
+- [Final Architecture](#final-architecture)
+- [Final Results](#final-results)
+- [Quick Start](#quick-start)
+- [FastAPI Inference Service](#fastapi-inference-service)
 - [Interactive Streamlit Dashboard](#interactive-streamlit-dashboard)
-- [FastAPI inference service](#fastapi-inference-service)
-- [Quick start](#quick-start)
-- [Production inference output](#production-inference-output)
-- [Monitoring](#monitoring)
 - [Testing](#testing)
-- [Reproducibility and frozen artifacts](#reproducibility-and-frozen-artifacts)
-- [Limitations](#limitations)
-- [Responsible use](#responsible-use)
+- [Reproducibility and Frozen Artifacts](#reproducibility-and-frozen-artifacts)
 
 ## What AeroGuard-PHM Solves
 
-Modern turbofan engines degrade gradually. Their sensors measure temperatures, pressures, fan speeds, core speeds and operating settings, but those sensors do not directly report a clean health percentage. A high temperature can reflect real degradation, a change in operating condition, or both. A single row of data is therefore not enough; the model needs to read a recent sequence and separate operating-regime effects from deterioration.
+A turbofan engine produces many sensor readings during each operating cycle. These readings include operating settings and sensor channels related to temperature, pressure, rotational speed and flow behavior. As an engine degrades, some readings drift gradually. The difficulty is that the same readings also move when the engine enters a different operating regime, when measurements are noisy, or when sensors respond to normal operating-condition changes.
 
-**Remaining Useful Life**, or **RUL**, is the estimated number of operating cycles left before an engine reaches its defined end-of-life condition.
+Remaining Useful Life, usually shortened to RUL, is the estimated number of operating cycles between the last observed cycle and eventual failure. At inference time the engine has not failed yet. The future failure point is hidden. The model receives only the past engine history and must infer how much useful life remains.
 
-RUL prediction matters because it sits close to maintenance decisions. A prediction of 90 cycles may simply continue monitoring. A prediction near 15 cycles may trigger urgent engineering review. In that setting, a model needs point accuracy, uncertainty, safe review logic and clear limitations.
+Healthy operation, gradual degradation and near-failure behavior are not directly labeled at every cycle. The system therefore learns from historical run-to-failure examples, then applies that learned relationship to a test engine whose sequence stops before failure. AeroGuard-PHM treats this as a decision-support problem: a prediction is useful only if it can be validated, explained, bounded by uncertainty and translated into maintenance action.
 
-> An optimistic prediction tells the operator that more life remains than is actually available. This can delay inspection or maintenance.
+## The Problem in Simple Terms
 
-AeroGuard-PHM asks a practical research question: can a temporal RUL model stay competitive on point accuracy while reducing the most safety-relevant late predictions?
+Imagine watching an engine for 50 recent operating cycles. Each row has the cycle number, three operating settings and 21 sensor measurements. The model does not see the future. It sees the final observed cycle and must answer: "How many cycles are likely left before failure?"
 
-<!--
-IMAGE NOT RENDERED:
-docs/assets/readme/hero/rul_problem_statement.png
-Reason: Generated image contains visible text errors: "Layout layout" and "future failure prnnt point".
-Caption to use after regeneration:
-RUL prediction requires separating true degradation from sensor changes caused by operating conditions, then estimating the unknown time to failure from past-only sensor history.
--->
+The answer is not a direct sensor. It is inferred from patterns. A healthy engine may show stable sensor behavior. A degrading engine may show slow drift, sharper changes near the end of life, or regime-dependent signals that look different under different operating settings. The final observed cycle is only a snapshot of the known past; the failure point sits somewhere beyond the observed sequence.
 
-## Why RMSE Alone Is Not Enough
+This is why the project separates several ideas. The base model estimates RUL. The uncertainty layer describes how wide a plausible error range may be. The safety guard corrects a narrow risky region near the urgent-maintenance boundary. The maintenance policy converts the safety-adjusted RUL into one of the frozen actions used by the release.
 
-Suppose two engines both have a 20-cycle prediction error:
+### Why Operating Regimes Matter
 
-- Engine A is predicted 20 cycles too early. This can cause earlier inspection or maintenance.
-- Engine B is predicted 20 cycles too late. This can delay action when less life remains than expected.
+A temperature increase does not automatically mean the engine has degraded. The increase may have occurred because the engine entered a different operating regime. A model that ignores this distinction can confuse normal operating-condition changes with health deterioration.
 
-Both errors have the same absolute size, but they do not have the same operational meaning. AeroGuard-PHM therefore reports point accuracy, optimistic error, critical misses, review workload and uncertainty separately.
+AeroGuard-PHM therefore uses operating settings, regime-aware normalization, leakage-safe fitting, temporal history and physics-consistency checks. The preprocessor transforms operating settings and sensors into regime-normalized features. The learned model then consumes the ordered past sequence rather than a single isolated row. This design is especially important on FD002 and FD004, where multiple operating conditions make raw sensor values harder to interpret.
 
-| Term | Intuitive meaning |
-| --- | --- |
-| MAE | Average absolute miss in cycles |
-| RMSE | Error metric that punishes large misses more strongly |
-| NASA score | Asymmetric prognostics score that penalizes late optimistic predictions more than conservative predictions |
-| Optimistic error | Predicted RUL is higher than the benchmark remaining life |
-| Severe optimistic error | Optimistic error above the 30-cycle severe threshold |
-| Critical miss | Engine is actually within the urgent region, but the policy does not flag it urgently |
-| Operational critical recall | Share of truly critical engines caught by the operational policy |
-| Review workload | Share of engines routed to engineering review |
+## Why Accuracy Alone Is Not Enough
 
-<details>
-<summary>Technical metric definitions</summary>
+A single point prediction can look good by MAE or RMSE while still being unsafe near a maintenance boundary. An error of 15 cycles is not equally dangerous in every direction. Predicting 25 cycles when the actual future life is 40 is conservative. Predicting 40 cycles when the actual future life is 25 is optimistic and may delay inspection.
 
-The final comparison uses aligned benchmark engine keys, uncapped final-cycle RUL labels and this residual orientation:
+The project reports point-prediction metrics and operational metrics separately:
 
-```text
-residual = predicted_rul - true_rul
-```
+| Metric | Plain-language meaning | Direction |
+| --- | --- | --- |
+| MAE | Average absolute cycle error. | Lower is better |
+| RMSE | Like MAE, but larger errors receive more weight. | Lower is better |
+| NASA score | Asymmetric prognostics score used in the release comparisons. | Lower is better |
+| Optimistic error | Prediction is later than the benchmark RUL label. | Lower is safer |
+| Severe optimism | Optimistic error at or beyond the project severe threshold. | Lower is safer |
+| Critical miss | A truly critical engine is not treated as critical by the policy. | Lower is safer |
+| Operational recall | Share of critical engines captured by urgent/review behavior. | Higher is safer |
+| Review workload | Share of engines routed into review or urgent action. | Trade-off |
+| Uncertainty coverage | How often intervals contain benchmark labels under the calibration protocol. | Target-dependent |
 
-Positive residuals are optimistic. Negative residuals are conservative.
+### Why RMSE Alone Is Not Enough
 
-The canonical severe optimistic threshold is 30 cycles. The fixed-policy critical threshold is 15 cycles. The final comparison separates model effects from policy effects by evaluating all headline systems on the same fixed `point_u15_s30_i60` policy where applicable.
-
-</details>
+RMSE is useful because it highlights large numerical errors, but it does not know whether a large error is operationally conservative or dangerously optimistic. It also does not know whether an error occurs far from maintenance thresholds or exactly near an urgent boundary. AeroGuard-PHM therefore reports severe optimism, critical misses, operational recall, review workload and uncertainty coverage alongside MAE and RMSE.
 
 ## Dataset: NASA C-MAPSS
 
-AeroGuard-PHM uses the NASA C-MAPSS turbofan degradation benchmark. C-MAPSS is simulated turbofan data, not real airline maintenance telemetry. It contains multivariate time-series records for multiple engines. Each row represents one operating cycle with operating settings and sensor channels.
+NASA C-MAPSS is a simulated turbofan degradation benchmark. Each row represents one engine at one operating cycle. Every training engine is observed until failure, and every test engine stops before failure. The task is to estimate the missing future life for each test engine from the observed history.
 
-Training engines are run-to-failure histories. For training, a per-cycle RUL target can be derived because the end-of-life cycle is known. Test engines are truncated histories: the model sees only the current history and must predict the final-cycle RUL. Benchmark RUL labels are attached only after prediction for offline evaluation; they are not deployment inputs.
+The four public subsets differ by fault-mode and operating-regime complexity:
 
-| Subset | Operating conditions | Fault modes | Main challenge |
-| --- | ---: | ---: | --- |
-| FD001 | One | One | Basic single-domain degradation |
-| FD002 | Multiple | One | Operating-regime variation |
-| FD003 | One | Multiple | Multiple degradation mechanisms |
-| FD004 | Multiple | Multiple | Strongest multidomain challenge |
+| Subset | Fault modes | Operating regimes | Relative difficulty | Role in this project |
+| --- | --- | --- | --- | --- |
+| FD001 | One | One | Easier single-regime baseline | Included in development, validation, benchmark evaluation and final reporting |
+| FD002 | One | Multiple operating conditions | Harder because regime shifts can mask degradation | Included in development, validation, benchmark evaluation and final reporting |
+| FD003 | Multiple fault modes | One | Harder fault diversity with stable operating regime | Included in development, validation, benchmark evaluation and final reporting |
+| FD004 | Multiple fault modes | Multiple operating conditions | Hardest combined regime and fault variation | Included in development, validation, benchmark evaluation and final reporting |
 
-FD004 is the hardest subset because operating conditions and degradation modes both vary. A robust system must avoid confusing operating-regime shifts with damage while still recognizing deterioration.
+FD002 and FD004 are more challenging because the same health state can produce different raw readings under different operating conditions. The release protocol evaluates all four subsets and reports overall metrics over 707 aligned benchmark engines. Earlier project phases also used development and external-style checks, but the final release tables are drawn from the frozen files under `reports/final_release`.
 
 ## End-to-End Data Pipeline
 
-The pipeline is designed around leakage prevention. The model may use past sensor history, but not future cycles or benchmark answers.
+The implemented pipeline follows a past-only RUL workflow:
 
-1. Load FD001-FD004 train and test files.
-2. Validate required files and expected columns.
-3. Assign collision-safe global engine IDs such as `FD004_0177`.
-4. Derive per-cycle training RUL from run-to-failure training histories.
-5. Apply the configured RUL cap where appropriate for training.
-6. Split train and validation engines by engine identity.
-7. Fit preprocessing only on fitting engines.
-8. Identify operating regimes from operational settings.
-9. Build past-only temporal windows.
-10. Construct final-cycle benchmark windows without labels.
-11. Attach benchmark labels only after model prediction.
+1. Raw engine-cycle records are read with canonical columns.
+2. Schema validation checks required operating settings and sensor channels.
+3. Operating-regime preprocessing assigns regime-aware normalized features.
+4. RUL targets are constructed from run-to-failure training engines.
+5. A 50-cycle temporal history is created for sequence models.
+6. Rows are split by engine, not by individual cycle.
+7. Model-ready tensors are sent to baselines, sequence models and release inference.
 
-```mermaid
-flowchart LR
-  A["C-MAPSS train/test files"] --> B["File and schema validation"]
-  B --> C["Global engine IDs"]
-  C --> D["Training RUL targets"]
-  D --> E["Engine-level train/validation split"]
-  E --> F["Fit preprocessing on fitting engines only"]
-  F --> G["Operating-regime assignment"]
-  G --> H["Past-only sequence windows"]
-  H --> I["Model prediction"]
-  I --> J["Offline benchmark evaluation"]
-```
+The frozen inference schema requires `cycle`, three `operational_setting_*` columns and `sensor_1` through `sensor_21`. Optional identifiers include `engine_id`, `global_engine_id`, `unit_id` and `subset`. For inference, histories shorter than 50 cycles are left-padded inside the model path and accompanied by a validity mask; histories shorter than the 10-cycle minimum remain valid only with warnings when no hard schema error is present. Histories longer than the manifest maximum of 500 cycles are warned about by validation.
 
-This design keeps benchmark labels out of model inputs and inference examples. It also prevents preprocessing statistics from being fitted on held-out engines.
+Engine-level splitting is essential. Adjacent rows from the same engine are highly correlated, so random row splitting would leak future-like information into validation. The project uses grouped splitting and locked benchmark files to prevent that leakage.
+
+Input validation is intentionally plain and conservative. The inference wrapper checks that required columns are present, that cycle values are numeric, unique and monotonically increasing, that required sensor and operating-setting columns are numeric and finite, and that unexpected columns are treated as warnings rather than silent assumptions. These checks do not prove that an input engine belongs to the training distribution, but they catch common integration mistakes before a prediction is treated as maintenance evidence.
+
+Regime-aware preprocessing is also fitted as a release artifact rather than recomputed at inference time. That matters because normalization statistics must come from the training protocol, not from the engine being predicted. Re-fitting scalers on a test engine would leak information from the input distribution and make predictions difficult to reproduce. The frozen preprocessor keeps feature construction, operating-regime handling and model input order consistent across CLI, API and dashboard use.
+
+### Temporal Patching
+
+The selected Patch Transformer configuration receives a 50-cycle window. It uses 10-cycle patches with stride 5, producing 10 patch tokens over the window. Each patch summarizes a local segment of sensor behavior, and the Transformer relates those patch tokens before mean pooling and RUL regression. Patching reduces the effective sequence length while preserving local degradation structure.
 
 ## Models Evaluated
 
-The frozen release registry contains 64 model and system entries. The main README groups them by family; the full registry is available in [`reports/final_release/model_registry.csv`](reports/final_release/model_registry.csv).
+The final registry contains 64 model and system candidates. The table below groups the verified families rather than listing every candidate row.
 
-### Classical Baseline
+| Model family | Representative models | What the model learns | Why evaluated | Main strength | Main limitation | Final role |
+| --- | --- | --- | --- | --- | --- | --- |
+| Classical tree baseline | Random Forest RUL Baseline | Nonlinear tabular mapping from engineered/final-row features to RUL | Establish a fast non-deep sanity check | Robust, quick, interpretable feature importance style diagnostics | Does not naturally model ordered temporal history | Classical benchmark |
+| Deep vector baseline | Sequence MLP RUL Baseline | Fixed-window feature mapping | Tests whether a simple neural baseline is enough | Simple and fast | Weak sequence-order inductive bias | Deep-learning benchmark |
+| Convolutional temporal models | Temporal CNN, TCN | Local temporal degradation motifs and dilated patterns | Evaluate local temporal filters | Efficient local pattern extraction | May miss global history relationships | Deep-learning benchmark |
+| Recurrent sequence models | LSTM, GRU, CNN-LSTM | Sequential state over cycles | Evaluate standard temporal-memory models | Natural ordered-history processing | Can be harder to tune and parallelize | Deep-learning benchmark |
+| Temporal Transformer models | Sinusoidal mean-pooling Transformer, learned attention Transformer | Attention over cycle-level history | Test long-range temporal interactions | Flexible sequence representation | Full sequence attention can be heavier than patched representation | Not selected |
+| Patch Transformer models | 5x5 attention, Patch Transformer — 10×5 Patches with Mean Pooling | Attention over local temporal patches | Build a strong temporal benchmark | Efficient compact temporal representation | Still purely data-driven before physics guidance | Selected benchmark |
+| Physics-guided Transformers | Monotonicity, cycle-rate, smoothness, health, regime, full physics variants | RUL plus consistency under selected guidance losses | Improve temporal model behavior using project-specific constraints | Better aligned with degradation/regime structure | Guidance must be validated and can trade off metrics | Selected predictive backbone |
+| Residual correction controls | Linear residual corrector, MLP residual corrector, constant downward controls | Post-hoc correction magnitudes | Compare learned residual correction against simpler controls | Clear ablation evidence | Not complete deployed systems | Experimental controls |
+| KAN correction systems | AeroKAN-PHM Compact Residual Corrector, Selective One-Sided AeroKAN Safety Corrector | Flexible nonlinear residual/safety corrections | Test interpretable nonlinear correction | Useful critical-case evidence | Did not provide the best final safety-accuracy-workload balance | Experimental correction models |
+| Safety-guarded systems | Critical-Boundary Safety-Guarded Physics-Guided Transformer, AeroGuard-PHM Safety-Guarded RUL System | Deterministic boundary correction plus policy output | Convert RUL prediction into auditable decision support | Transparent, bounded, high critical recall | Benchmark-derived and needs external validation | Final safety system |
 
-The project includes a classical Random Forest RUL baseline. It is useful as a tabular point of comparison, but it does not model temporal degradation as directly as sequence models.
+## Classical Machine-Learning Baselines
 
-### Deep Sequence Models
+The verified classical baseline in the final registry is the Random Forest RUL Baseline. It is a tree-based machine-learning model rather than a deep sequence model. It uses tabular RUL features from earlier multidomain baseline work and predicts point RUL without learning an ordered sequence representation. This makes it valuable as a sanity check: if a classical model performs competitively, then the added complexity of deep temporal learning must justify itself.
 
-Confirmed deep sequence candidates include Sequence MLP, 1D CNN, LSTM, GRU, TCN and CNN-LSTM variants. These models established whether standard sequence architectures could learn useful degradation patterns from the 50-cycle histories.
+Tree models can capture nonlinear feature interactions, tolerate mixed feature scales after preprocessing and run quickly. Their limitation is temporal structure. Unless the input includes engineered history summaries, a random forest does not naturally understand that cycle 48 follows cycle 47 or that a trend over 50 cycles matters differently from a single final reading. AeroGuard-PHM keeps this baseline because speed, interpretability and lower-complexity comparison are useful engineering evidence.
 
-### Temporal and Patch Transformer Candidates
+The registry also includes non-deployed residual controls such as the Linear Residual Corrector and constant downward one-sided controls. These are not standalone classical baselines for the full RUL task, but they are important comparison points for the KAN experiments. They test whether simple correction rules or regularized residual maps can provide the same safety benefit as a more flexible learned correction.
 
-Temporal Transformer and Patch Transformer variants tested attention-based sequence modeling. The strongest temporal benchmark was the **Patch Transformer — 10×5 Patches with Mean Pooling**. Patching reduces the number of tokens by grouping adjacent cycles, which helps the model focus on local degradation patterns without attending over every raw cycle independently.
+Classical baselines also keep the evaluation honest. They are fast enough to rerun, easy to inspect and hard to dismiss when a complex model only produces small gains. In this repository they provide a lower-complexity reference for the later sequence models and a reminder that better final decision support requires more than lowering an aggregate error metric.
 
-### Physics-Guided Candidates
+The final registry does not present XGBoost, Support Vector Regression or k-nearest-neighbour RUL systems as release candidates. They are therefore not claimed here.
 
-Physics-guided candidates included a Patch Transformer reimplementation baseline, monotonicity guidance, cycle-rate guidance, smoothness guidance, health-index guidance, regime-consistency guidance, temporally combined guidance, full physics guidance and full physics-and-safety guidance. The selected predictive backbone was the **Regime-Consistent Physics-Guided Patch Transformer**.
+## Deep-Learning Sequence Models
 
-### Residual and KAN Candidates
+The deep-learning family was broader than a single Transformer. The registry includes a Sequence MLP, Temporal CNN, LSTM, GRU, TCN, CNN-LSTM, temporal Transformers and Patch Transformers.
 
-Residual candidates included linear and small-MLP residual correctors, direct additive KAN heads, sparse additive KAN residual correctors, safety-weighted sparse KAN correctors, regime-aware KAN correctors and the **AeroKAN-PHM Compact Residual Corrector**.
+The MLP treats each prepared sequence as a fixed vector. It is useful because it shows whether nonlinear feature mixing alone can produce competitive RUL estimates. Its weakness is that it does not naturally preserve cycle order.
 
-KAN stands for Kolmogorov-Arnold Network. Instead of assigning one fixed weight to each input feature, a KAN learns a one-dimensional nonlinear function along each connection. That can be useful for interpretability, but it does not automatically make a model safer or more accurate.
+The Temporal CNN and TCN learn local and dilated temporal filters. They can detect degradation motifs over nearby cycles and broader temporal neighborhoods. They are efficient, but the learned filters may be less flexible than attention when the relevant evidence appears at separated parts of the engine history.
 
-### Safety Refinements
+The LSTM and GRU process cycles sequentially and maintain hidden state. They are natural baselines for degradation sequences because they can accumulate evidence over time. The CNN-LSTM combines local convolutional feature extraction with recurrent temporal memory.
 
-The final safety refinements were the **Selective One-Sided AeroKAN Safety Corrector** and the **Critical-Boundary Safety-Guarded Physics-Guided Transformer**. These systems focused on operational behavior around the urgent maintenance threshold rather than only on global error metrics.
+Transformer candidates use attention to relate different parts of the engine history. The Patch Transformer groups nearby cycles into patches, then applies attention to those compact tokens. This was the strongest temporal benchmark and the starting point for the physics-guided selected backbone.
 
-## Development Journey
+The deep-learning comparison therefore answers several different questions. The MLP asks whether a fixed vector is enough. CNN and TCN candidates ask whether local temporal patterns are enough. LSTM and GRU candidates ask whether recurrent memory is enough. Transformer candidates ask whether attention over history helps, and Patch Transformers ask whether attention over compact local history segments is a better representation for this release.
 
-The project evolved as an engineering story rather than a simple leaderboard. Each stage answered a different question about accuracy, physical plausibility, interpretability or safety.
+## Patch Transformer
 
-<p align="center">
-  <img
-    src="docs/assets/readme/architecture/model_development_journey.png"
-    alt="AeroGuard-PHM model development journey from Patch Transformer to physics guidance, KAN experiments and final safety guard"
-    width="100%">
-</p>
+The strongest temporal benchmark is **Patch Transformer — 10×5 Patches with Mean Pooling**.
 
-<p align="center"><em>AeroGuard-PHM progressed from temporal modelling to physics guidance, interpretable correction experiments and a final auditable safety safeguard.</em></p>
+It receives a 50-cycle past-only history. The sequence is divided into 10-cycle patches with stride 5, producing 10 patch tokens. Each patch becomes a compact representation of local operating and sensor behavior. Transformer layers model relationships among patches, mean pooling combines temporal information, and a regression head predicts the base RUL.
 
-### Patch Transformer — 10×5 Patches with Mean Pooling
-
-The Patch Transformer became the strong temporal benchmark. It uses a 50-cycle past-only history and converts it into overlapping 10-cycle patches with stride 5. This gives the model local temporal summaries while keeping the attention sequence compact.
-
-Its headline performance was:
-
-- MAE: 14.9550 cycles
-- RMSE: 21.2671 cycles
-- Severe optimistic rate: 0.0651
-- Critical misses: 26
-- Operational critical recall: 0.7451
-
-This was a strong starting point because it modeled degradation as a sequence rather than as one final tabular snapshot.
-
-### Regime-Consistent Physics-Guided Patch Transformer
-
-Operating regimes can confuse degradation learning. Two engines may have similar health but different sensor values because they are running under different conditions. Regime-consistency guidance encourages the model to preserve useful degradation structure while respecting those operating-condition differences.
-
-Compared with the Patch Transformer benchmark, the regime-consistent physics-guided backbone improved point metrics and severe optimism:
-
-| Metric | Patch Transformer | Regime-consistent backbone | Change |
-| --- | ---: | ---: | ---: |
-| MAE | 14.9550 | 14.4885 | -0.4665 cycles |
-| RMSE | 21.2671 | 20.9134 | -0.3537 cycles |
-| Severe optimistic rate | 0.0651 | 0.0566 | -0.0085 |
-| Critical misses | 26 | 25 | -1 |
-
-The backbone was selected as the best predictive core, but it still missed too many engines near the urgent maintenance boundary.
-
-### AeroKAN-PHM Compact Residual Corrector
-
-The **AeroKAN-PHM Compact Residual Corrector** tested whether named engineering features could correct residual RUL errors from the frozen physics-guided backbone. It used residual correction, sparse feature behavior and interpretable edge functions, with supporting analyses such as curve stability and symbolic approximation.
-
-The result was an important accuracy trade-off:
-
-- It reduced fixed-policy critical misses from 25 to 5.
-- It worsened overall MAE and RMSE.
-- It increased severe optimistic error relative to the selected physics-guided backbone.
-- It was retained as an experimental residual corrector, not selected for deployment.
-
-### Selective One-Sided AeroKAN Safety Corrector
-
-The next experiment restricted intervention to downward-only corrections on risk-selected engines. Most engines were left unchanged through an exact fallback to the physics-guided prediction.
-
-This preserved point accuracy:
-
-- MAE: 14.4485
-- RMSE: 20.9017
-- Severe optimistic rate: 0.0566
-
-However, the learned risk gate was too sparse for the target safety coverage. Fixed-policy critical misses remained at 24, so the system was not selected as the final deployment path.
-
-### Invariant Audit
-
-The invariant audit clarified three issues:
-
-- A one-sided downward correction cannot increase an optimistic residual for an individual prediction.
-- Metrics must use identical thresholds before comparing systems.
-- Model effects and policy effects must be separated.
-
-The earlier severe-optimism discrepancy came from using different severe optimism thresholds. With the canonical 30-cycle threshold, the selective one-sided system matched the physics-guided backbone's severe optimism rate.
-
-### Critical-Boundary Safety-Guarded Physics-Guided Transformer
-
-The final selected system uses the frozen physics-guided backbone and adds a transparent deterministic safety guard near the critical maintenance boundary. It makes no positive RUL corrections and does not retrain the backbone.
-
-This was selected because it materially reduced critical misses while keeping point accuracy close to the predictive backbone. KAN experiments were not selected for deployment.
-
-## Final Architecture
-
-<!--
-IMAGE NOT RENDERED:
-docs/assets/readme/architecture/final_system_design.png
-Reason: Generated image subtitle contains garbled text including "maintenrrance".
-Caption to use after regeneration:
-Production inference separates the frozen learned predictor from the deterministic safety, uncertainty, maintenance and monitoring layers.
--->
-
-The complete **AeroGuard-PHM Safety-Guarded RUL System** contains:
-
-1. Input-schema validation
-2. Regime-aware preprocessing
-3. 50-cycle past-only window construction
-4. Patch extraction
-5. Physics-Guided Patch Transformer
-6. Base RUL prediction
-7. Critical-boundary safety guard
-8. Safety-adjusted RUL
-9. Conformal uncertainty
-10. Review logic
-11. Maintenance policy
-12. Explanation output
-13. Monitoring log generation
-
-```mermaid
-flowchart TB
-  A["Engine-history CSV"] --> B["Input validation"]
-  B --> C["Regime-aware preprocessing"]
-  C --> D["50-cycle past-only window"]
-  D --> E["10-cycle patches, stride 5"]
-  E --> F["Regime-Consistent Physics-Guided Patch Transformer"]
-  F --> G["Base RUL"]
-  G --> H{"15 < base RUL <= 25?"}
-  H -- "yes" --> I["Apply frozen downward correction"]
-  H -- "no" --> J["Leave base RUL unchanged"]
-  I --> K["Safety-adjusted RUL"]
-  J --> K
-  K --> L["Global split conformal intervals"]
-  L --> M["Review and maintenance policy"]
-  M --> N["Prediction response and monitoring log"]
-```
+Patching helps because it preserves short-term degradation structure while reducing the number of tokens the Transformer must compare. The release does not claim unsupported computational complexity advantages; it simply uses the architecture that was registered, evaluated and selected as the strong temporal benchmark.
 
 ## Physics-Guided Patch Transformer
 
-The selected backbone consumes a 50-cycle sensor history. Each cycle includes regime-normalized operating settings and sensor channels. A validity mask marks padded rows for short histories.
+The selected predictive backbone is the **Regime-Consistent Physics-Guided Patch Transformer**. In this project, "physics-guided" does not mean the model solves complete thermodynamic equations. It means the training and evaluation pipeline tested explicit consistency ideas that are relevant to turbofan degradation.
 
-At inference time, the model architecture is:
+The physics-guided ablations include monotonicity-guided, cycle-rate-guided, smoothness-guided, health-guided, regime-consistent, temporally combined, full physics-guided and full physics-and-safety variants. The selected public backbone is the regime-consistent variant, whose active losses are recorded as data plus regime consistency. Its frozen architecture uses 50-cycle windows, 10-cycle patches, stride 5, 64-dimensional projection, two Transformer layers, four attention heads, 192 feedforward dimensions, dropout 0.15, learnable positional encoding and mean pooling.
 
-- Input: past-only temporal window
-- Patch length: 10 cycles
-- Patch stride: 5 cycles
-- Patch projection: 64 dimensions
-- Transformer encoder: 2 layers, 4 attention heads
-- Feedforward dimension: 192
-- Dropout: 0.15
-- Positional encoding: learnable
-- Pooling: mean pooling over valid patch tokens
-- Output: nonnegative RUL estimate
+Regime consistency matters because FD002 and FD004 contain multiple operating conditions. The model should not treat every operating-condition shift as degradation. The selected backbone improved overall MAE from 14.9550 to 14.4885 against the Patch Transformer benchmark and reduced severe optimism from 0.0651 to 0.0566. It was selected as the learned predictive layer, not as the final decision layer.
 
-The physics guidance is a training-time design choice. The final inference graph uses frozen trained weights. The README does not claim that the training loss discovers a physical law.
+## KAN-Based Correction Experiments
 
-<!--
-IMAGE TO ADD:
-docs/assets/readme/architecture/physics_guided_patch_transformer.png
-Purpose: Visual explanation of 50-cycle history, patch extraction, Transformer encoding and RUL output.
--->
+Kolmogorov-Arnold Networks can be understood as networks that learn flexible one-dimensional nonlinear functions along connections rather than relying only on fixed activation functions. AeroGuard-PHM used them as experimental correction systems after the physics-guided Transformer, not as the final deployed model.
+
+### AeroKAN-PHM Compact Residual Corrector
+
+The AeroKAN-PHM Compact Residual Corrector receives engineering features and the base model output, then learns a residual correction. It was designed to test whether interpretable nonlinear residual functions could improve risky RUL predictions. It reduced critical misses to 5 and achieved operational recall of 0.9510, which is scientifically useful. However, it worsened overall point accuracy to MAE 15.4658 and RMSE 21.4713, increased severe optimism to 0.0863 and increased review workload to 0.1641. It was not selected because the global correction could damage calibration and overall accuracy.
+
+### Selective One-Sided AeroKAN Safety Corrector
+
+The Selective One-Sided AeroKAN Safety Corrector applies corrections only to selected risky cases and permits downward RUL corrections only. It preserved strong point accuracy with MAE 14.4485 and RMSE 20.9017, but it still produced 24 critical misses and operational recall of 0.7647 under the fixed policy. It remained an experimental branch because its learned risk selection did not identify enough critical engines to provide the desired safety coverage.
+
+These KAN systems were not failures. They showed that global correction can harm calibration, that selective correction needs reliable risk detection, and that a simpler deterministic rule may be more auditable and robust for this release.
+
+## Development Journey
+
+The project moved through a deliberately broad model-development path:
+
+1. Establish classical and simple baselines.
+2. Evaluate deep temporal models.
+3. Select a strong Patch Transformer benchmark.
+4. Add operating-regime and physics consistency.
+5. Explore interpretable KAN residual corrections.
+6. Explore selective one-sided safety corrections.
+7. Audit metric definitions and decision invariants.
+8. Select a deterministic critical-boundary safeguard.
+9. Freeze the complete release system.
+
+![AeroGuard-PHM model development journey](docs/assets/readme/architecture/model_development_journey.png)
+
+The journey is important because the final system was not chosen in advance. The evidence showed modest point-prediction gains from physics guidance, useful but imperfect KAN correction behavior, and a large critical-miss reduction from the deterministic boundary guard.
+
+## Final Architecture
+
+The final release pipeline is the **Critical-Boundary Safety-Guarded Physics-Guided Transformer** inside the complete **AeroGuard-PHM Safety-Guarded RUL System**.
+
+```text
+Engine sensor history
+-> input validation
+-> operating-regime-aware preprocessing
+-> 50-cycle temporal history
+-> temporal patches
+-> Regime-Consistent Physics-Guided Patch Transformer
+-> base_rul
+-> Critical-Boundary Safety Guard
+-> safety_adjusted_rul
+-> global split conformal intervals
+-> support and review logic
+-> maintenance action
+-> explanation
+-> monitoring record
+```
+
+The learned predictive layer produces the base RUL. The deterministic safety and decision layer applies the guard, uncertainty intervals, support status and maintenance policy. The monitoring layer records structured inference information such as schema hash, row count, base RUL, adjusted RUL, correction amount, interval width, support score, guard activation, review status, maintenance action, latency and warning count.
 
 ## Final Safety Guard
 
-The final safety guard is deterministic and auditable. It is not a learned KAN component and is not claimed to be a physical law.
+The final safety guard is deterministic and auditable. It is active when:
 
-<p align="center">
-  <img
-    src="docs/assets/readme/architecture/critical_boundary_safety_guard.png"
-    alt="Critical-boundary safety guard showing unchanged, bounded-correction and critical RUL regions"
-    width="100%">
-</p>
-
-<p align="center"><em>The safety guard applies only a bounded downward adjustment near the critical RUL boundary; it never increases the base prediction.</em></p>
-
-Frozen rule:
-
-- Inactive when `base_rul > 25`
-- Active when `15 < base_rul <= 25`
-- Correction: `min(correction_bound, base_rul - (urgent_threshold - margin))`
-- `correction_bound: 10.0 cycles`
-- `margin: 0.5 cycles`
-- Downward-only
-- At or below 15 cycles, maintenance logic already treats the engine as critical
-
-Pseudocode:
-
-```python
-urgent_threshold = 15.0
-boundary_high = 25.0
-correction_bound = 10.0
-margin = 0.5
-
-if urgent_threshold < base_rul <= boundary_high:
-    correction = min(correction_bound, base_rul - (urgent_threshold - margin))
-else:
-    correction = 0
-
-safety_adjusted_rul = max(0, base_rul - correction)
+```text
+15 < base_rul <= 25
 ```
 
-Equivalently, inside the active boundary the adjusted estimate is `max(0, base_rul - min(correction_bound, base_rul - (urgent_threshold - margin)))`.
+The frozen correction is:
 
-| Base RUL | Guard active? | Adjustment | Final RUL |
-| ---: | --- | ---: | ---: |
-| 40 | No | 0.0 | 40.0 |
-| 23 | Yes | 8.5 | 14.5 |
-| 16 | Yes | 1.5 | 14.5 |
-| 12 | No additional boundary correction | 0.0 | 12.0 |
+```text
+min(10, base_rul - 15 + 0.5)
+```
 
-Safety properties:
+The implemented final safety-adjusted RUL can be written as:
 
-- It never increases RUL.
-- It only affects a narrow boundary region.
-- It is easy to inspect and reproduce.
-- It does not require benchmark labels at inference time.
+```text
+base_rul - min(correction_bound, base_rul - (urgent_threshold - margin))
+```
 
-Limitations:
+with `correction_bound: 10.0 cycles` and a margin of `0.5 cycles`.
 
-- It is benchmark-informed.
-- It cannot discover new degradation mechanisms.
-- It can increase review workload.
-- It must be validated externally before operational interpretation.
+Examples:
+
+| Base RUL | Guard behavior | Result |
+| ---: | --- | --- |
+| 40 | Outside the boundary band | Unchanged |
+| 23 | Guard applies a bounded downward correction | Moved closer to urgent review |
+| 12 | Already critical | No additional boundary correction required |
+
+The guard never increases RUL, is bounded, is deterministic, is auditable, does not modify the Transformer and only acts near the critical decision boundary. It makes no positive RUL corrections. It was selected over learned KAN correction because it gave better critical-case coverage, reduced critical misses substantially, avoided hidden learned behavior in the final safety layer and preserved overall accuracy reasonably well. It is not universally optimal; it is benchmark-derived and requires external validation before any operational use.
+
+![Critical-boundary safety guard](docs/assets/readme/architecture/critical_boundary_safety_guard.png)
+
+## Evaluation Protocol
+
+The release separates validation experiments, final benchmark metrics, fixed-policy safety metrics and native end-to-end system metrics. Individual cycle rows are not randomly split because cycles from the same engine are temporally correlated. Engine-grouped splitting prevents a model from seeing nearly identical neighboring cycles in both training and validation.
+
+Candidate selection was done through locked experiment outputs and release registries. The final reporting reads from `reports/final_release/headline_model_comparison.csv`, `model_registry.csv`, `point_prediction_comparison.csv`, `fixed_policy_safety_comparison.csv`, `native_system_comparison.csv`, `subset_metrics_comparison.csv` and the frozen manifest. Hash verification protects byte-sensitive release artifacts. Bootstrap and subset analyses are used where generated by the project reports, but the README does not mix those diagnostics with headline fixed-policy metrics.
+
+The key distinction is this: validation metrics help choose candidates; benchmark metrics compare point prediction; fixed-policy safety metrics compare each candidate under the same urgent/schedule/inspection policy; native system metrics describe each system with its own locked release behavior. The selected release is frozen after those comparisons.
+
+This separation prevents an easy mistake: selecting a model because one table looks good while another table exposes unacceptable operational behavior. AeroGuard-PHM records the point predictor, the correction layer, the uncertainty method and the policy as separate pieces, then evaluates their combined effect. That is why the final selection can prefer one critical miss and higher review workload over the lowest MAE row.
 
 ## Final Results
 
-The table below uses the aligned fixed-policy comparison. All systems are compared on identical benchmark engine keys, uncapped true RUL, the same 30-cycle severe optimism threshold and the same `point_u15_s30_i60` maintenance policy. This separates prediction-model effects from downstream policy effects.
+Lower is better for MAE, RMSE, NASA score, severe optimism and critical misses. Higher is better for operational recall. Review workload is a trade-off: lower workload is easier operationally, but too low can miss risky engines.
 
-| Model | MAE | RMSE | Severe optimism | Critical misses | Operational recall | Review workload | Status |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |
-| Patch Transformer — 10×5 Patches with Mean Pooling | 14.9550 | 21.2671 | 0.0651 | 26 | 0.7451 | 0.1188 | Temporal benchmark |
-| Regime-Consistent Physics-Guided Patch Transformer | 14.4885 | 20.9134 | 0.0566 | 25 | 0.7549 | 0.1259 | Predictive backbone |
-| AeroKAN-PHM Compact Residual Corrector | 15.4658 | 21.4713 | 0.0863 | 5 | 0.9510 | 0.1641 | Experimental residual corrector |
-| Selective One-Sided AeroKAN Safety Corrector | 14.4485 | 20.9017 | 0.0566 | 24 | 0.7647 | 0.1273 | Selective safety experiment |
-| Critical-Boundary Safety-Guarded Physics-Guided Transformer | 14.5632 | 20.9603 | 0.0566 | 1 | 0.9902 | 0.1924 | Final selected system |
+| Model | MAE | RMSE | NASA score | Severe optimism | Critical misses | Operational recall | Review workload | Status |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
+| Patch Transformer — 10×5 Patches with Mean Pooling | 14.9550 | 21.2671 | 8246.1682 | 0.0651 | 26 | 0.7451 | 0.1188 | Temporal benchmark |
+| Regime-Consistent Physics-Guided Patch Transformer | 14.4885 | 20.9134 | 7577.1771 | **0.0566** | 25 | 0.7549 | 0.1259 | Selected predictive backbone |
+| AeroKAN-PHM Compact Residual Corrector | 15.4658 | 21.4713 | 9516.8317 | 0.0863 | 5 | 0.9510 | 0.1641 | Experimental correction model |
+| Selective One-Sided AeroKAN Safety Corrector | **14.4485** | **20.9017** | **7570.6490** | **0.0566** | 24 | 0.7647 | 0.1273 | Experimental selective correction |
+| Critical-Boundary Safety-Guarded Physics-Guided Transformer | 14.5632 | 20.9603 | 7584.7765 | **0.0566** | **1** | **0.9902** | 0.1924 | Final selected system |
 
-The final system is not best on every scalar metric. The selective one-sided AeroKAN experiment has slightly lower MAE and RMSE, while the final system dramatically improves critical-miss behavior. This is the central trade-off: retain competitive point accuracy while improving the safety-relevant maintenance outcome.
+The final system does not dominate every metric. The selective one-sided KAN experiment has slightly lower MAE and RMSE. The final system was selected because it trades additional review workload for a much larger reduction in critical misses.
 
 ## Improvement Over the Patch Transformer
 
-Compared with the Patch Transformer temporal benchmark:
+Compared with **Patch Transformer — 10×5 Patches with Mean Pooling**:
 
 | Metric | Patch Transformer | Final system | Change |
 | --- | ---: | ---: | ---: |
 | MAE | 14.9550 | 14.5632 | -0.3918 cycles |
 | RMSE | 21.2671 | 20.9603 | -0.3067 cycles |
-| Severe optimistic rate | 0.0651 | 0.0566 | -0.0085 |
 | Critical misses | 26 | 1 | -25 |
-| Operational critical recall | 0.7451 | 0.9902 | +0.2451 |
+| Operational recall | 0.7451 | 0.9902 | +0.2451 |
 | Review workload | 0.1188 | 0.1924 | +0.0736 |
 
-The final system did not aim to maximize only RMSE. It aimed to retain competitive point accuracy while substantially reducing critical maintenance misses.
+The point-prediction improvement is modest. The critical-case protection improvement is substantial. The price is a higher review workload, moving from 84 reviewed/urgent engines under the Patch Transformer fixed policy to 136 for the final system.
 
 ## Subset Results
 
-FD004 remains the hardest subset because it combines multiple operating conditions and multiple fault modes. The final system's only remaining fixed-policy critical miss occurs in FD004.
+The final release subset file reports subset rows for the Patch Transformer, physics-guided backbone and KAN experiment families. It does not provide a separate subset row for the final deterministic guard, so this section reports only verified subset-level rows.
 
-<details>
-<summary>FD001-FD004 final-system subset metrics</summary>
+| System | FD001 MAE | FD002 MAE | FD003 MAE | FD004 MAE | Interpretation |
+| --- | ---: | ---: | ---: | ---: | --- |
+| Patch Transformer benchmark | 11.5597 | 16.5261 | 11.7657 | 15.9693 | Strong temporal benchmark, harder on multi-regime subsets |
+| Regime-Consistent Physics-Guided Patch Transformer | 11.1245 | 15.8810 | 11.3794 | 15.6444 | Improves MAE on all four subset rows in the release table |
+| AeroKAN-PHM Compact Residual Corrector | 12.8155 | 16.5130 | 13.1621 | 16.3698 | Improves some safety behavior but worsens subset MAE |
+| Selective One-Sided AeroKAN Safety Corrector | 11.1245 | 15.8404 | 11.3794 | 15.5729 | Preserves point accuracy but does not capture enough critical engines |
 
-These values are computed from [`reports/aerokan_phm_critical_gate/benchmark_predictions.csv`](reports/aerokan_phm_critical_gate/benchmark_predictions.csv).
+FD002 and FD004 remain the most difficult because operating-regime variation makes raw sensor trajectories less directly comparable.
 
-| Subset | Engines | MAE | RMSE | Severe optimism | Critical misses | Operational recall |
+## Safety and Operational Metrics
+
+The fixed-policy safety comparison uses the same policy for every headline system:
+
+| System | Critical engines | Critical misses | Operational recall | Urgent precision | Reviews | Review workload |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| FD001 | 100 | 11.2708 | 15.1365 | 0.0500 | 0 | 1.0000 |
-| FD002 | 259 | 15.8638 | 22.6983 | 0.0618 | 0 | 1.0000 |
-| FD003 | 100 | 11.8080 | 16.0201 | 0.0700 | 0 | 1.0000 |
-| FD004 | 248 | 15.6433 | 22.7711 | 0.0484 | 1 | 0.9722 |
+| Patch Transformer — 10×5 Patches with Mean Pooling | 102 | 26 | 0.7451 | 0.9048 | 84 | 0.1188 |
+| Regime-Consistent Physics-Guided Patch Transformer | 102 | 25 | 0.7549 | 0.8652 | 89 | 0.1259 |
+| AeroKAN-PHM Compact Residual Corrector | 102 | 5 | 0.9510 | 0.8362 | 116 | 0.1641 |
+| Selective One-Sided AeroKAN Safety Corrector | 102 | 24 | 0.7647 | 0.8667 | 90 | 0.1273 |
+| Critical-Boundary Safety-Guarded Physics-Guided Transformer | 102 | 1 | 0.9902 | 0.7426 | 136 | 0.1924 |
 
-</details>
+This table is the clearest view of the safety-accuracy-workload trade-off. The final system routes more engines to review, reducing urgent precision, but it captures nearly all critical engines under the fixed policy.
 
 ## Uncertainty Quantification
 
-A point estimate alone says "the model thinks the engine has this many cycles left." Conformal uncertainty adds intervals around that estimate. The final system uses global split conformal prediction with frozen radii:
+A point prediction gives one number, but the model may be uncertain. AeroGuard-PHM uses global split conformal uncertainty. Conformal calibration adds intervals around the safety-adjusted prediction using held-out calibration errors from the release protocol. The frozen nominal levels are 80%, 90% and 95%.
 
-| Nominal interval | Frozen radius | Interpretation |
-| --- | ---: | --- |
-| 80% | 32.1584 cycles | Narrowest reported interval |
-| 90% | 53.5571 cycles | Primary deployment interval |
-| 95% | 86.5394 cycles | Most conservative reported interval |
+| Nominal level | Frozen radius |
+| ---: | ---: |
+| 80% | 32.1584 |
+| 90% | 53.5571 |
+| 95% | 86.5394 |
 
-Conformal prediction calibrates intervals using validation residuals. The method asks: how large were the errors on held-out calibration examples? That empirical error distribution defines prediction intervals for future examples.
-
-Benchmark labels were not used to select or refit the final uncertainty method.
-
-<!--
-IMAGE TO ADD:
-docs/assets/readme/architecture/uncertainty_maintenance_flow.png
-Purpose: Visual explanation of conformal intervals feeding review and maintenance thresholds.
--->
+For a safety-adjusted RUL of 50, the 90% interval is approximately 50 +/- 53.5571 cycles before lower-bound clipping. The lower and upper bounds are not probabilities of failure for a single engine. They are calibrated error intervals under the held-out distribution used by the release. If deployed data drift away from that distribution, coverage must be rechecked.
 
 ## Review and Maintenance Policy
 
-The final review policy is `no_abstention`, selected after the prior abstention policy failed enrichment checks. Instead of abstaining through a learned threshold, the final system uses point-based maintenance thresholds and structured warnings.
+The frozen maintenance policy uses `policy_id: point_u15_s30_i60`. It converts the safety-adjusted RUL into a recommendation and review status. The thresholds are:
 
-| Policy threshold | Value | Action |
-| --- | ---: | --- |
-| Urgent review | `RUL <= 15` | `URGENT_ENGINEERING_REVIEW` |
-| Scheduled maintenance | `15 < RUL <= 30` | `SCHEDULE_MAINTENANCE` |
-| Inspection planning | `30 < RUL <= 60` | `PLAN_INSPECTION` |
-| Continue monitoring | `RUL > 60` | `CONTINUE_MONITORING` |
+| Predicted condition | Guard/support context | Recommended action | Explanation |
+| --- | --- | --- | --- |
+| `RUL <= 15` | Critical or already inside urgent band | `URGENT_ENGINEERING_REVIEW` | Immediate qualified review is required |
+| `15 < RUL <= 30` | Near-term maintenance band | `SCHEDULE_MAINTENANCE` | Schedule maintenance planning |
+| `30 < RUL <= 60` | Inspection planning band | `PLAN_INSPECTION` | Plan inspection and continue tracking |
+| `RUL > 60` | Supported and outside near-term bands | `CONTINUE_MONITORING` | Continue routine monitoring |
 
-These outputs are decision-support recommendations. Human engineering review remains required.
+The policy uses the point estimate after the safety guard. Support status and warnings still matter: unsupported inputs should not be trusted as normal predictions, and limited-support outputs should be reviewed before action.
 
-## Interactive Streamlit Dashboard
+## Monitoring
 
-The Streamlit app in [`dashboard/app.py`](dashboard/app.py) provides a lightweight demo interface around the frozen manifest. It supports:
+The implemented monitoring layer is local and structured rather than a live fleet platform. Each prediction can include a monitoring record with timestamp, engine ID, model version, input schema hash, input row count, operating regime, base RUL, adjusted RUL, correction amount, 90% interval width, support score, guard activation, review status, maintenance action, latency and warning count.
 
-- Uploading engine-history CSV files
-- Selecting the bundled example
-- Input-schema validation
-- Sensor-history visualization
-- Base RUL display
-- Safety-adjusted RUL display
-- Prediction intervals
-- Safety-guard activation status
-- Operating regime
-- Support status
-- Maintenance action
-- Explanation output
-- Monitoring information through prediction logs
-- Downloading prediction results
+The monitoring specification also names input-schema drift, missing-sensor rate, feature-range violations, regime-distribution drift, support-score drift, prediction-distribution drift, interval-width drift, safety-guard activation rate, review rate, maintenance-action distribution, RUL trajectory instability, inference latency and runtime failures.
 
-<!--
-SCREENSHOT GALLERY TO ENABLE AFTER REAL SCREENSHOTS ARE ADDED:
+In practical terms, those signals answer questions an engineer would ask after deployment. Are incoming files still shaped like the release schema? Are operating regimes appearing in proportions similar to the benchmark data? Is the safety guard activating far more often than expected? Are interval widths widening? Are warnings becoming common? A real production system would place these answers on persistent dashboards and alerting channels; this repository provides the structured fields and drift vocabulary needed to build that layer.
 
-| Screenshot | Caption |
-| --- | --- |
-| ![Streamlit home](docs/assets/readme/screenshots/streamlit_01_home.png) | Home view and bundled example selection. |
-| ![Input validation](docs/assets/readme/screenshots/streamlit_02_input_validation.png) | Input-schema validation and warning display. |
-| ![Sensor history](docs/assets/readme/screenshots/streamlit_03_sensor_history.png) | Sensor trajectory visualization. |
-| ![Prediction result](docs/assets/readme/screenshots/streamlit_04_prediction_result.png) | Base RUL, adjusted RUL and uncertainty intervals. |
-| ![Maintenance explanation](docs/assets/readme/screenshots/streamlit_05_maintenance_explanation.png) | Maintenance action and explanation output. |
--->
-
-## FastAPI Inference Service
-
-The FastAPI service in [`src/aeroguard/api/app.py`](src/aeroguard/api/app.py) exposes:
-
-| Endpoint | Purpose |
-| --- | --- |
-| `GET /health` | Service and manifest health check |
-| `GET /model` | Public model metadata and required columns |
-| `POST /validate-input` | Validate an engine-history payload |
-| `POST /predict` | Predict one engine history |
-| `POST /predict-batch` | Predict multiple engine histories |
-
-<!--
-IMAGE TO ADD:
-docs/assets/readme/screenshots/fastapi_swagger.png
-Purpose: Real FastAPI Swagger UI screenshot after running the local API service.
--->
-
-## Installation
-
-The release uses `pyproject.toml` as the canonical package metadata and `requirements/constraints.txt` as the sanitized version record from the verified local environment. Docker and containerization are intentionally deferred to a future release.
-
-### Core Installation
-
-```powershell
-python -m pip install -e .
-```
-
-For reproducible local release validation, apply the verified constraints:
-
-```powershell
-python -m pip install -e . -c requirements/constraints.txt
-```
-
-### API, Dashboard and Development Extras
-
-```powershell
-python -m pip install -e ".[api,dashboard,dev]" -c requirements/constraints.txt
-```
-
-The split requirement files under `requirements/` mirror the same groups for environments that prefer requirements files.
+What is not implemented yet: real fleet telemetry ingestion, a central monitoring platform, automated alert routing, on-call procedures, automated recalibration and real aircraft maintenance integration.
 
 ## Quick Start
 
-The commands assume you are in the project root and have activated the existing project environment.
-
-### Windows PowerShell
+Clone and install:
 
 ```powershell
-$env:PYTHONPATH = ".\src"
-python -m aeroguard.inference.cli `
-  --manifest artifacts/final_release/frozen_system_manifest.json `
-  --input examples/sample_engine_history.csv `
-  --output reports/inference/sample_prediction.json
+git clone https://github.com/rithvik123/aeroguard-phm.git
+cd aeroguard-phm
+python -m pip install -e ".[all]"
 ```
 
-### Python API
+Verify the frozen release:
+
+```powershell
+python scripts/release_integrity_check.py
+python -m pytest tests/unit -q
+```
+
+Run one inference call through the CLI:
+
+```powershell
+aeroguard-infer --manifest artifacts/final_release/frozen_system_manifest.json --input examples/sample_engine_history.csv --output examples/sample_prediction.json
+```
+
+The same CLI can also be called as a module:
+
+```powershell
+python -m aeroguard.inference.cli --manifest artifacts/final_release/frozen_system_manifest.json --input examples/sample_engine_history.csv --output examples/sample_prediction.json
+```
+
+## Python Usage
 
 ```python
 import pandas as pd
+
 from aeroguard.inference import AeroGuardPredictor
 
 predictor = AeroGuardPredictor.from_manifest(
-    "artifacts/final_release/frozen_system_manifest.json"
+    "artifacts/final_release/frozen_system_manifest.json",
+    device="cpu",
 )
+history = pd.read_csv("examples/sample_engine_history.csv")
+prediction = predictor.predict_engine(history)
 
-prediction = predictor.predict_engine(
-    pd.read_csv("examples/sample_engine_history.csv")
-)
+print(prediction["base_rul"])
+print(prediction["safety_adjusted_rul"])
+print(prediction["lower_90"], prediction["upper_90"])
+print(prediction["maintenance_action"])
+print(prediction["explanation"])
 ```
 
-Batch inference:
+The API returns the base RUL, safety-adjusted RUL, conformal intervals, support status, safety-guard status, maintenance action, warnings, explanation and monitoring record.
 
-```python
-results = predictor.predict_batch([
-    pd.read_csv("examples/sample_engine_history.csv")
-])
-```
+## CLI Usage
 
-### CLI
+The console entry point is `aeroguard-infer`. Required arguments are the frozen manifest plus either `--input` for one engine-history CSV or `--batch-dir` for a directory of CSVs. Useful optional arguments include `--output`, `--output-json`, `--output-csv`, `--device`, `--explanation-level` and `--validation-only`.
 
 ```powershell
-$env:PYTHONPATH = ".\src"
-python -m aeroguard.inference.cli `
-  --manifest artifacts/final_release/frozen_system_manifest.json `
-  --input examples/sample_engine_history.csv `
-  --output reports/inference/sample_prediction.json
+aeroguard-infer --manifest artifacts/final_release/frozen_system_manifest.json --input examples/sample_engine_history.csv
 ```
 
-### FastAPI
+Validation-only mode checks the input schema without running prediction:
 
 ```powershell
-$env:PYTHONPATH = ".\src"
+aeroguard-infer --manifest artifacts/final_release/frozen_system_manifest.json --input examples/sample_engine_history.csv --validation-only
+```
+
+## FastAPI Inference Service
+
+Run the service:
+
+```powershell
 python -m uvicorn aeroguard.api.app:app --host 127.0.0.1 --port 8000
 ```
 
-Then open `http://127.0.0.1:8000/docs`.
+Implemented endpoints:
 
-### Streamlit
+| Endpoint | Purpose |
+| --- | --- |
+| `GET /health` | Reports manifest availability and model-load state |
+| `GET /model` | Returns release metadata, required columns and hash-mismatch count |
+| `POST /validate-input` | Validates an engine-history payload |
+| `POST /predict` | Runs one engine-history prediction |
+| `POST /predict-batch` | Runs multiple engine-history predictions |
+
+The request body uses records shaped like the CSV schema: one engine with a list of cycle records for `/predict`, or multiple engines for `/predict-batch`.
+
+## Interactive Streamlit Dashboard
+
+Run the dashboard:
 
 ```powershell
-$env:PYTHONPATH = ".\src"
 python -m streamlit run dashboard/app.py
 ```
 
+The Streamlit interface supports the bundled example or an uploaded engine-history CSV. It validates schema, displays sensor trajectories, shows base RUL, safety-adjusted RUL, uncertainty interval width, support status, guard status, review status, maintenance recommendation, explanations, warnings and a downloadable prediction JSON.
+
+Screenshots are not rendered in this README until real captures exist. See the commented screenshot plan near the end of this document, `docs/assets/readme/README_IMAGE_PLAN.md`, and `docs/assets/README_IMAGE_MAPPING.md`.
+
 ## Production Inference Output
 
-The bundled example output is stored at [`examples/sample_prediction.json`](examples/sample_prediction.json). Deployment input examples do not include benchmark RUL labels.
+The frozen output schema is designed for decision support and monitoring:
 
 ```json
 {
-  "engine_id": "FD004-101",
+  "engine_id": "engine_0",
   "model_version": "aeroguard-phm-safety-v1",
-  "base_rul": 0.0,
-  "safety_adjusted_rul": 0.0,
-  "correction_cycles": 0.0,
+  "base_rul": 24.2,
+  "safety_adjusted_rul": 14.5,
+  "correction_cycles": 9.7,
   "lower_90": 0.0,
-  "upper_90": 53.5571,
-  "interval_width_90": 53.5571,
-  "operating_regime": 1,
+  "upper_90": 68.1,
+  "interval_width_90": 107.1,
+  "operating_regime": 3,
   "support_status": "supported",
-  "safety_guard_activated": false,
+  "support_score": 1.0,
+  "safety_guard_activated": true,
   "review_required": true,
   "maintenance_action": "URGENT_ENGINEERING_REVIEW",
   "warnings": [],
   "explanation": [
-    "Safety-adjusted RUL crossed the urgent review threshold"
+    "Critical-boundary guard activated near the urgent threshold.",
+    "Maintenance policy selected urgent engineering review."
   ]
 }
 ```
 
-Output field meanings:
-
-| Field | Meaning |
-| --- | --- |
-| `engine_id` | Input engine identifier when provided. |
-| `model_version` | Frozen model version: `aeroguard-phm-safety-v1`. |
-| `base_rul` | Backbone RUL estimate before the safety guard. |
-| `safety_adjusted_rul` | RUL after the frozen guard. |
-| `correction_cycles` | Downward correction applied by the guard. |
-| `lower_80`, `upper_80`, `lower_90`, `upper_90`, `lower_95`, `upper_95` | Conformal prediction interval bounds. |
-| `operating_regime` | Regime assignment when available. |
-| `support_status` | Whether the input appears supported by validation checks. |
-| `safety_guard_activated` | Whether the critical-boundary rule fired. |
-| `review_required` | Whether the maintenance policy requires review. |
-| `maintenance_action` | Frozen decision-support action. |
-| `warnings` | Structured validation/runtime warnings. |
-| `explanation` | Short human-readable rationale. |
-
-## Monitoring
-
-The inference package creates structured monitoring logs without storing raw sensor data by default. The monitoring design covers:
-
-- Schema drift
-- Missing-sensor rate
-- Feature-range violations
-- Regime distribution drift
-- Support-score drift
-- Prediction distribution drift
-- Interval-width drift
-- Safety-guard activation rate
-- Review rate
-- Maintenance-action distribution
-- RUL trajectory instability
-- Inference latency
-- Runtime failures
-
-<!--
-IMAGE TO ADD:
-docs/assets/readme/architecture/deployment_monitoring.png
-Purpose: Monitoring architecture showing request logs, drift checks, guard activation, review rates and latency tracking.
--->
+Benchmark labels are intentionally not part of production inference output. The service returns model and policy fields that can be audited without exposing evaluation-only labels.
 
 ## Repository Structure
 
 ```text
 .
-├── src/aeroguard/              # Inference, API, modelling and utilities
-├── configs/                    # Experiment and release configurations
+├── src/aeroguard/              # Package code: data, features, models, inference, API
+├── configs/                    # Experiment and pipeline configuration
 ├── tests/                      # Unit and integration tests
 ├── dashboard/                  # Streamlit dashboard
-├── examples/                   # Sample input and output payloads
-├── docs/                       # Architecture, report and README assets
-├── reports/                    # Evaluation tables, figures and inference outputs
-└── artifacts/                  # Frozen release artifacts and manifests
+├── examples/                   # Sample engine-history and prediction files
+├── scripts/                    # Validation and release-integrity scripts
+├── docs/                       # References, archives and README assets
+├── reports/final_release/      # Frozen comparison tables and release reports
+├── artifacts/final_release/    # Frozen manifest and release bundle metadata
+├── README.md                   # Public project overview
+├── MODEL_CARD.md               # Model-card style release notes
+├── REPRODUCIBILITY.md          # Reproducibility instructions
+├── LICENSE                     # Apache-2.0 license
+├── CITATION.cff                # Citation metadata
+└── THIRD_PARTY_NOTICES.md      # Third-party notices
 ```
-
-The README image plan is stored at [`docs/assets/readme/README_IMAGE_PLAN.md`](docs/assets/readme/README_IMAGE_PLAN.md), and the inspected generated-image mapping is stored at [`docs/assets/README_IMAGE_MAPPING.md`](docs/assets/README_IMAGE_MAPPING.md). Planned visuals remain commented until real files are added, so the README does not render broken image links.
 
 ## Testing
 
-The release uses a mix of unit tests, integration smoke tests and documentation consistency checks:
+The release test suite covers README validation, frozen source hashes, model registry consistency, final-release metric tables, inference schema checks, CLI smoke behavior, API import and endpoint metadata, Streamlit import safety, monitoring output and the Phase 6 integration smoke path. CI runs on pushes and pull requests.
 
-- Registry and model-name tests
-- Manifest hash checks
-- Frozen inference tests
-- CLI behavior checks
-- API import and route tests
-- Dashboard import checks
-- Monitoring-schema checks
-- Documentation consistency tests
-- README validation
+Common local checks:
 
-Latest targeted results:
-
-| Check | Result |
-| --- | --- |
-| README validator | Pass |
-| README release tests | 20 passed |
-| Final-release unit tests | 33 passed |
-| Phase 6 integration smoke | 1 passed |
+```powershell
+python scripts/validate_readme.py
+python scripts/release_integrity_check.py
+python -m pytest tests/unit/test_readme_release.py -q
+python -m pytest tests/unit/test_final_release.py -q
+python -m pytest tests/integration/test_phase6_final_release_smoke.py -q
+git diff --check
+```
 
 ## Reproducibility and Frozen Artifacts
 
-| Item | Value |
-| --- | --- |
-| Release version | `1.0.0` |
-| Model version | `aeroguard-phm-safety-v1` |
-| Manifest | [`artifacts/final_release/frozen_system_manifest.json`](artifacts/final_release/frozen_system_manifest.json) |
-| Transformer checkpoint hash | `c8764b1f8ff447c5b0ceb5ff774b53664b162b236161186246e0e9c240bafef1` |
-| Preprocessor hash | `5160cf8ae5ef8e94984295d83c5e1babf64d301d7f8ca1a089c7c29c43ec2631` |
-| Guard hash | `26ae319d9301cd8aadc540e540877c7fc5c709a723950c045055bdea249d29a2` |
-| Feature-schema hash | `8ba5bfa06e3b2d73dc545b8fbf3e04265d2732fe5a71dd34b9a0111dd7794588` |
-| Configuration hash | `555728247323b6b37dddc32bf8e9b9090d03bb8e0cde82eda548e2ecd6b367dd` |
-| Python version | `3.11.9` |
-| PyTorch version | `2.12.1+cu126` |
-| CUDA version | `12.6` |
+The release is frozen by manifest, file paths and SHA-256 hashes. The frozen manifest identifies the physics-guided checkpoint, final preprocessor, critical-boundary guard configuration, conformal uncertainty model, maintenance policy and metric-definition registry. Release-integrity validation checks that protected files have not been rewritten or line-ending-normalized.
 
-Further documentation:
-
-- [`MODEL_CARD.md`](MODEL_CARD.md)
-- [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md)
-- [`docs/architecture.md`](docs/architecture.md)
-- [`docs/aeroguard_phm_final_report.md`](docs/aeroguard_phm_final_report.md)
+The byte-sensitive files include the critical-boundary guard metadata and metric-definition audit. Do not regenerate the frozen manifest, alter benchmark CSVs or rewrite protected artifacts unless a new release is intentionally prepared.
 
 ## Limitations
 
-- C-MAPSS is simulated data, not real airline maintenance data.
-- The model is not certified for aviation.
-- The guard is benchmark-informed.
-- Repeated benchmark investigation creates benchmark-familiarity risk.
-- External independent validation is required.
-- The safety guard is not a physical law.
-- KAN experiments were not selected for deployment.
-- The system cannot model every possible failure mechanism.
-- Human engineering review remains required.
+C-MAPSS is simulated. Real aircraft degradation may differ. The safety guard is benchmark-derived. External datasets are still required. Conformal calibration depends on calibration-distribution similarity. The project is not aviation certified. Maintenance decisions require qualified human oversight. Reported results are protocol-specific. Published results from other papers may not be directly comparable unless the preprocessing, split protocol and metric definitions match. Real deployment monitoring has not yet been performed.
 
 ## Future Work
 
-- Independent external validation
-- Transfer to another prognostics dataset
-- Real-time streaming inference
-- Drift-triggered recalibration
-- Collection of more positive critical-miss examples
-- Learned safety gates with stronger positive support
-- Digital-twin integration
-- Sensor fault detection
-- Fleet-level maintenance optimization
-- Containerized deployment in a future release
-- Monitoring dashboards
+Future work includes external evaluation on N-CMAPSS or another independent dataset, protocol-matched reproduction of strong public baselines, real-world transfer and domain adaptation, improved risk-selection models, cost-sensitive maintenance-policy optimisation, better uncertainty under domain shift, Docker/containerization, a live hosted demonstration, persistent operational monitoring, model-card automation and additional explainability studies.
 
 ## Responsible Use
 
-> AeroGuard-PHM is a research and portfolio system. It must not be used as the sole basis for real aircraft maintenance decisions.
-
-Appropriate uses include research, education, predictive-maintenance experimentation, model-governance demonstrations and deployment prototyping.
-
-Inappropriate uses include autonomous aviation maintenance decisions, dispatch decisions or certification claims.
+AeroGuard-PHM is research decision-support software. It should not be used as an autonomous maintenance authority. Any real deployment would require independent validation, qualified engineering review, operational monitoring, documented escalation procedures and compliance with applicable aviation safety processes.
 
 ## Citation and License
 
-Dataset reference: NASA C-MAPSS turbofan degradation benchmark.
+Please cite the NASA C-MAPSS Turbofan Engine Degradation Simulation Data Set for the benchmark data and this repository for the AeroGuard-PHM implementation. AeroGuard-PHM is released under the Apache License 2.0. See `LICENSE`, `THIRD_PARTY_NOTICES.md` and `CITATION.cff`.
 
-AeroGuard-PHM is released under Apache License 2.0. See [`LICENSE`](LICENSE), [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md), and [`CITATION.cff`](CITATION.cff). No DOI, publication or institution endorsement is claimed.
+<!--
+README IMAGE PLACEHOLDERS AND SCREENSHOT GALLERY TO ENABLE AFTER REAL SCREENSHOTS ARE ADDED
+
+Visible, approved images:
+- docs/assets/readme/hero/aeroguard_phm_hero.png
+- docs/assets/readme/architecture/model_development_journey.png
+- docs/assets/readme/architecture/critical_boundary_safety_guard.png
+
+Approved or planned assets not currently rendered:
+- docs/assets/readme/hero/rul_problem_statement.png
+- docs/assets/readme/architecture/final_system_design.png
+- docs/assets/readme/architecture/physics_guided_patch_transformer.png
+- docs/assets/readme/architecture/uncertainty_maintenance_flow.png
+- docs/assets/readme/architecture/deployment_monitoring.png
+- docs/assets/readme/screenshots/streamlit_01_home.png
+- docs/assets/readme/screenshots/streamlit_02_input_validation.png
+- docs/assets/readme/screenshots/streamlit_03_sensor_history.png
+- docs/assets/readme/screenshots/streamlit_04_prediction_result.png
+- docs/assets/readme/screenshots/streamlit_05_maintenance_explanation.png
+- docs/assets/readme/screenshots/fastapi_swagger.png
+-->

@@ -184,6 +184,7 @@ def test_19_image_plan_lists_all_expected_assets_without_rendering_missing_image
     plan_text = read_text(IMAGE_PLAN)
     visible_images = validate_readme.visible_local_images(readme_text)
     assert set(visible_images) == {
+        "docs/assets/readme/hero/aeroguard_phm_hero.png",
         "docs/assets/readme/architecture/model_development_journey.png",
         "docs/assets/readme/architecture/critical_boundary_safety_guard.png",
     }
