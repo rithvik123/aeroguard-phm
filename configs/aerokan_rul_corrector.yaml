@@ -1,0 +1,100 @@
+source:
+  phase5b_reports: reports/deep_rul_extended
+  phase5b_artifacts: artifacts/deep_rul_extended
+  phase5c_reports: reports/physics_guided_rul
+  phase5c_artifacts: artifacts/physics_guided_rul
+  phase5c1_reports: reports/physics_guided_rul_refined
+  phase5c1_artifacts: artifacts/physics_guided_rul_refined
+  phase5c2_reports: reports/physics_guided_rul_safety_refined
+  phase5c2_artifacts: artifacts/physics_guided_rul_safety_refined
+  cmapss_dir: data/raw/cmapss
+
+outputs:
+  reports_dir: reports/aerokan_phm
+  artifacts_dir: artifacts/aerokan_phm
+  overwrite_existing: false
+
+backbone:
+  frozen: true
+  expected_candidate: physics_regime
+  expected_parameter_count: 89985
+
+features:
+  slope_windows: [5, 10, 20]
+  statistic_windows: [5, 10, 20]
+  healthy_baseline_source: training_only
+  maximum_selected_features: 24
+  maximum_active_features_after_pruning: 25
+  retained_sensors: [2, 3, 4, 7, 11, 12, 15, 20, 21]
+  input_clamp: 5.0
+
+kan:
+  grid_sizes: [5, 7]
+  spline_degree: 3
+  correction_bounds: [10.0, 20.0, 30.0]
+  sparsity_strengths: [0.0001, 0.001, 0.01]
+  smoothness_strengths: [0.0001, 0.001]
+  hidden_nodes: [4, 8]
+  input_clamp: 5.0
+
+training:
+  screening_epochs: 2
+  finalist_epochs: 3
+  final_epochs: 5
+  learning_rate: 0.01
+  batch_size: 512
+  ridge_alpha: 5.0
+  mlp_hidden: 12
+  random_seed: 12501
+  max_windows_per_engine: 8
+
+selection:
+  screening_seed: 12501
+  folds: 2
+  seeds: [12501]
+  finalist_count: 3
+  development_fraction: 0.70
+  rmse_noninferiority_margin: 0.5
+  mae_noninferiority_margin: 0.3
+  maximum_bound_saturation: 0.10
+
+safety_loss:
+  critical_rul_max: 15
+  near_term_rul_max: 30
+  optimistic_weight_candidates: [1.0, 2.0, 4.0]
+  critical_weight_candidates: [2.0, 4.0, 8.0]
+  correction_penalty: 0.002
+
+uncertainty:
+  nominal_levels: [0.80, 0.90, 0.95]
+  methods: [global_split_conformal, rul_band_mondrian, regime_mondrian]
+  minimum_group_size: 40
+
+abstention:
+  high_error_threshold: 25.0
+  maximum_abstention_rate: 0.15
+  allow_no_abstention: true
+
+maintenance:
+  critical_rul_max: 15
+  near_term_rul_max: 30
+  inspection_rul_max: 60
+  monitoring_rul_max: 90
+  urgent_thresholds: [10, 15, 20, 25]
+  schedule_thresholds: [25, 30, 40]
+  inspection_thresholds: [50, 60, 75]
+  minimum_operational_recall: 0.90
+  minimum_direct_urgent_recall: 0.80
+  minimum_urgent_precision: 0.45
+  maximum_review_rate: 0.40
+
+bootstrap:
+  iterations: 500
+  seed: 12601
+
+freeze:
+  minimum_operational_critical_recall: 0.90
+  minimum_direct_urgent_recall: 0.80
+  maximum_total_review_rate: 0.40
+  maximum_rmse_increase: 0.5
+  require_critical_miss_reduction: true

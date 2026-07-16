@@ -1,0 +1,29 @@
+{
+  "conservative_definition": "residual < 0",
+  "corrected_phase5d1_severe_optimism_rate": 0.056577086280056574,
+  "denominator": "aligned benchmark engines",
+  "inclusivity": "severe threshold is inclusive",
+  "nan_handling": "fail alignment before metric comparison",
+  "optimistic_definition": "residual > 0",
+  "rates": {
+    "phase5c": {
+      "canonical_severe_rate": 0.056577086280056574,
+      "legacy_helper_threshold_25_rate": 0.08486562942008487,
+      "original_phase5c_threshold_30_rate": 0.056577086280056574
+    },
+    "phase5d": {
+      "canonical_severe_rate": 0.08628005657708628,
+      "legacy_helper_threshold_25_rate": 0.12588401697312587,
+      "original_phase5c_threshold_30_rate": 0.08628005657708628
+    },
+    "phase5d1": {
+      "canonical_severe_rate": 0.056577086280056574,
+      "legacy_helper_threshold_25_rate": 0.08486562942008487,
+      "original_phase5c_threshold_30_rate": 0.056577086280056574
+    }
+  },
+  "residual_orientation": "predicted_minus_true",
+  "severe_optimism_inconsistency_root_cause": "Phase 5D.1 helper metrics used a 25-cycle severe threshold, while the Phase 5C headline 0.0566 rate uses the 30-cycle project threshold. With a shared 30-cycle threshold, Phase 5D.1 equals Phase 5C as required by the one-sided invariant.",
+  "severe_optimistic_definition": "residual >= 30.0",
+  "target_choice": "uncapped true_rul benchmark labels"
+}

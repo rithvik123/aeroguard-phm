@@ -1,0 +1,139 @@
+dataset_dir: data/raw/cmapss
+training_subsets: [FD001, FD002, FD003, FD004]
+benchmark_test_subsets: [FD001, FD002, FD003, FD004]
+phase3_config_path: configs/multidomain_phm.yaml
+phase4_config_path: configs/multidomain_rul_uncertainty.yaml
+phase3_results_path: reports/multidomain_phm
+phase4_results_path: reports/rul_uncertainty
+random_seed: 42
+
+execution_profile: auto
+device: auto
+deterministic_algorithms: false
+window_length: 50
+window_stride: 3
+minimum_valid_history: 10
+maximum_windows_per_engine: 35
+sampling_method: engine_balanced_uniform
+rul_bands:
+  - {label: "0_15", lower: 0, upper: 15}
+  - {label: "16_30", lower: 15.000001, upper: 30}
+  - {label: "31_60", lower: 30.000001, upper: 60}
+  - {label: "61_125", lower: 60.000001, upper: 125}
+  - {label: "above_125", lower: 125.000001, upper: null}
+
+training_target: rul_capped
+rul_cap: 125
+healthy_rul_threshold: 125
+critical_rul_threshold: 30
+include_cycle_as_feature: false
+features_to_exclude: []
+near_constant_threshold: 0.0
+correlation_threshold: 0.999
+operating_condition_method: regime_standardization
+number_of_operating_regimes: 6
+residualization_ridge_alpha: 1.0
+
+screening_validation_fraction: 0.20
+screening_seed: 7101
+finalist_count: 2
+finalist_cv_folds: 3
+finalist_cv_seed: 7201
+validation_snapshot_positions: [0.20, 0.40, 0.60, 0.80, 1.00]
+
+parameter_budget:
+  gpu_standard: 2000000
+  cpu_safe: 1000000
+model_registry:
+  - model_id: sequence_mlp
+    architecture: sequence_mlp
+    hidden_dim: 96
+    dropout: 0.10
+  - model_id: cnn1d
+    architecture: cnn1d
+    hidden_dim: 64
+    dropout: 0.10
+    kernel_size: 3
+  - model_id: lstm
+    architecture: lstm
+    hidden_dim: 80
+    layers: 1
+    dropout: 0.10
+  - model_id: gru
+    architecture: gru
+    hidden_dim: 80
+    layers: 1
+    dropout: 0.10
+  - model_id: tcn
+    architecture: tcn
+    hidden_dim: 64
+    dropout: 0.10
+    kernel_size: 3
+    dilations: [1, 2, 4]
+  - model_id: cnn_lstm
+    architecture: cnn_lstm
+    hidden_dim: 72
+    layers: 1
+    dropout: 0.10
+    kernel_size: 3
+
+optimizer: adamw
+learning_rate: 0.001
+weight_decay: 0.0001
+loss: smooth_l1
+gradient_clip_norm: 5.0
+scheduler: none
+screening_max_epochs: 6
+finalist_max_epochs: 4
+early_stopping_patience: 2
+batch_size: 256
+num_workers: 0
+mixed_precision: auto
+
+point_model_selection_rules:
+  primary_metric: rmse
+  secondary_metrics: [mae, nasa_score, optimistic_prediction_rate]
+deep_improvement_classification:
+  clear_improvement_min_fd004_mae_reduction: 3.0
+  moderate_improvement_min_fd004_mae_reduction: 1.0
+  comparable_abs_fd004_mae_delta: 1.0
+  max_optimistic_rate_increase: 0.10
+
+nominal_coverage_levels: [0.80, 0.90, 0.95]
+conformal_methods:
+  - global_grouped_conformal
+  - predicted_rul_band_conformal
+predicted_rul_bands:
+  - {label: "0_15", lower: 0, upper: 15}
+  - {label: "16_30", lower: 15.000001, upper: 30}
+  - {label: "31_60", lower: 30.000001, upper: 60}
+  - {label: "61_125", lower: 60.000001, upper: 125}
+  - {label: "above_125", lower: 125.000001, upper: null}
+coverage_tolerance: 0.03
+
+support_settings:
+  support_percentile_range: [0.01, 0.99]
+  limited_feature_exceedance: 0.05
+  out_feature_exceedance: 0.20
+  limited_robust_distance: 3.0
+  out_robust_distance: 6.0
+  regime_distance_quantile: 0.99
+abstention_settings:
+  max_feature_exceedance_fraction: 0.20
+  max_regime_distance: 6.0
+  max_interval_width_ratio: 2.5
+  min_plausible_rul: 0
+  max_plausible_rul: 250
+  abstain_on_quantile_crossing: true
+  high_error_threshold: 30
+maintenance_thresholds:
+  urgent_review_max: 15
+  schedule_maintenance_max: 30
+  plan_inspection_max: 60
+
+checkpoint_dir: artifacts/deep_rul/checkpoints
+output_dir: reports/deep_rul
+representative_engine_count: 3
+plotting:
+  scatter_sample_rows: 5000
+latency_repetitions: 60

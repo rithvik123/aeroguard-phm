@@ -1,0 +1,63 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aeroguard-phm"
+version = "1.0.0"
+description = "Safety-guarded turbofan remaining-useful-life prediction with uncertainty-aware maintenance decision support."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "Apache-2.0"
+license-files = ["LICENSE", "THIRD_PARTY_NOTICES.md"]
+authors = [
+  { name = "Yarroju Rithvik" }
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: Apache Software License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+  "Topic :: Scientific/Engineering :: Information Analysis"
+]
+dependencies = [
+  "joblib",
+  "numpy",
+  "pandas",
+  "scikit-learn",
+  "torch"
+]
+
+[project.optional-dependencies]
+api = [
+  "fastapi",
+  "pydantic",
+  "uvicorn"
+]
+dashboard = [
+  "streamlit"
+]
+monitoring = []
+dev = [
+  "matplotlib",
+  "PyYAML",
+  "pytest"
+]
+all = [
+  "fastapi",
+  "pydantic",
+  "uvicorn",
+  "streamlit"
+]
+
+[project.scripts]
+aeroguard-infer = "aeroguard.inference.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+norecursedirs = ["references", "extracted-code", "reports", "data", ".git"]

@@ -1,0 +1,228 @@
+dataset_dir: data/raw/cmapss
+training_subsets:
+  - FD001
+  - FD002
+  - FD003
+development_test_subsets:
+  - FD001
+  - FD002
+  - FD003
+external_benchmark_subset: FD004
+phase3_config_path: configs/multidomain_phm.yaml
+phase3_results_path: reports/multidomain_phm
+random_seed: 42
+
+cross_validation_folds: 5
+cross_validation_repeats: 2
+cross_validation_seeds:
+  - 6201
+  - 6202
+calibration_snapshot_positions:
+  - 0.20
+  - 0.40
+  - 0.60
+  - 0.80
+  - 1.00
+minimum_snapshots_per_band: 40
+nominal_coverage_levels:
+  - 0.80
+  - 0.90
+  - 0.95
+selection_nominal_level: 0.90
+coverage_tolerance: 0.03
+
+point_model_parameters:
+  normalization_method: regime_standardization
+  operating_regime_count: 6
+  residualization_ridge_alpha: 1.0
+  rul_cap: 125
+  healthy_rul_threshold: 125
+  critical_rul_threshold: 30
+  near_constant_threshold: 0.0
+  correlation_threshold: 0.999
+  features_to_exclude: []
+
+ridge_parameters:
+  alpha: 1.0
+
+random_forest_parameters:
+  n_estimators: 30
+  max_depth: 12
+  min_samples_leaf: 2
+  random_state: 42
+  n_jobs: -1
+
+quantile_gradient_boosting_parameters:
+  enabled: true
+  n_estimators: 20
+  learning_rate: 0.05
+  max_depth: 2
+  min_samples_leaf: 10
+  subsample: 0.8
+
+conformal_methods:
+  finite_sample_correction: true
+  lower_clip_for_presentation: true
+
+predicted_rul_bands:
+  - label: "0_15"
+    lower: 0
+    upper: 15
+  - label: "16_30"
+    lower: 15.000001
+    upper: 30
+  - label: "31_60"
+    lower: 30.000001
+    upper: 60
+  - label: "61_125"
+    lower: 60.000001
+    upper: 125
+  - label: "above_125"
+    lower: 125.000001
+    upper:
+
+true_rul_bands:
+  - label: "0_15"
+    lower: 0
+    upper: 15
+  - label: "16_30"
+    lower: 15.000001
+    upper: 30
+  - label: "31_60"
+    lower: 30.000001
+    upper: 60
+  - label: "61_125"
+    lower: 60.000001
+    upper: 125
+  - label: "above_125"
+    lower: 125.000001
+    upper:
+
+maximum_method_count: 8
+uncertainty_method_registry:
+  - method_id: rf_global_grouped_conformal
+    point_model: random_forest
+    interval_method: global_grouped_conformal
+    nominal_levels: [0.80, 0.90, 0.95]
+    calibration_source: FD001-FD003 training-engine OOF snapshots
+    grouping_method: global_engine_id
+    fallback_behavior: none
+    model_parameters: random_forest_parameters
+    random_seed: 42
+  - method_id: rf_cross_conformal
+    point_model: random_forest
+    interval_method: cross_conformal
+    nominal_levels: [0.80, 0.90, 0.95]
+    calibration_source: pooled repeated OOF snapshots
+    grouping_method: global_engine_id
+    fallback_behavior: pooled global residuals
+    model_parameters: random_forest_parameters
+    random_seed: 42
+  - method_id: rf_predicted_band_conformal
+    point_model: random_forest
+    interval_method: predicted_rul_band_conformal
+    nominal_levels: [0.80, 0.90, 0.95]
+    calibration_source: OOF snapshots grouped by predicted RUL band
+    grouping_method: global_engine_id and predicted_rul_band
+    fallback_behavior: global conformal if band sample count is low
+    model_parameters: random_forest_parameters
+    random_seed: 42
+  - method_id: rf_tree_quantiles_raw
+    point_model: random_forest
+    interval_method: rf_tree_quantile
+    nominal_levels: [0.80, 0.90, 0.95]
+    calibration_source: raw tree empirical quantiles
+    grouping_method: fitted trees
+    fallback_behavior: none
+    model_parameters: random_forest_parameters
+    random_seed: 42
+  - method_id: rf_tree_quantiles_calibrated
+    point_model: random_forest
+    interval_method: calibrated_rf_tree_quantile
+    nominal_levels: [0.80, 0.90, 0.95]
+    calibration_source: OOF conformalized tree intervals
+    grouping_method: global_engine_id
+    fallback_behavior: nonnegative lower presentation bound
+    model_parameters: random_forest_parameters
+    random_seed: 42
+  - method_id: quantile_gradient_boosting
+    point_model: random_forest
+    interval_method: quantile_gradient_boosting
+    nominal_levels: [0.80, 0.90, 0.95]
+    calibration_source: fold-local quantile Gradient Boosting
+    grouping_method: global_engine_id
+    fallback_behavior: excluded if quantile loss unavailable
+    model_parameters: quantile_gradient_boosting_parameters
+    random_seed: 42
+  - method_id: conformalized_quantile_gradient_boosting
+    point_model: random_forest
+    interval_method: conformalized_quantile_gradient_boosting
+    nominal_levels: [0.80, 0.90, 0.95]
+    calibration_source: OOF conformalized quantile intervals
+    grouping_method: global_engine_id
+    fallback_behavior: excluded if quantile loss unavailable
+    model_parameters: quantile_gradient_boosting_parameters
+    random_seed: 42
+  - method_id: ridge_global_conformal_reference
+    point_model: ridge
+    interval_method: ridge_global_conformal
+    nominal_levels: [0.80, 0.90, 0.95]
+    calibration_source: OOF Ridge residuals
+    grouping_method: global_engine_id
+    fallback_behavior: none
+    model_parameters: ridge_parameters
+    random_seed: 42
+
+support_percentile_range:
+  - 0.01
+  - 0.99
+support_threshold_candidates:
+  limited_feature_exceedance: 0.05
+  out_feature_exceedance: 0.20
+  limited_robust_distance: 3.0
+  out_robust_distance: 6.0
+regime_distance_threshold_candidates:
+  quantile: 0.99
+interval_width_threshold_candidates:
+  max_interval_width_ratio: 2.5
+
+abstention_rules:
+  max_feature_exceedance_fraction: 0.20
+  max_regime_distance: 6.0
+  max_interval_width_ratio: 2.5
+  min_plausible_rul: 0
+  max_plausible_rul: 250
+  abstain_on_quantile_crossing: true
+  high_error_threshold: 30
+
+maintenance_lower_bound_level: 0.90
+maintenance_thresholds:
+  urgent_review_max: 15
+  schedule_maintenance_max: 30
+  plan_inspection_max: 60
+
+bootstrap_samples: 1000
+bootstrap_seed: 9301
+confidence_level: 0.95
+
+calibration_classification_criteria:
+  well_calibrated:
+    min_cv_coverage_90: 0.88
+    min_fd004_coverage_90: 0.86
+    max_fd004_mean_width_90: 120
+    max_abstention_rate: 0.35
+  moderately_calibrated:
+    min_cv_coverage_90: 0.84
+    min_fd004_coverage_90: 0.80
+    max_fd004_mean_width_90: 180
+    max_abstention_rate: 0.50
+  weakly_calibrated:
+    min_cv_coverage_90: 0.75
+    min_fd004_coverage_90: 0.70
+    max_fd004_mean_width_90: 260
+    max_abstention_rate: 0.70
+
+output_dir: reports/rul_uncertainty
+representative_engine_count: 3
+plotting:
+  scatter_sample_rows: 5000

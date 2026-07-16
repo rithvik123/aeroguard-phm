@@ -1,0 +1,160 @@
+{
+  "total_files": 1088,
+  "total_working_tree_size_bytes": 389190176,
+  "estimated_staged_size_bytes": 33186259,
+  "largest_30_files": [
+    {
+      "path": "artifacts/physics_guided_rul/checkpoints/final_train_transformed.pkl",
+      "size": 79675276
+    },
+    {
+      "path": "reports/multidomain_phm/fd004_cycle_level_alerts.csv",
+      "size": 38574463
+    },
+    {
+      "path": "reports/aerokan_phm_selective/corrected_oof_predictions.csv",
+      "size": 36783596
+    },
+    {
+      "path": "reports/aerokan_phm_critical_gate/corrected_oof_predictions.csv",
+      "size": 35852955
+    },
+    {
+      "path": "reports/aerokan_phm/corrected_oof_predictions.csv",
+      "size": 35367250
+    },
+    {
+      "path": "data/raw/cmapss/train_FD004.txt",
+      "size": 10411954
+    },
+    {
+      "path": "data/raw/cmapss/train_FD002.txt",
+      "size": 9136239
+    },
+    {
+      "path": "data/raw/cmapss/test_FD004.txt",
+      "size": 6998973
+    },
+    {
+      "path": "reports/fd001_anomaly_calibration/cycle_level_alerts.csv",
+      "size": 6809700
+    },
+    {
+      "path": "docs/assets/readme/hero/aeroguard_phm_hero.png",
+      "size": 6801018
+    },
+    {
+      "path": "reports/fd001_health_anomaly/cycle_level_scores.csv",
+      "size": 6741279
+    },
+    {
+      "path": "docs/assets/readme/architecture/critical_boundary_safety_guard.png",
+      "size": 5789750
+    },
+    {
+      "path": "data/raw/cmapss/test_FD002.txt",
+      "size": 5768578
+    },
+    {
+      "path": "docs/assets/readme/architecture/final_system_design.png",
+      "size": 5612778
+    },
+    {
+      "path": "reports/physics_guided_rul_safety_refined/maintenance_policy_subgroup_metrics.csv",
+      "size": 5542265
+    },
+    {
+      "path": "docs/assets/readme/hero/rul_problem_statement.png",
+      "size": 5421019
+    },
+    {
+      "path": "data/raw/cmapss/train_FD003.txt",
+      "size": 4238582
+    },
+    {
+      "path": "docs/assets/readme/architecture/model_development_journey.png",
+      "size": 3911414
+    },
+    {
+      "path": "data/raw/cmapss/train_FD001.txt",
+      "size": 3535987
+    },
+    {
+      "path": "reports/physics_guided_rul/cv_predictions.csv",
+      "size": 3232998
+    },
+    {
+      "path": "reports/fd001_alert_generalization/fd003_cycle_level_alerts.csv",
+      "size": 2940980
+    },
+    {
+      "path": "data/raw/cmapss/test_FD003.txt",
+      "size": 2843247
+    },
+    {
+      "path": "data/raw/cmapss/test_FD001.txt",
+      "size": 2241951
+    },
+    {
+      "path": "reports/aerokan_phm_selective/benchmark_predictions.csv",
+      "size": 1843372
+    },
+    {
+      "path": "reports/aerokan_phm/benchmark_predictions.csv",
+      "size": 1799225
+    },
+    {
+      "path": "reports/physics_guided_rul_safety_refined/maintenance_policy_split_metrics.csv",
+      "size": 1016989
+    },
+    {
+      "path": "reports/deep_rul_extended/seed_prediction_disagreement.csv",
+      "size": 811444
+    },
+    {
+      "path": "artifacts/physics_guided_rul/checkpoints/final_preprocessor.pkl",
+      "size": 649045
+    },
+    {
+      "path": "reports/deep_rul_extended/uncertainty_predictions.csv",
+      "size": 605174
+    },
+    {
+      "path": "reports/deep_rul/deep_uncertainty_predictions.csv",
+      "size": 581917
+    }
+  ],
+  "files_above_10_mb": [
+    {
+      "path": "artifacts/physics_guided_rul/checkpoints/final_train_transformed.pkl",
+      "size": 79675276
+    },
+    {
+      "path": "reports/aerokan_phm/corrected_oof_predictions.csv",
+      "size": 35367250
+    },
+    {
+      "path": "reports/aerokan_phm_critical_gate/corrected_oof_predictions.csv",
+      "size": 35852955
+    },
+    {
+      "path": "reports/aerokan_phm_selective/corrected_oof_predictions.csv",
+      "size": 36783596
+    },
+    {
+      "path": "reports/multidomain_phm/fd004_cycle_level_alerts.csv",
+      "size": 38574463
+    }
+  ],
+  "files_above_50_mb": [
+    {
+      "path": "artifacts/physics_guided_rul/checkpoints/final_train_transformed.pkl",
+      "size": 79675276
+    }
+  ],
+  "ignored_data_size_bytes": 45617057,
+  "ignored_artifact_size_bytes": 110567853,
+  "image_size_bytes": 27543492,
+  "documentation_size_bytes": 27611676,
+  "source_size_bytes": 1552928
+}

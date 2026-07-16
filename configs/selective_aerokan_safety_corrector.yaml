@@ -1,0 +1,128 @@
+source:
+  phase5c_reports: reports/physics_guided_rul
+  phase5c_artifacts: artifacts/physics_guided_rul
+  phase5c1_reports: reports/physics_guided_rul_refined
+  phase5c1_artifacts: artifacts/physics_guided_rul_refined
+  phase5c2_reports: reports/physics_guided_rul_safety_refined
+  phase5c2_artifacts: artifacts/physics_guided_rul_safety_refined
+  phase5d_reports: reports/aerokan_phm
+  phase5d_artifacts: artifacts/aerokan_phm
+  cmapss_dir: data/raw/cmapss
+
+outputs:
+  reports_dir: reports/aerokan_phm_selective
+  artifacts_dir: artifacts/aerokan_phm_selective
+  overwrite_existing: false
+
+backbone:
+  frozen: true
+  expected_candidate: physics_regime
+  expected_parameter_count: 89985
+
+features:
+  slope_windows: [5, 10, 20]
+  statistic_windows: [5, 10, 20]
+  retained_sensors: [2, 3, 4, 7, 11, 12, 15, 20, 21]
+  input_clamp: 5.0
+  maximum_gate_features: 20
+  maximum_correction_features: 20
+
+dangerous_optimism:
+  true_rul_max: 30
+  optimism_threshold: 10.0
+  sensitivity_optimism_thresholds: [5.0, 10.0, 15.0]
+  sensitivity_rul_cutoffs: [15, 30, 60]
+
+gate:
+  maximum_features: 20
+  activation_rate_max: 0.30
+  minimum_dangerous_recall: 0.75
+  minimum_critical_dangerous_recall: 0.85
+  hard_threshold: true
+  candidates:
+    - no_gate
+    - rule
+    - logistic
+    - isotonic_logistic
+    - shallow_tree
+    - sparse_additive_kan
+  shallow_tree_min_leaf: 25
+  sparse_kan_epochs: 2
+
+correction:
+  bounds: [5.0, 10.0, 15.0, 20.0]
+  kan_grid_sizes: [5, 7]
+  spline_degree: 3
+  maximum_active_features: 20
+  zero_correction_weights: [1.0, 2.0]
+  critical_weights: [2.0, 4.0, 8.0]
+  intervention_penalty: 0.002
+  pruning_correlation_min: 0.995
+  pruning_mean_abs_delta_max: 0.10
+  pruning_quantile: 0.40
+
+training:
+  screening_epochs: 2
+  finalist_epochs: 3
+  final_epochs: 5
+  gate_learning_rate: 0.01
+  correction_learning_rate: 0.01
+  batch_size: 512
+  mlp_hidden: 12
+  random_seed: 13501
+  max_windows_per_engine: 8
+
+selection:
+  screening_seed: 13501
+  folds: 3
+  seeds: [13501]
+  finalist_count: 5
+  development_fraction: 0.70
+  rmse_noninferiority_margin: 0.30
+  mae_noninferiority_margin: 0.20
+  maximum_bound_saturation: 0.10
+  maximum_gate_activation: 0.30
+  severe_optimistic_tolerance: 0.005
+  nasa_material_worsening_fraction: 0.05
+  no_new_critical_misses: true
+
+safety_loss:
+  critical_rul_max: 15
+  near_term_rul_max: 30
+
+uncertainty:
+  nominal_levels: [0.80, 0.90, 0.95]
+  minimum_group_size: 40
+
+abstention:
+  high_error_threshold: 25.0
+  maximum_rate: 0.15
+  maximum_abstention_rate: 0.15
+  allow_no_abstention: true
+
+maintenance:
+  critical_rul_max: 15
+  near_term_rul_max: 30
+  inspection_rul_max: 60
+  monitoring_rul_max: 90
+  urgent_thresholds: [10, 15, 20, 25]
+  schedule_thresholds: [25, 30, 40]
+  inspection_thresholds: [50, 60, 75]
+  minimum_operational_recall: 0.90
+  minimum_direct_urgent_recall: 0.80
+  minimum_urgent_precision: 0.45
+  maximum_review_rate: 0.40
+
+bootstrap:
+  iterations: 500
+  seed: 13601
+
+freeze:
+  minimum_operational_critical_recall: 0.90
+  minimum_direct_urgent_recall: 0.80
+  maximum_total_review_rate: 0.40
+  maximum_rmse_increase: 0.30
+  maximum_mae_increase: 0.20
+  maximum_gate_activation: 0.30
+  require_critical_miss_below_phase5c: true
+  require_critical_miss_no_worse_than_phase5d: true

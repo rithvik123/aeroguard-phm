@@ -1,0 +1,10 @@
+model_id,display_name,nominal_level,coverage,mean_interval_width,source_metrics
+patch_transformer_10x5_mean_b,Patch Transformer — 10×5 Patches with Mean Pooling,0.8,0.8811881188118812,73.97913108966307,reports/deep_rul_extended/uncertainty_metrics.json
+patch_transformer_10x5_mean_b,Patch Transformer — 10×5 Patches with Mean Pooling,0.9,0.9533239038189534,106.56983927090401,reports/deep_rul_extended/uncertainty_metrics.json
+patch_transformer_10x5_mean_b,Patch Transformer — 10×5 Patches with Mean Pooling,0.95,0.9858557284299858,138.16763410988082,reports/deep_rul_extended/uncertainty_metrics.json
+physics_regime,Regime-Consistent Physics-Guided Patch Transformer,0.8,0.8613861386138614,60.40862965347743,reports/physics_guided_rul/uncertainty_metrics.json
+physics_regime,Regime-Consistent Physics-Guided Patch Transformer,0.9,0.9660537482319661,97.2243713368115,reports/physics_guided_rul/uncertainty_metrics.json
+physics_regime,Regime-Consistent Physics-Guided Patch Transformer,0.95,1.0,149.7902133029792,reports/physics_guided_rul/uncertainty_metrics.json
+critical_boundary_safety_guarded_transformer,Critical-Boundary Safety-Guarded Physics-Guided Transformer,0.8,,64.316828,reports/aerokan_phm_critical_gate/locked_uncertainty_method.json
+critical_boundary_safety_guarded_transformer,Critical-Boundary Safety-Guarded Physics-Guided Transformer,0.9,,107.11417200000005,reports/aerokan_phm_critical_gate/locked_uncertainty_method.json
+critical_boundary_safety_guarded_transformer,Critical-Boundary Safety-Guarded Physics-Guided Transformer,0.95,,173.07875999999993,reports/aerokan_phm_critical_gate/locked_uncertainty_method.json

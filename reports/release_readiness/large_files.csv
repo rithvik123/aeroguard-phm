@@ -1,0 +1,6 @@
+Path,Size,Type,Commit recommendation,Reproduction alternative
+artifacts/physics_guided_rul/checkpoints/final_train_transformed.pkl,79675276,.pkl,Ignore or remove from public staging.,Regenerate from scripts or keep locally.
+reports/multidomain_phm/fd004_cycle_level_alerts.csv,38574463,.csv,Ignore or remove from public staging.,Regenerate from scripts or keep locally.
+reports/aerokan_phm_selective/corrected_oof_predictions.csv,36783596,.csv,Ignore or remove from public staging.,Regenerate from scripts or keep locally.
+reports/aerokan_phm_critical_gate/corrected_oof_predictions.csv,35852955,.csv,Ignore or remove from public staging.,Regenerate from scripts or keep locally.
+reports/aerokan_phm/corrected_oof_predictions.csv,35367250,.csv,Ignore or remove from public staging.,Regenerate from scripts or keep locally.

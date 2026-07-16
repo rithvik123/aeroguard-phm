@@ -1,0 +1,5 @@
+-r api.txt
+-r dashboard.txt
+matplotlib
+PyYAML
+pytest

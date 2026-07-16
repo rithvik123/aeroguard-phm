@@ -1,0 +1,1276 @@
+{
+  "status": "complete",
+  "system_name": "AeroGuard-PHM Safety-Guarded RUL System",
+  "release_version": "1.0.0",
+  "model_version": "aeroguard-phm-safety-v1",
+  "final_selected_model_name": "Critical-Boundary Safety-Guarded Physics-Guided Transformer",
+  "final_complete_system_name": "AeroGuard-PHM Safety-Guarded RUL System",
+  "registry_count": 64,
+  "model_sources_discovered": {
+    "classical": [
+      "classical_random_forest"
+    ],
+    "deep_learning": [
+      {
+        "model_id": "sequence_mlp",
+        "architecture": "sequence_mlp",
+        "hidden_dim": 96,
+        "dropout": 0.1
+      },
+      {
+        "model_id": "cnn1d",
+        "architecture": "cnn1d",
+        "hidden_dim": 64,
+        "dropout": 0.1,
+        "kernel_size": 3
+      },
+      {
+        "model_id": "lstm",
+        "architecture": "lstm",
+        "hidden_dim": 80,
+        "layers": 1,
+        "dropout": 0.1
+      },
+      {
+        "model_id": "gru",
+        "architecture": "gru",
+        "hidden_dim": 80,
+        "layers": 1,
+        "dropout": 0.1
+      },
+      {
+        "model_id": "tcn",
+        "architecture": "tcn",
+        "hidden_dim": 64,
+        "dropout": 0.1,
+        "kernel_size": 3,
+        "dilations": [
+          1,
+          2,
+          4
+        ]
+      },
+      {
+        "model_id": "cnn_lstm",
+        "architecture": "cnn_lstm",
+        "hidden_dim": 72,
+        "layers": 1,
+        "dropout": 0.1,
+        "kernel_size": 3
+      }
+    ],
+    "extended_patch_transformer": [
+      "lstm_phase5_schedule_a",
+      "lstm_phase5_schedule_b",
+      "tcn_extended_schedule_a",
+      "tcn_extended_schedule_b",
+      "temporal_transformer_sinusoidal_mean_a",
+      "temporal_transformer_learned_attention_b",
+      "patch_transformer_5x5_attention_a",
+      "patch_transformer_10x5_mean_b"
+    ],
+    "physics_guided": [
+      "phase5b_reimplementation_baseline",
+      "physics_monotonic",
+      "physics_cycle_rate",
+      "physics_smooth",
+      "physics_health",
+      "physics_regime",
+      "physics_temporal_combined",
+      "physics_full",
+      "physics_full_safety"
+    ],
+    "kan": [
+      "phase5c_frozen_baseline",
+      "linear_ridge_residual",
+      "small_mlp_residual",
+      "direct_additive_kan_rul",
+      "sparse_kan_residual_bound10",
+      "sparse_kan_residual_bound20",
+      "sparse_kan_residual_bound30",
+      "safety_weighted_sparse_kan",
+      "regime_aware_sparse_kan",
+      "two_layer_compact_kan_h4",
+      "two_layer_compact_kan_h8"
+    ],
+    "selective": [
+      "phase5c_exact_fallback",
+      "constant_downward_bound5",
+      "linear_nonnegative_bound5",
+      "mlp_magnitude_bound5",
+      "single_layer_sparse_additive_kan_bound5",
+      "safety_weighted_sparse_additive_kan_bound5",
+      "regime_shrinkage_additive_kan_bound5",
+      "constant_downward_bound10",
+      "linear_nonnegative_bound10",
+      "mlp_magnitude_bound10",
+      "single_layer_sparse_additive_kan_bound10",
+      "safety_weighted_sparse_additive_kan_bound10",
+      "regime_shrinkage_additive_kan_bound10",
+      "constant_downward_bound15",
+      "linear_nonnegative_bound15",
+      "mlp_magnitude_bound15",
+      "single_layer_sparse_additive_kan_bound15",
+      "safety_weighted_sparse_additive_kan_bound15",
+      "regime_shrinkage_additive_kan_bound15",
+      "constant_downward_bound20",
+      "linear_nonnegative_bound20",
+      "mlp_magnitude_bound20",
+      "single_layer_sparse_additive_kan_bound20",
+      "safety_weighted_sparse_additive_kan_bound20",
+      "regime_shrinkage_additive_kan_bound20",
+      "phase5d_two_layer_one_sided_control_bound20"
+    ],
+    "final": [
+      "selective_one_sided_aerokan_safety_corrector",
+      "critical_boundary_safety_guarded_transformer",
+      "aeroguard_phm_safety_guarded_rul_system"
+    ]
+  },
+  "exact_original_model_ids": [
+    "classical_random_forest",
+    "sequence_mlp",
+    "cnn1d",
+    "lstm",
+    "gru",
+    "tcn",
+    "cnn_lstm",
+    "lstm_phase5_schedule_a",
+    "lstm_phase5_schedule_b",
+    "tcn_extended_schedule_a",
+    "tcn_extended_schedule_b",
+    "temporal_transformer_sinusoidal_mean_a",
+    "temporal_transformer_learned_attention_b",
+    "patch_transformer_5x5_attention_a",
+    "patch_transformer_10x5_mean_b",
+    "phase5b_reimplementation_baseline",
+    "physics_monotonic",
+    "physics_cycle_rate",
+    "physics_smooth",
+    "physics_health",
+    "physics_regime",
+    "physics_temporal_combined",
+    "physics_full",
+    "physics_full_safety",
+    "phase5c_frozen_baseline",
+    "linear_ridge_residual",
+    "small_mlp_residual",
+    "direct_additive_kan_rul",
+    "sparse_kan_residual_bound10",
+    "sparse_kan_residual_bound20",
+    "sparse_kan_residual_bound30",
+    "safety_weighted_sparse_kan",
+    "regime_aware_sparse_kan",
+    "two_layer_compact_kan_h4",
+    "two_layer_compact_kan_h8",
+    "phase5c_exact_fallback",
+    "constant_downward_bound5",
+    "linear_nonnegative_bound5",
+    "mlp_magnitude_bound5",
+    "single_layer_sparse_additive_kan_bound5",
+    "safety_weighted_sparse_additive_kan_bound5",
+    "regime_shrinkage_additive_kan_bound5",
+    "constant_downward_bound10",
+    "linear_nonnegative_bound10",
+    "mlp_magnitude_bound10",
+    "single_layer_sparse_additive_kan_bound10",
+    "safety_weighted_sparse_additive_kan_bound10",
+    "regime_shrinkage_additive_kan_bound10",
+    "constant_downward_bound15",
+    "linear_nonnegative_bound15",
+    "mlp_magnitude_bound15",
+    "single_layer_sparse_additive_kan_bound15",
+    "safety_weighted_sparse_additive_kan_bound15",
+    "regime_shrinkage_additive_kan_bound15",
+    "constant_downward_bound20",
+    "linear_nonnegative_bound20",
+    "mlp_magnitude_bound20",
+    "single_layer_sparse_additive_kan_bound20",
+    "safety_weighted_sparse_additive_kan_bound20",
+    "regime_shrinkage_additive_kan_bound20",
+    "phase5d_two_layer_one_sided_control_bound20",
+    "selective_one_sided_aerokan_safety_corrector",
+    "critical_boundary_safety_guarded_transformer",
+    "aeroguard_phm_safety_guarded_rul_system"
+  ],
+  "display_name_mappings": [
+    {
+      "model_id": "classical_random_forest",
+      "display_name": "Random Forest RUL Baseline",
+      "development_stage": "Phase 4 provenance",
+      "selection_status": "baseline"
+    },
+    {
+      "model_id": "sequence_mlp",
+      "display_name": "Sequence MLP RUL Baseline",
+      "development_stage": "Phase 5 provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "cnn1d",
+      "display_name": "Temporal CNN RUL Baseline",
+      "development_stage": "Phase 5 provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "lstm",
+      "display_name": "LSTM RUL Baseline",
+      "development_stage": "Phase 5 provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "gru",
+      "display_name": "GRU RUL Baseline",
+      "development_stage": "Phase 5 provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "tcn",
+      "display_name": "Temporal Convolutional RUL Baseline",
+      "development_stage": "Phase 5 provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "cnn_lstm",
+      "display_name": "CNN-LSTM RUL Baseline",
+      "development_stage": "Phase 5 provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "lstm_phase5_schedule_a",
+      "display_name": "LSTM Candidate - Schedule A",
+      "development_stage": "Phase 5B provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "lstm_phase5_schedule_b",
+      "display_name": "LSTM Candidate - Schedule B",
+      "development_stage": "Phase 5B provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "tcn_extended_schedule_a",
+      "display_name": "Temporal CNN Candidate - Schedule A",
+      "development_stage": "Phase 5B provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "tcn_extended_schedule_b",
+      "display_name": "Temporal CNN Candidate - Schedule B",
+      "development_stage": "Phase 5B provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "temporal_transformer_sinusoidal_mean_a",
+      "display_name": "Temporal Transformer - Sinusoidal Mean Pooling",
+      "development_stage": "Phase 5B provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "temporal_transformer_learned_attention_b",
+      "display_name": "Temporal Transformer - Learned Attention Pooling",
+      "development_stage": "Phase 5B provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "patch_transformer_5x5_attention_a",
+      "display_name": "Patch Transformer \u2014 5\u00d75 Patches with Attention Pooling",
+      "development_stage": "Phase 5B provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "patch_transformer_10x5_mean_b",
+      "display_name": "Patch Transformer \u2014 10\u00d75 Patches with Mean Pooling",
+      "development_stage": "Phase 5B provenance",
+      "selection_status": "baseline"
+    },
+    {
+      "model_id": "phase5b_reimplementation_baseline",
+      "display_name": "Patch Transformer Reimplementation Baseline",
+      "development_stage": "Phase 5C provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "physics_monotonic",
+      "display_name": "Monotonicity-Guided Patch Transformer",
+      "development_stage": "Phase 5C provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "physics_cycle_rate",
+      "display_name": "Cycle-Rate-Guided Patch Transformer",
+      "development_stage": "Phase 5C provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "physics_smooth",
+      "display_name": "Smoothness-Guided Patch Transformer",
+      "development_stage": "Phase 5C provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "physics_health",
+      "display_name": "Health-Guided Patch Transformer",
+      "development_stage": "Phase 5C provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "physics_regime",
+      "display_name": "Regime-Consistent Physics-Guided Patch Transformer",
+      "development_stage": "Phase 5C provenance",
+      "selection_status": "selected backbone"
+    },
+    {
+      "model_id": "physics_temporal_combined",
+      "display_name": "Temporally Combined Physics-Guided Patch Transformer",
+      "development_stage": "Phase 5C provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "physics_full",
+      "display_name": "Full Physics-Guided Patch Transformer",
+      "development_stage": "Phase 5C provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "physics_full_safety",
+      "display_name": "Full Physics-and-Safety Patch Transformer",
+      "development_stage": "Phase 5C provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "phase5c_frozen_baseline",
+      "display_name": "Regime-Consistent Physics-Guided Patch Transformer",
+      "development_stage": "Phase 5D provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "linear_ridge_residual",
+      "display_name": "Linear Residual Corrector",
+      "development_stage": "Phase 5D provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "small_mlp_residual",
+      "display_name": "MLP Residual Corrector",
+      "development_stage": "Phase 5D provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "direct_additive_kan_rul",
+      "display_name": "Direct Additive KAN RUL Head",
+      "development_stage": "Phase 5D provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "sparse_kan_residual_bound10",
+      "display_name": "Sparse Additive KAN Residual Corrector (Bound 10)",
+      "development_stage": "Phase 5D provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "sparse_kan_residual_bound20",
+      "display_name": "Sparse Additive KAN Residual Corrector (Bound 20)",
+      "development_stage": "Phase 5D provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "sparse_kan_residual_bound30",
+      "display_name": "Sparse Additive KAN Residual Corrector (Bound 30)",
+      "development_stage": "Phase 5D provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "safety_weighted_sparse_kan",
+      "display_name": "Safety-Weighted Sparse KAN Corrector",
+      "development_stage": "Phase 5D provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "regime_aware_sparse_kan",
+      "display_name": "Regime-Aware KAN Corrector",
+      "development_stage": "Phase 5D provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "two_layer_compact_kan_h4",
+      "display_name": "AeroKAN-PHM Compact Residual Corrector (h=4)",
+      "development_stage": "Phase 5D provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "two_layer_compact_kan_h8",
+      "display_name": "AeroKAN-PHM Compact Residual Corrector",
+      "development_stage": "Phase 5D provenance",
+      "selection_status": "experimental, not final selected"
+    },
+    {
+      "model_id": "phase5c_exact_fallback",
+      "display_name": "Frozen Physics-Guided Baseline Fallback",
+      "development_stage": "Phase 5D.1 provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "constant_downward_bound5",
+      "display_name": "Constant Downward Bound5",
+      "development_stage": "Phase 5D.1 provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "linear_nonnegative_bound5",
+      "display_name": "Linear Nonnegative Bound5",
+      "development_stage": "Phase 5D.1 provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "mlp_magnitude_bound5",
+      "display_name": "MLP Magnitude Bound5",
+      "development_stage": "Phase 5D.1 provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "single_layer_sparse_additive_kan_bound5",
+      "display_name": "Single Layer Sparse Additive KAN Bound5",
+      "development_stage": "Phase 5D.1 provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "safety_weighted_sparse_additive_kan_bound5",
+      "display_name": "Safety Weighted Sparse Additive KAN Bound5",
+      "development_stage": "Phase 5D.1 provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "regime_shrinkage_additive_kan_bound5",
+      "display_name": "Regime Shrinkage Additive KAN Bound5",
+      "development_stage": "Phase 5D.1 provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "constant_downward_bound10",
+      "display_name": "Constant Downward Bound10",
+      "development_stage": "Phase 5D.1 provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "linear_nonnegative_bound10",
+      "display_name": "Linear Nonnegative Bound10",
+      "development_stage": "Phase 5D.1 provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "mlp_magnitude_bound10",
+      "display_name": "MLP Magnitude Bound10",
+      "development_stage": "Phase 5D.1 provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "single_layer_sparse_additive_kan_bound10",
+      "display_name": "Single Layer Sparse Additive KAN Bound10",
+      "development_stage": "Phase 5D.1 provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "safety_weighted_sparse_additive_kan_bound10",
+      "display_name": "Safety Weighted Sparse Additive KAN Bound10",
+      "development_stage": "Phase 5D.1 provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "regime_shrinkage_additive_kan_bound10",
+      "display_name": "Regime Shrinkage Additive KAN Bound10",
+      "development_stage": "Phase 5D.1 provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "constant_downward_bound15",
+      "display_name": "Constant Downward Bound15",
+      "development_stage": "Phase 5D.1 provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "linear_nonnegative_bound15",
+      "display_name": "Linear Nonnegative Bound15",
+      "development_stage": "Phase 5D.1 provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "mlp_magnitude_bound15",
+      "display_name": "MLP Magnitude Bound15",
+      "development_stage": "Phase 5D.1 provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "single_layer_sparse_additive_kan_bound15",
+      "display_name": "Single Layer Sparse Additive KAN Bound15",
+      "development_stage": "Phase 5D.1 provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "safety_weighted_sparse_additive_kan_bound15",
+      "display_name": "Safety Weighted Sparse Additive KAN Bound15",
+      "development_stage": "Phase 5D.1 provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "regime_shrinkage_additive_kan_bound15",
+      "display_name": "Regime Shrinkage Additive KAN Bound15",
+      "development_stage": "Phase 5D.1 provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "constant_downward_bound20",
+      "display_name": "Constant Downward Bound20",
+      "development_stage": "Phase 5D.1 provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "linear_nonnegative_bound20",
+      "display_name": "Linear Nonnegative Bound20",
+      "development_stage": "Phase 5D.1 provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "mlp_magnitude_bound20",
+      "display_name": "MLP Magnitude Bound20",
+      "development_stage": "Phase 5D.1 provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "single_layer_sparse_additive_kan_bound20",
+      "display_name": "Single Layer Sparse Additive KAN Bound20",
+      "development_stage": "Phase 5D.1 provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "safety_weighted_sparse_additive_kan_bound20",
+      "display_name": "Safety Weighted Sparse Additive KAN Bound20",
+      "development_stage": "Phase 5D.1 provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "regime_shrinkage_additive_kan_bound20",
+      "display_name": "Regime Shrinkage Additive KAN Bound20",
+      "development_stage": "Phase 5D.1 provenance",
+      "selection_status": "not selected"
+    },
+    {
+      "model_id": "phase5d_two_layer_one_sided_control_bound20",
+      "display_name": "Selective One-Sided AeroKAN Safety Corrector",
+      "development_stage": "Phase 5D.1 provenance",
+      "selection_status": "selected experimental safety corrector"
+    },
+    {
+      "model_id": "selective_one_sided_aerokan_safety_corrector",
+      "display_name": "Selective One-Sided AeroKAN Safety Corrector",
+      "development_stage": "Phase 5D.1 provenance",
+      "selection_status": "experimental, not final selected"
+    },
+    {
+      "model_id": "critical_boundary_safety_guarded_transformer",
+      "display_name": "Critical-Boundary Safety-Guarded Physics-Guided Transformer",
+      "development_stage": "Phase 5D.2 provenance",
+      "selection_status": "final selected system"
+    },
+    {
+      "model_id": "aeroguard_phm_safety_guarded_rul_system",
+      "display_name": "AeroGuard-PHM Safety-Guarded RUL System",
+      "development_stage": "Phase 6 release provenance",
+      "selection_status": "final selected system"
+    }
+  ],
+  "point_comparison_models": [
+    "patch_transformer_10x5_mean_b",
+    "physics_regime",
+    "two_layer_compact_kan_h8",
+    "selective_one_sided_aerokan_safety_corrector",
+    "critical_boundary_safety_guarded_transformer"
+  ],
+  "fixed_policy_comparison_models": [
+    "patch_transformer_10x5_mean_b",
+    "physics_regime",
+    "two_layer_compact_kan_h8",
+    "selective_one_sided_aerokan_safety_corrector",
+    "critical_boundary_safety_guarded_transformer"
+  ],
+  "native_system_comparison_models": [
+    "patch_transformer_10x5_mean_b",
+    "physics_regime",
+    "two_layer_compact_kan_h8",
+    "selective_one_sided_aerokan_safety_corrector",
+    "critical_boundary_safety_guarded_transformer"
+  ],
+  "validation_only_rows": 65,
+  "final_metrics": [
+    {
+      "Model": "Patch Transformer \u2014 10\u00d75 Patches with Mean Pooling",
+      "Family": "Patch Transformer",
+      "Overall MAE": 14.955002847031455,
+      "Overall RMSE": 21.26705017566782,
+      "NASA score": 8246.168213822433,
+      "Severe optimism": 0.06506364922206506,
+      "Critical misses": 26,
+      "Operational recall": 0.7450980392156863,
+      "Review workload": 0.1188118811881188,
+      "Status": "Candidate"
+    },
+    {
+      "Model": "Regime-Consistent Physics-Guided Patch Transformer",
+      "Family": "Physics-guided Transformer",
+      "Overall MAE": 14.488493502545971,
+      "Overall RMSE": 20.913383755183986,
+      "NASA score": 7577.177145856502,
+      "Severe optimism": 0.056577086280056574,
+      "Critical misses": 25,
+      "Operational recall": 0.7549019607843137,
+      "Review workload": 0.12588401697312587,
+      "Status": "Candidate"
+    },
+    {
+      "Model": "AeroKAN-PHM Compact Residual Corrector",
+      "Family": "AeroKAN residual correction",
+      "Overall MAE": 15.465818157627695,
+      "Overall RMSE": 21.471324319408936,
+      "NASA score": 9516.831725235117,
+      "Severe optimism": 0.08628005657708628,
+      "Critical misses": 5,
+      "Operational recall": 0.9509803921568627,
+      "Review workload": 0.16407355021216408,
+      "Status": "Candidate"
+    },
+    {
+      "Model": "Selective One-Sided AeroKAN Safety Corrector",
+      "Family": "Selective AeroKAN safety correction",
+      "Overall MAE": 14.448549979369826,
+      "Overall RMSE": 20.90169030316716,
+      "NASA score": 7570.6490340441,
+      "Severe optimism": 0.056577086280056574,
+      "Critical misses": 24,
+      "Operational recall": 0.7647058823529411,
+      "Review workload": 0.1272984441301273,
+      "Status": "Candidate"
+    },
+    {
+      "Model": "Critical-Boundary Safety-Guarded Physics-Guided Transformer",
+      "Family": "Safety-guarded Transformer",
+      "Overall MAE": 14.563174664497879,
+      "Overall RMSE": 20.96032224567446,
+      "NASA score": 7584.776467598388,
+      "Severe optimism": 0.056577086280056574,
+      "Critical misses": 1,
+      "Operational recall": 0.9901960784313726,
+      "Review workload": 0.19236209335219237,
+      "Status": "Final selected system"
+    }
+  ],
+  "paired_bootstrap_results": [
+    {
+      "comparison": "patch_transformer_10x5_mean_b_vs_final",
+      "comparator_model_id": "patch_transformer_10x5_mean_b",
+      "comparator_display_name": "Patch Transformer \u2014 10\u00d75 Patches with Mean Pooling",
+      "final_model_id": "critical_boundary_safety_guarded_transformer",
+      "metric": "absolute_error",
+      "point_difference_comparator_minus_final": 0.39182818253357576,
+      "relative_difference": 0.02620047528853216,
+      "ci_lower": 0.04336491933757363,
+      "ci_upper": 0.7602568802717906,
+      "probability_final_improves": 0.986,
+      "interval_excludes_zero": true,
+      "engine_alignment_count": 707,
+      "statistical_interpretation": "final lower/better"
+    },
+    {
+      "comparison": "patch_transformer_10x5_mean_b_vs_final",
+      "comparator_model_id": "patch_transformer_10x5_mean_b",
+      "comparator_display_name": "Patch Transformer \u2014 10\u00d75 Patches with Mean Pooling",
+      "final_model_id": "critical_boundary_safety_guarded_transformer",
+      "metric": "squared_error",
+      "point_difference_comparator_minus_final": 12.952314531857036,
+      "relative_difference": 0.028637352860602237,
+      "ci_lower": -3.4871994556451775,
+      "ci_upper": 29.0908497343855,
+      "probability_final_improves": 0.932,
+      "interval_excludes_zero": false,
+      "engine_alignment_count": 707,
+      "statistical_interpretation": "uncertain"
+    },
+    {
+      "comparison": "patch_transformer_10x5_mean_b_vs_final",
+      "comparator_model_id": "patch_transformer_10x5_mean_b",
+      "comparator_display_name": "Patch Transformer \u2014 10\u00d75 Patches with Mean Pooling",
+      "final_model_id": "critical_boundary_safety_guarded_transformer",
+      "metric": "nasa_contribution",
+      "point_difference_comparator_minus_final": 0.9354904472758777,
+      "relative_difference": 0.0802059488812518,
+      "ci_lower": -0.06292707338165854,
+      "ci_upper": 2.0681315913458613,
+      "probability_final_improves": 0.961,
+      "interval_excludes_zero": false,
+      "engine_alignment_count": 707,
+      "statistical_interpretation": "uncertain"
+    },
+    {
+      "comparison": "patch_transformer_10x5_mean_b_vs_final",
+      "comparator_model_id": "patch_transformer_10x5_mean_b",
+      "comparator_display_name": "Patch Transformer \u2014 10\u00d75 Patches with Mean Pooling",
+      "final_model_id": "critical_boundary_safety_guarded_transformer",
+      "metric": "optimistic_indicator",
+      "point_difference_comparator_minus_final": 0.05799151343705799,
+      "relative_difference": 0.10432569974554708,
+      "ci_lower": 0.036775106082036775,
+      "ci_upper": 0.08062234794908062,
+      "probability_final_improves": 1.0,
+      "interval_excludes_zero": true,
+      "engine_alignment_count": 707,
+      "statistical_interpretation": "final lower/better"
+    },
+    {
+      "comparison": "patch_transformer_10x5_mean_b_vs_final",
+      "comparator_model_id": "patch_transformer_10x5_mean_b",
+      "comparator_display_name": "Patch Transformer \u2014 10\u00d75 Patches with Mean Pooling",
+      "final_model_id": "critical_boundary_safety_guarded_transformer",
+      "metric": "severe_optimistic_indicator",
+      "point_difference_comparator_minus_final": 0.008486562942008486,
+      "relative_difference": 0.13043478260869565,
+      "ci_lower": -0.002828854314002829,
+      "ci_upper": 0.019801980198019802,
+      "probability_final_improves": 0.934,
+      "interval_excludes_zero": false,
+      "engine_alignment_count": 707,
+      "statistical_interpretation": "uncertain"
+    },
+    {
+      "comparison": "patch_transformer_10x5_mean_b_vs_final",
+      "comparator_model_id": "patch_transformer_10x5_mean_b",
+      "comparator_display_name": "Patch Transformer \u2014 10\u00d75 Patches with Mean Pooling",
+      "final_model_id": "critical_boundary_safety_guarded_transformer",
+      "metric": "fixed_policy_critical_miss_indicator",
+      "point_difference_comparator_minus_final": 0.03536067892503536,
+      "relative_difference": 0.9615384615384616,
+      "ci_lower": 0.021216407355021217,
+      "ci_upper": 0.04950495049504951,
+      "probability_final_improves": 1.0,
+      "interval_excludes_zero": true,
+      "engine_alignment_count": 707,
+      "statistical_interpretation": "final lower/better"
+    },
+    {
+      "comparison": "patch_transformer_10x5_mean_b_vs_final",
+      "comparator_model_id": "patch_transformer_10x5_mean_b",
+      "comparator_display_name": "Patch Transformer \u2014 10\u00d75 Patches with Mean Pooling",
+      "final_model_id": "critical_boundary_safety_guarded_transformer",
+      "metric": "mandatory_review_indicator",
+      "point_difference_comparator_minus_final": -0.07355021216407355,
+      "relative_difference": -0.6190476190476191,
+      "ci_lower": -0.09335219236209336,
+      "ci_upper": -0.05512729844413016,
+      "probability_final_improves": 0.0,
+      "interval_excludes_zero": true,
+      "engine_alignment_count": 707,
+      "statistical_interpretation": "comparator lower/better"
+    },
+    {
+      "comparison": "physics_regime_vs_final",
+      "comparator_model_id": "physics_regime",
+      "comparator_display_name": "Regime-Consistent Physics-Guided Patch Transformer",
+      "final_model_id": "critical_boundary_safety_guarded_transformer",
+      "metric": "absolute_error",
+      "point_difference_comparator_minus_final": -0.07468116195190946,
+      "relative_difference": -0.005154515335827442,
+      "ci_lower": -0.17099331145686,
+      "ci_upper": 0.012091874381188092,
+      "probability_final_improves": 0.05,
+      "interval_excludes_zero": false,
+      "engine_alignment_count": 707,
+      "statistical_interpretation": "uncertain"
+    },
+    {
+      "comparison": "physics_regime_vs_final",
+      "comparator_model_id": "physics_regime",
+      "comparator_display_name": "Regime-Consistent Physics-Guided Patch Transformer",
+      "final_model_id": "critical_boundary_safety_guarded_transformer",
+      "metric": "squared_error",
+      "point_difference_comparator_minus_final": -1.965488550922345,
+      "relative_difference": -0.004493884487246131,
+      "ci_lower": -3.676875544464975,
+      "ci_upper": -0.3735765441964902,
+      "probability_final_improves": 0.006,
+      "interval_excludes_zero": true,
+      "engine_alignment_count": 707,
+      "statistical_interpretation": "comparator lower/better"
+    },
+    {
+      "comparison": "physics_regime_vs_final",
+      "comparator_model_id": "physics_regime",
+      "comparator_display_name": "Regime-Consistent Physics-Guided Patch Transformer",
+      "final_model_id": "critical_boundary_safety_guarded_transformer",
+      "metric": "nasa_contribution",
+      "point_difference_comparator_minus_final": -0.010748687046516044,
+      "relative_difference": -0.0010029225390411323,
+      "ci_lower": -0.026720080692769037,
+      "ci_upper": 0.005089166331080784,
+      "probability_final_improves": 0.093,
+      "interval_excludes_zero": false,
+      "engine_alignment_count": 707,
+      "statistical_interpretation": "uncertain"
+    },
+    {
+      "comparison": "physics_regime_vs_final",
+      "comparator_model_id": "physics_regime",
+      "comparator_display_name": "Regime-Consistent Physics-Guided Patch Transformer",
+      "final_model_id": "critical_boundary_safety_guarded_transformer",
+      "metric": "optimistic_indicator",
+      "point_difference_comparator_minus_final": 0.02263083451202263,
+      "relative_difference": 0.04347826086956522,
+      "ci_lower": 0.01272984441301273,
+      "ci_upper": 0.033946251768033946,
+      "probability_final_improves": 1.0,
+      "interval_excludes_zero": true,
+      "engine_alignment_count": 707,
+      "statistical_interpretation": "final lower/better"
+    },
+    {
+      "comparison": "physics_regime_vs_final",
+      "comparator_model_id": "physics_regime",
+      "comparator_display_name": "Regime-Consistent Physics-Guided Patch Transformer",
+      "final_model_id": "critical_boundary_safety_guarded_transformer",
+      "metric": "severe_optimistic_indicator",
+      "point_difference_comparator_minus_final": 0.0,
+      "relative_difference": 0.0,
+      "ci_lower": 0.0,
+      "ci_upper": 0.0,
+      "probability_final_improves": 0.0,
+      "interval_excludes_zero": false,
+      "engine_alignment_count": 707,
+      "statistical_interpretation": "uncertain"
+    },
+    {
+      "comparison": "physics_regime_vs_final",
+      "comparator_model_id": "physics_regime",
+      "comparator_display_name": "Regime-Consistent Physics-Guided Patch Transformer",
+      "final_model_id": "critical_boundary_safety_guarded_transformer",
+      "metric": "fixed_policy_critical_miss_indicator",
+      "point_difference_comparator_minus_final": 0.033946251768033946,
+      "relative_difference": 0.96,
+      "ci_lower": 0.021216407355021217,
+      "ci_upper": 0.04671145685997168,
+      "probability_final_improves": 1.0,
+      "interval_excludes_zero": true,
+      "engine_alignment_count": 707,
+      "statistical_interpretation": "final lower/better"
+    },
+    {
+      "comparison": "physics_regime_vs_final",
+      "comparator_model_id": "physics_regime",
+      "comparator_display_name": "Regime-Consistent Physics-Guided Patch Transformer",
+      "final_model_id": "critical_boundary_safety_guarded_transformer",
+      "metric": "mandatory_review_indicator",
+      "point_difference_comparator_minus_final": -0.06647807637906648,
+      "relative_difference": -0.5280898876404495,
+      "ci_lower": -0.08490099009900991,
+      "ci_upper": -0.04805516265912309,
+      "probability_final_improves": 0.0,
+      "interval_excludes_zero": true,
+      "engine_alignment_count": 707,
+      "statistical_interpretation": "comparator lower/better"
+    },
+    {
+      "comparison": "two_layer_compact_kan_h8_vs_final",
+      "comparator_model_id": "two_layer_compact_kan_h8",
+      "comparator_display_name": "AeroKAN-PHM Compact Residual Corrector",
+      "final_model_id": "critical_boundary_safety_guarded_transformer",
+      "metric": "absolute_error",
+      "point_difference_comparator_minus_final": 0.9026434931298155,
+      "relative_difference": 0.05836377254213573,
+      "ci_lower": 0.5554726715119526,
+      "ci_upper": 1.2612130259875796,
+      "probability_final_improves": 1.0,
+      "interval_excludes_zero": true,
+      "engine_alignment_count": 707,
+      "statistical_interpretation": "final lower/better"
+    },
+    {
+      "comparison": "two_layer_compact_kan_h8_vs_final",
+      "comparator_model_id": "two_layer_compact_kan_h8",
+      "comparator_display_name": "AeroKAN-PHM Compact Residual Corrector",
+      "final_model_id": "critical_boundary_safety_guarded_transformer",
+      "metric": "squared_error",
+      "point_difference_comparator_minus_final": 21.682659386725888,
+      "relative_difference": 0.04703215557052151,
+      "ci_lower": 3.8059997082135992,
+      "ci_upper": 39.00968623219641,
+      "probability_final_improves": 0.994,
+      "interval_excludes_zero": true,
+      "engine_alignment_count": 707,
+      "statistical_interpretation": "final lower/better"
+    },
+    {
+      "comparison": "two_layer_compact_kan_h8_vs_final",
+      "comparator_model_id": "two_layer_compact_kan_h8",
+      "comparator_display_name": "AeroKAN-PHM Compact Residual Corrector",
+      "final_model_id": "critical_boundary_safety_guarded_transformer",
+      "metric": "nasa_contribution",
+      "point_difference_comparator_minus_final": 2.7327514252287535,
+      "relative_difference": 0.20301454448476092,
+      "ci_lower": 1.2838095145440807,
+      "ci_upper": 4.2918489833843525,
+      "probability_final_improves": 1.0,
+      "interval_excludes_zero": true,
+      "engine_alignment_count": 707,
+      "statistical_interpretation": "final lower/better"
+    },
+    {
+      "comparison": "two_layer_compact_kan_h8_vs_final",
+      "comparator_model_id": "two_layer_compact_kan_h8",
+      "comparator_display_name": "AeroKAN-PHM Compact Residual Corrector",
+      "final_model_id": "critical_boundary_safety_guarded_transformer",
+      "metric": "optimistic_indicator",
+      "point_difference_comparator_minus_final": -0.056577086280056574,
+      "relative_difference": -0.1282051282051282,
+      "ci_lower": -0.08203677510608204,
+      "ci_upper": -0.03253182461103253,
+      "probability_final_improves": 0.0,
+      "interval_excludes_zero": true,
+      "engine_alignment_count": 707,
+      "statistical_interpretation": "comparator lower/better"
+    },
+    {
+      "comparison": "two_layer_compact_kan_h8_vs_final",
+      "comparator_model_id": "two_layer_compact_kan_h8",
+      "comparator_display_name": "AeroKAN-PHM Compact Residual Corrector",
+      "final_model_id": "critical_boundary_safety_guarded_transformer",
+      "metric": "severe_optimistic_indicator",
+      "point_difference_comparator_minus_final": 0.0297029702970297,
+      "relative_difference": 0.3442622950819672,
+      "ci_lower": 0.018387553041018388,
+      "ci_upper": 0.042432814710042434,
+      "probability_final_improves": 1.0,
+      "interval_excludes_zero": true,
+      "engine_alignment_count": 707,
+      "statistical_interpretation": "final lower/better"
+    },
+    {
+      "comparison": "two_layer_compact_kan_h8_vs_final",
+      "comparator_model_id": "two_layer_compact_kan_h8",
+      "comparator_display_name": "AeroKAN-PHM Compact Residual Corrector",
+      "final_model_id": "critical_boundary_safety_guarded_transformer",
+      "metric": "fixed_policy_critical_miss_indicator",
+      "point_difference_comparator_minus_final": 0.005657708628005658,
+      "relative_difference": 0.8,
+      "ci_lower": 0.0014144271570014145,
+      "ci_upper": 0.011315417256011316,
+      "probability_final_improves": 0.983,
+      "interval_excludes_zero": true,
+      "engine_alignment_count": 707,
+      "statistical_interpretation": "final lower/better"
+    },
+    {
+      "comparison": "two_layer_compact_kan_h8_vs_final",
+      "comparator_model_id": "two_layer_compact_kan_h8",
+      "comparator_display_name": "AeroKAN-PHM Compact Residual Corrector",
+      "final_model_id": "critical_boundary_safety_guarded_transformer",
+      "metric": "mandatory_review_indicator",
+      "point_difference_comparator_minus_final": -0.028288543140028287,
+      "relative_difference": -0.17241379310344826,
+      "ci_lower": -0.04101838755304102,
+      "ci_upper": -0.016973125884016973,
+      "probability_final_improves": 0.0,
+      "interval_excludes_zero": true,
+      "engine_alignment_count": 707,
+      "statistical_interpretation": "comparator lower/better"
+    },
+    {
+      "comparison": "selective_one_sided_aerokan_safety_corrector_vs_final",
+      "comparator_model_id": "selective_one_sided_aerokan_safety_corrector",
+      "comparator_display_name": "Selective One-Sided AeroKAN Safety Corrector",
+      "final_model_id": "critical_boundary_safety_guarded_transformer",
+      "metric": "absolute_error",
+      "point_difference_comparator_minus_final": -0.11462468512805143,
+      "relative_difference": -0.007933300247548495,
+      "ci_lower": -0.20796476671137845,
+      "ci_upper": -0.02790966549382932,
+      "probability_final_improves": 0.003,
+      "interval_excludes_zero": true,
+      "engine_alignment_count": 707,
+      "statistical_interpretation": "comparator lower/better"
+    },
+    {
+      "comparison": "selective_one_sided_aerokan_safety_corrector_vs_final",
+      "comparator_model_id": "selective_one_sided_aerokan_safety_corrector",
+      "comparator_display_name": "Selective One-Sided AeroKAN Safety Corrector",
+      "final_model_id": "critical_boundary_safety_guarded_transformer",
+      "metric": "squared_error",
+      "point_difference_comparator_minus_final": -2.454451113003493,
+      "relative_difference": -0.005618127217815062,
+      "ci_lower": -4.126945112959152,
+      "ci_upper": -0.8476199195679724,
+      "probability_final_improves": 0.0,
+      "interval_excludes_zero": true,
+      "engine_alignment_count": 707,
+      "statistical_interpretation": "comparator lower/better"
+    },
+    {
+      "comparison": "selective_one_sided_aerokan_safety_corrector_vs_final",
+      "comparator_model_id": "selective_one_sided_aerokan_safety_corrector",
+      "comparator_display_name": "Selective One-Sided AeroKAN Safety Corrector",
+      "final_model_id": "critical_boundary_safety_guarded_transformer",
+      "metric": "nasa_contribution",
+      "point_difference_comparator_minus_final": -0.019982225677917423,
+      "relative_difference": -0.0018660795779540987,
+      "ci_lower": -0.03728528298942268,
+      "ci_upper": -0.005344285007616446,
+      "probability_final_improves": 0.002,
+      "interval_excludes_zero": true,
+      "engine_alignment_count": 707,
+      "statistical_interpretation": "comparator lower/better"
+    },
+    {
+      "comparison": "selective_one_sided_aerokan_safety_corrector_vs_final",
+      "comparator_model_id": "selective_one_sided_aerokan_safety_corrector",
+      "comparator_display_name": "Selective One-Sided AeroKAN Safety Corrector",
+      "final_model_id": "critical_boundary_safety_guarded_transformer",
+      "metric": "optimistic_indicator",
+      "point_difference_comparator_minus_final": 0.016973125884016973,
+      "relative_difference": 0.03296703296703297,
+      "ci_lower": 0.004243281471004243,
+      "ci_upper": 0.0297029702970297,
+      "probability_final_improves": 0.995,
+      "interval_excludes_zero": true,
+      "engine_alignment_count": 707,
+      "statistical_interpretation": "final lower/better"
+    },
+    {
+      "comparison": "selective_one_sided_aerokan_safety_corrector_vs_final",
+      "comparator_model_id": "selective_one_sided_aerokan_safety_corrector",
+      "comparator_display_name": "Selective One-Sided AeroKAN Safety Corrector",
+      "final_model_id": "critical_boundary_safety_guarded_transformer",
+      "metric": "severe_optimistic_indicator",
+      "point_difference_comparator_minus_final": 0.0,
+      "relative_difference": 0.0,
+      "ci_lower": 0.0,
+      "ci_upper": 0.0,
+      "probability_final_improves": 0.0,
+      "interval_excludes_zero": false,
+      "engine_alignment_count": 707,
+      "statistical_interpretation": "uncertain"
+    },
+    {
+      "comparison": "selective_one_sided_aerokan_safety_corrector_vs_final",
+      "comparator_model_id": "selective_one_sided_aerokan_safety_corrector",
+      "comparator_display_name": "Selective One-Sided AeroKAN Safety Corrector",
+      "final_model_id": "critical_boundary_safety_guarded_transformer",
+      "metric": "fixed_policy_critical_miss_indicator",
+      "point_difference_comparator_minus_final": 0.03253182461103253,
+      "relative_difference": 0.9583333333333334,
+      "ci_lower": 0.019801980198019802,
+      "ci_upper": 0.04667609618104668,
+      "probability_final_improves": 1.0,
+      "interval_excludes_zero": true,
+      "engine_alignment_count": 707,
+      "statistical_interpretation": "final lower/better"
+    },
+    {
+      "comparison": "selective_one_sided_aerokan_safety_corrector_vs_final",
+      "comparator_model_id": "selective_one_sided_aerokan_safety_corrector",
+      "comparator_display_name": "Selective One-Sided AeroKAN Safety Corrector",
+      "final_model_id": "critical_boundary_safety_guarded_transformer",
+      "metric": "mandatory_review_indicator",
+      "point_difference_comparator_minus_final": -0.06506364922206506,
+      "relative_difference": -0.5111111111111111,
+      "ci_lower": -0.08486562942008487,
+      "ci_upper": -0.04805516265912309,
+      "probability_final_improves": 0.0,
+      "interval_excludes_zero": true,
+      "engine_alignment_count": 707,
+      "statistical_interpretation": "comparator lower/better"
+    },
+    {
+      "comparison": "patch_transformer_10x5_mean_b_vs_final",
+      "comparator_model_id": "patch_transformer_10x5_mean_b",
+      "comparator_display_name": "Patch Transformer \u2014 10\u00d75 Patches with Mean Pooling",
+      "final_model_id": "critical_boundary_safety_guarded_transformer",
+      "metric": "interval_width_90",
+      "point_difference_comparator_minus_final": 9.648256059588556,
+      "relative_difference": 0.0905345839460485,
+      "ci_lower": 4.811567812891274,
+      "ci_upper": 14.404670843294511,
+      "probability_final_improves": 1.0,
+      "interval_excludes_zero": true,
+      "engine_alignment_count": 707,
+      "statistical_interpretation": "final narrower"
+    },
+    {
+      "comparison": "physics_regime_vs_final",
+      "comparator_model_id": "physics_regime",
+      "comparator_display_name": "Regime-Consistent Physics-Guided Patch Transformer",
+      "final_model_id": "critical_boundary_safety_guarded_transformer",
+      "metric": "interval_width_90",
+      "point_difference_comparator_minus_final": 0.3027881254960462,
+      "relative_difference": 0.0031143233052863496,
+      "ci_lower": 0.2012424211973492,
+      "ci_upper": 0.42818785148567595,
+      "probability_final_improves": 1.0,
+      "interval_excludes_zero": true,
+      "engine_alignment_count": 707,
+      "statistical_interpretation": "final narrower"
+    },
+    {
+      "comparison": "two_layer_compact_kan_h8_vs_final",
+      "comparator_model_id": "two_layer_compact_kan_h8",
+      "comparator_display_name": "AeroKAN-PHM Compact Residual Corrector",
+      "final_model_id": "critical_boundary_safety_guarded_transformer",
+      "metric": "interval_width_90",
+      "point_difference_comparator_minus_final": -5.867073911768769,
+      "relative_difference": -0.06443474306656856,
+      "ci_lower": -5.9907602910976,
+      "ci_upper": -5.75309639676641,
+      "probability_final_improves": 0.0,
+      "interval_excludes_zero": true,
+      "engine_alignment_count": 707,
+      "statistical_interpretation": "comparator narrower"
+    },
+    {
+      "comparison": "selective_one_sided_aerokan_safety_corrector_vs_final",
+      "comparator_model_id": "selective_one_sided_aerokan_safety_corrector",
+      "comparator_display_name": "Selective One-Sided AeroKAN Safety Corrector",
+      "final_model_id": "critical_boundary_safety_guarded_transformer",
+      "metric": "interval_width_90",
+      "point_difference_comparator_minus_final": 0.15405498664602202,
+      "relative_difference": 0.001586958267859805,
+      "ci_lower": 0.047726521410880185,
+      "ci_upper": 0.2672276555001182,
+      "probability_final_improves": 1.0,
+      "interval_excludes_zero": true,
+      "engine_alignment_count": 707,
+      "statistical_interpretation": "final narrower"
+    }
+  ],
+  "manifest_path": "artifacts/final_release/frozen_system_manifest.json",
+  "feature_schema_hash": "8ba5bfa06e3b2d73dc545b8fbf3e04265d2732fe5a71dd34b9a0111dd7794588",
+  "configuration_hash": "555728247323b6b37dddc32bf8e9b9090d03bb8e0cde82eda548e2ecd6b367dd",
+  "component_hashes": {
+    "physics_regime_checkpoint": "c8764b1f8ff447c5b0ceb5ff774b53664b162b236161186246e0e9c240bafef1",
+    "final_preprocessor": "5160cf8ae5ef8e94984295d83c5e1babf64d301d7f8ca1a089c7c29c43ec2631",
+    "critical_boundary_guard": "26ae319d9301cd8aadc540e540877c7fc5c709a723950c045055bdea249d29a2",
+    "uncertainty_model": "503194f208e85b40de4178dcd643a6314e21b88155c5294366a6b01689b04561",
+    "maintenance_policy": "53e5e6f5e8a6eb65a249c967512aaf0d3228c48cbf14a1a8b41eacebef6112b5",
+    "metric_definition_registry": "e0024671c19f3900044cdd12886e3eeeb36e5f61ee26ccfe2c4f2076115579d9"
+  },
+  "frozen_safety_guard": {
+    "method": "deterministic_critical_boundary_rule",
+    "boundary_low": 15.0,
+    "boundary_high": 25.0,
+    "margin": 0.5,
+    "correction_bound": 10.0,
+    "active_rule": "15 < base_rul <= 25",
+    "deployed_system_is_kan": false
+  },
+  "frozen_uncertainty": {
+    "method_id": "global_split_conformal",
+    "nominal_levels": [
+      0.8,
+      0.9,
+      0.95
+    ],
+    "radii": {
+      "0.8": 32.158414,
+      "0.9": 53.55708600000003,
+      "0.95": 86.53937999999997
+    },
+    "selected_using_benchmark": false,
+    "source_prediction_column": "corrected_predicted_rul"
+  },
+  "frozen_review_policy": {
+    "method_id": "no_abstention",
+    "reason": "Phase 5D.1 threshold policy failed enrichment audit.",
+    "selected_using_benchmark": false
+  },
+  "frozen_maintenance_policy": {
+    "inspection_threshold": 60.0,
+    "policy_id": "point_u15_s30_i60",
+    "schedule_threshold": 30.0,
+    "selected_using_benchmark": false,
+    "urgent_threshold": 15.0
+  },
+  "monitoring": {
+    "components": [
+      "input_schema_drift",
+      "missing_sensor_rate",
+      "feature_range_violations",
+      "regime_distribution_drift",
+      "support_score_drift",
+      "prediction_distribution_drift",
+      "interval_width_drift",
+      "safety_guard_activation_rate",
+      "review_rate",
+      "maintenance_action_distribution",
+      "rul_trajectory_instability",
+      "inference_latency",
+      "runtime_failures"
+    ],
+    "inference_log_fields": [
+      "timestamp",
+      "engine_id",
+      "model_version",
+      "input_schema_hash",
+      "input_row_count",
+      "operating_regime",
+      "base_rul",
+      "adjusted_rul",
+      "correction_amount",
+      "interval_width",
+      "support_score",
+      "guard_activation",
+      "review_status",
+      "maintenance_action",
+      "latency_ms",
+      "warning_count"
+    ],
+    "raw_sensitive_data_logged_by_default": false
+  },
+  "figures": [
+    "reports/final_release/figures/complete_model_family_comparison.png",
+    "reports/final_release/figures/point_prediction_mae.png",
+    "reports/final_release/figures/point_prediction_rmse.png",
+    "reports/final_release/figures/nasa_score_comparison.png",
+    "reports/final_release/figures/severe_optimistic_rates.png",
+    "reports/final_release/figures/physics_ablation_comparison.png",
+    "reports/final_release/figures/kan_candidate_comparison.png",
+    "reports/final_release/figures/critical_misses_by_final_system.png",
+    "reports/final_release/figures/operational_recall_vs_workload.png",
+    "reports/final_release/figures/uncertainty_coverage_vs_nominal.png",
+    "reports/final_release/figures/interval_width_comparison.png",
+    "reports/final_release/figures/efficiency_comparison.png",
+    "reports/final_release/figures/model_parameter_count.png",
+    "reports/final_release/figures/paired_bootstrap_confidence_intervals.png",
+    "reports/final_release/figures/development_journey_diagram.png",
+    "reports/final_release/figures/selected_vs_rejected_system_diagram.png",
+    "reports/final_release/figures/final_architecture_diagram.png",
+    "reports/final_release/figures/final_readiness_summary.png",
+    "reports/final_release/figures/fd001_fd004_subset_comparison.png"
+  ],
+  "examples": {
+    "sample_engine_history": "examples/sample_engine_history.csv",
+    "sample_prediction": "examples/sample_prediction.json",
+    "batch_inference_example": "examples/batch_inference_example.py",
+    "api_request": "examples/api_request.json"
+  },
+  "optional_dependencies": {
+    "fastapi": true,
+    "uvicorn": true,
+    "streamlit": true
+  },
+  "previous_outputs_modified": false,
+  "model_retrained": false,
+  "threshold_retuned": false,
+  "packages_installed": false,
+  "git_used": false,
+  "environment_changed": false,
+  "source_hashes_recorded": true,
+  "commands": {
+    "python_inference": "from aeroguard.inference import AeroGuardPredictor",
+    "cli_inference": "python -m aeroguard.inference.cli --manifest artifacts/final_release/frozen_system_manifest.json --input examples/sample_engine_history.csv --output reports/inference/sample_prediction.json",
+    "api_startup": "python -m uvicorn aeroguard.api.app:app --host 127.0.0.1 --port 8000",
+    "dashboard_startup": "python -m streamlit run dashboard/app.py"
+  }
+}

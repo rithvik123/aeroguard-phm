@@ -1,0 +1,218 @@
+dataset_dir: data/raw/cmapss
+fd001_subset: FD001
+fd003_subset: FD003
+baseline_config_path: configs/fd001_baseline.yaml
+phase2_config_path: configs/fd001_health_anomaly.yaml
+phase2b_config_path: configs/fd001_anomaly_calibration.yaml
+random_seed: 42
+
+group_cross_validation_folds: 5
+group_cross_validation_repeats: 3
+group_cross_validation_seeds: [4101, 4102, 4103]
+
+healthy_rul_threshold: 125
+critical_rul_threshold: 30
+
+score_calibration:
+  method: empirical_percentile
+  lower_quantile: 0.01
+  upper_quantile: 0.99
+  epsilon: 1.0e-9
+  clip: true
+
+maximum_policy_count: 24
+candidate_policy_registry:
+  - policy_id: phase2b_max_0975_c5
+    calibration_method: empirical_percentile
+    fusion_method: max
+    threshold: 0.975
+    persistence: {type: consecutive, k: 5}
+    hysteresis: {enter_threshold: 0.95, exit_threshold: 0.85, min_enter_duration: 3, min_clear_duration: 3}
+    operational_profile: balanced
+  - policy_id: max_095_c3
+    calibration_method: empirical_percentile
+    fusion_method: max
+    threshold: 0.95
+    persistence: {type: consecutive, k: 3}
+    hysteresis: {enter_threshold: 0.95, exit_threshold: 0.85, min_enter_duration: 3, min_clear_duration: 3}
+    operational_profile: balanced
+  - policy_id: max_099_c5
+    calibration_method: empirical_percentile
+    fusion_method: max
+    threshold: 0.99
+    persistence: {type: consecutive, k: 5}
+    hysteresis: {enter_threshold: 0.95, exit_threshold: 0.85, min_enter_duration: 3, min_clear_duration: 3}
+    operational_profile: balanced
+  - policy_id: mean_095_c3
+    calibration_method: empirical_percentile
+    fusion_method: mean
+    threshold: 0.95
+    persistence: {type: consecutive, k: 3}
+    hysteresis: {enter_threshold: 0.90, exit_threshold: 0.80, min_enter_duration: 3, min_clear_duration: 3}
+    operational_profile: balanced
+  - policy_id: mean_0975_c5
+    calibration_method: empirical_percentile
+    fusion_method: mean
+    threshold: 0.975
+    persistence: {type: consecutive, k: 5}
+    hysteresis: {enter_threshold: 0.95, exit_threshold: 0.85, min_enter_duration: 3, min_clear_duration: 3}
+    operational_profile: balanced
+  - policy_id: median_095_c3
+    calibration_method: empirical_percentile
+    fusion_method: median
+    threshold: 0.95
+    persistence: {type: consecutive, k: 3}
+    hysteresis: {enter_threshold: 0.90, exit_threshold: 0.80, min_enter_duration: 3, min_clear_duration: 3}
+    operational_profile: balanced
+  - policy_id: median_0975_3of5
+    calibration_method: empirical_percentile
+    fusion_method: median
+    threshold: 0.975
+    persistence: {type: k_of_n, k: 3, n: 5}
+    hysteresis: {enter_threshold: 0.95, exit_threshold: 0.85, min_enter_duration: 3, min_clear_duration: 3}
+    operational_profile: balanced
+  - policy_id: iso_svm_mean_095_c3
+    calibration_method: empirical_percentile
+    fusion_method: weighted_mean
+    weights: {pca_reconstruction: 0.0, isolation_forest: 0.5, one_class_svm: 0.5}
+    threshold: 0.95
+    persistence: {type: consecutive, k: 3}
+    hysteresis: {enter_threshold: 0.90, exit_threshold: 0.80, min_enter_duration: 3, min_clear_duration: 3}
+    operational_profile: balanced
+  - policy_id: iso_svm_mean_0975_c5
+    calibration_method: empirical_percentile
+    fusion_method: weighted_mean
+    weights: {pca_reconstruction: 0.0, isolation_forest: 0.5, one_class_svm: 0.5}
+    threshold: 0.975
+    persistence: {type: consecutive, k: 5}
+    hysteresis: {enter_threshold: 0.95, exit_threshold: 0.85, min_enter_duration: 3, min_clear_duration: 3}
+    operational_profile: balanced
+  - policy_id: voting_two_of_three_095_c3
+    calibration_method: empirical_percentile
+    fusion_method: voting
+    voting_rule: at_least_two
+    threshold: 0.95
+    persistence: {type: consecutive, k: 3}
+    hysteresis: {enter_threshold: 0.90, exit_threshold: 0.80, min_enter_duration: 3, min_clear_duration: 3}
+    operational_profile: balanced
+  - policy_id: isolation_only_095_c3
+    calibration_method: empirical_percentile
+    fusion_method: detector
+    detector: isolation_forest
+    threshold: 0.95
+    persistence: {type: consecutive, k: 3}
+    hysteresis: {enter_threshold: 0.90, exit_threshold: 0.80, min_enter_duration: 3, min_clear_duration: 3}
+    operational_profile: balanced
+  - policy_id: isolation_only_0975_c5
+    calibration_method: empirical_percentile
+    fusion_method: detector
+    detector: isolation_forest
+    threshold: 0.975
+    persistence: {type: consecutive, k: 5}
+    hysteresis: {enter_threshold: 0.95, exit_threshold: 0.85, min_enter_duration: 3, min_clear_duration: 3}
+    operational_profile: balanced
+  - policy_id: svm_only_095_c3
+    calibration_method: empirical_percentile
+    fusion_method: detector
+    detector: one_class_svm
+    threshold: 0.95
+    persistence: {type: consecutive, k: 3}
+    hysteresis: {enter_threshold: 0.90, exit_threshold: 0.80, min_enter_duration: 3, min_clear_duration: 3}
+    operational_profile: balanced
+  - policy_id: pca_only_095_c3
+    calibration_method: empirical_percentile
+    fusion_method: detector
+    detector: pca_reconstruction
+    threshold: 0.95
+    persistence: {type: consecutive, k: 3}
+    hysteresis: {enter_threshold: 0.90, exit_threshold: 0.80, min_enter_duration: 3, min_clear_duration: 3}
+    operational_profile: balanced
+
+operational_profiles:
+  safety_first:
+    detection_rate: 2.0
+    critical_region_recall: 1.4
+    missed_engine_rate: 2.0
+    false_alarm_engine_rate: 0.8
+    healthy_region_false_positive_rate: 0.8
+    detected_before_30_fraction: 0.9
+    detected_before_60_fraction: 0.5
+    alert_instability: 0.4
+    utility_variability: 0.4
+  balanced:
+    detection_rate: 1.5
+    critical_region_recall: 1.0
+    missed_engine_rate: 1.2
+    false_alarm_engine_rate: 1.0
+    healthy_region_false_positive_rate: 1.0
+    detected_before_30_fraction: 0.7
+    detected_before_60_fraction: 0.4
+    alert_instability: 0.5
+    utility_variability: 0.5
+  low_false_alarm:
+    detection_rate: 1.0
+    critical_region_recall: 0.8
+    missed_engine_rate: 0.8
+    false_alarm_engine_rate: 2.0
+    healthy_region_false_positive_rate: 2.5
+    detected_before_30_fraction: 0.4
+    detected_before_60_fraction: 0.2
+    alert_instability: 0.8
+    utility_variability: 0.8
+primary_operational_profile: balanced
+utility_variability_penalty: 0.5
+
+feasibility_constraints:
+  max_mean_false_alarm_engine_rate: 0.20
+  max_mean_healthy_region_false_positive_rate: 0.20
+  minimum_mean_detection_rate: 0.25
+  minimum_mean_critical_region_recall: 0.20
+alert_unstable_transition_threshold: 3
+
+bootstrap_samples: 1000
+confidence_level: 0.95
+bootstrap_seed: 4201
+
+health_index_correlation_categories:
+  weak_upper: 0.30
+  moderate_upper: 0.60
+  strong_lower: 0.60
+
+generalization_classification_criteria:
+  strong:
+    cv_mean_detection_rate: 0.80
+    cv_detection_rate_std: 0.15
+    fd001_detection_rate: 0.60
+    fd003_detection_rate: 0.60
+    fd003_false_alarm_engine_rate: 0.15
+    fd003_missed_engine_rate: 0.40
+    fd003_critical_region_recall: 0.60
+  moderate:
+    cv_mean_detection_rate: 0.60
+    cv_detection_rate_std: 0.25
+    fd001_detection_rate: 0.40
+    fd003_detection_rate: 0.40
+    fd003_false_alarm_engine_rate: 0.25
+    fd003_missed_engine_rate: 0.60
+    fd003_critical_region_recall: 0.40
+  weak:
+    cv_mean_detection_rate: 0.30
+    cv_detection_rate_std: 0.35
+    fd001_detection_rate: 0.20
+    fd003_detection_rate: 0.20
+    fd003_false_alarm_engine_rate: 0.40
+    fd003_missed_engine_rate: 0.80
+    fd003_critical_region_recall: 0.20
+
+operational_alert_thresholds:
+  monitor_score: 0.80
+  warning_score: 0.90
+  critical_score: 0.98
+  warning_health_index_max: 0.55
+  critical_health_index_max: 0.35
+
+output_dir: reports/fd001_alert_generalization
+representative_timeline_count: 4
+plotting:
+  scatter_sample_rows: 5000
+  psi_bins: 10

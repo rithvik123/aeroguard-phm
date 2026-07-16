@@ -1,0 +1,109 @@
+source:
+  phase5c_reports: reports/physics_guided_rul
+  phase5c_artifacts: artifacts/physics_guided_rul
+  phase5c1_reports: reports/physics_guided_rul_refined
+  phase5c1_artifacts: artifacts/physics_guided_rul_refined
+  phase5c2_reports: reports/physics_guided_rul_safety_refined
+  phase5c2_artifacts: artifacts/physics_guided_rul_safety_refined
+  phase5d_reports: reports/aerokan_phm
+  phase5d_artifacts: artifacts/aerokan_phm
+  phase5d1_reports: reports/aerokan_phm_selective
+  phase5d1_artifacts: artifacts/aerokan_phm_selective
+  cmapss_dir: data/raw/cmapss
+
+outputs:
+  reports_dir: reports/aerokan_phm_critical_gate
+  artifacts_dir: artifacts/aerokan_phm_critical_gate
+  overwrite_existing: false
+
+metrics:
+  residual_orientation: predicted_minus_true
+  severe_optimism_threshold: 30.0
+  critical_rul_max: 15
+  near_critical_rul_max: 30
+  urgent_threshold: 15.0
+  floating_tolerance: 1.0e-6
+
+features:
+  slope_windows: [5, 10, 20]
+  statistic_windows: [5, 10, 20]
+  retained_sensors: [2, 3, 4, 7, 11, 12, 15, 20, 21]
+  input_clamp: 5.0
+  maximum_gate_features: 20
+  maximum_correction_features: 20
+
+gates:
+  maximum_features: 20
+  critical_recall_minimum: 0.90
+  near_critical_recall_minimum: 0.85
+  dangerous_recall_minimum: 0.75
+  maximum_cascade_activation: 0.30
+  boundary_low: 15.0
+  boundary_high_candidates: [20.0, 25.0, 30.0]
+  margin_candidates: [0.1, 0.5, 1.0]
+  candidates:
+    - rule
+    - logistic
+    - isotonic_logistic
+    - shallow_tree
+    - sparse_additive_kan
+
+correction:
+  bounds: [5.0, 10.0, 15.0, 20.0, 30.0]
+  grid_sizes: [5, 7]
+  spline_degree: 3
+  maximum_active_features: 20
+  pruning_correlation_min: 0.999
+  pruning_mean_abs_delta_max: 0.05
+
+training:
+  screening_epochs: 1
+  finalist_epochs: 1
+  final_epochs: 1
+  learning_rate: 0.01
+  batch_size: 512
+  random_seed: 14501
+  max_windows_per_engine: 8
+
+selection:
+  folds: 3
+  seeds: [14501]
+  development_fraction: 0.70
+  rmse_noninferiority_margin: 0.30
+  mae_noninferiority_margin: 0.20
+  no_new_fixed_policy_misses: true
+
+uncertainty:
+  nominal_levels: [0.80, 0.90, 0.95]
+  minimum_group_size: 40
+
+abstention:
+  high_error_threshold: 25.0
+  maximum_rate: 0.15
+  maximum_abstention_rate: 0.15
+  minimum_error_enrichment: 1.0
+  accepted_rmse_tolerance: 0.10
+  allow_no_abstention: true
+
+maintenance:
+  critical_rul_max: 15
+  near_term_rul_max: 30
+  inspection_rul_max: 60
+  monitoring_rul_max: 90
+  urgent_thresholds: [10, 15, 20, 25]
+  schedule_thresholds: [25, 30, 40]
+  inspection_thresholds: [50, 60, 75]
+  minimum_urgent_precision: 0.45
+  operational_recall_minimum: 0.90
+  direct_urgent_recall_minimum: 0.80
+  maximum_review_rate: 0.40
+
+bootstrap:
+  iterations: 500
+  seed: 14601
+
+freeze:
+  phase5c_miss_target: 25
+  phase5d_miss_target: 21
+  phase5d_operational_recall: 0.7941
+  maximum_review_rate: 0.40

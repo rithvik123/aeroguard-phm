@@ -1,0 +1,1089 @@
+Path,File type,File size,Category,Proposed action,Reason,Attribution required,Safe to delete,Final action
+.env.example,.example,471,Keep,Keep,Public release metadata.,No,No,Kept
+.gitattributes,.gitattributes,308,Keep,Keep,Public release metadata.,No,No,Kept
+.gitignore,.gitignore,2147,Keep,Keep,Public release metadata.,No,No,Kept
+CITATION.cff,.cff,1499,Keep,Keep,Public release metadata.,No,No,Kept
+CODE_OF_CONDUCT.md,.md,696,Keep,Keep,Public release metadata.,No,No,Kept
+CONTRIBUTING.md,.md,1240,Keep,Keep,Public release metadata.,No,No,Kept
+LICENSE,LICENSE,11389,Keep,Keep,Public release metadata.,No,No,Kept
+MODEL_CARD.md,.md,4165,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+pyproject.toml,.toml,1369,Keep,Keep,Public release metadata.,No,No,Kept
+pytest.ini,.ini,107,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+README.md,.md,35591,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+REPRODUCIBILITY.md,.md,2050,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+SECURITY.md,.md,914,Keep,Keep,Public release metadata.,No,No,Kept
+THIRD_PARTY_NOTICES.md,.md,3049,Keep,Keep,Public release metadata.,No,No,Kept
+.github/workflows/ci.yml,.yml,1280,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+.ruff_cache/.gitignore,.gitignore,35,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+.ruff_cache/CACHEDIR.TAG,.tag,43,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+.ruff_cache/0.15.20/11819955618034462510,11819955618034462510,957,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+.ruff_cache/0.15.20/14925571079534158161,14925571079534158161,211,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+.ruff_cache/0.15.20/2583144885230234230,2583144885230234230,6008,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+.ruff_cache/0.15.20/3293565112686943530,3293565112686943530,95,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+.ruff_cache/0.15.20/4290809782184162674,4290809782184162674,2904,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+.ruff_cache/0.15.20/8481538610315914886,8481538610315914886,64,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+artifacts/aerokan_phm/abstention_risk_model.pkl,.pkl,144,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/aerokan_phm/aerokan_corrector.pt,.pt,12697,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/aerokan_phm/feature_preprocessor.pkl,.pkl,3481,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/aerokan_phm/healthy_regime_baseline_metadata.json,.json,468,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/aerokan_phm/maintenance_policy.pkl,.pkl,545,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/aerokan_phm/pruning_mask.json,.json,176,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/aerokan_phm/uncertainty_model.pkl,.pkl,187,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/aerokan_phm_critical_gate/abstention_model.pkl,.pkl,136,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/aerokan_phm_critical_gate/cascade_metadata.json,.json,92,Keep,Keep,Small frozen guard/uncertainty/policy artifact required by final manifest.,No,No,Kept
+artifacts/aerokan_phm_critical_gate/critical_risk_gate.pkl,.pkl,60,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/aerokan_phm_critical_gate/gate_preprocessors.pkl,.pkl,1284,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/aerokan_phm_critical_gate/kan_preprocessor.pkl,.pkl,107,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/aerokan_phm_critical_gate/maintenance_policy.pkl,.pkl,166,Keep,Keep,Small frozen guard/uncertainty/policy artifact required by final manifest.,No,No,Kept
+artifacts/aerokan_phm_critical_gate/one_sided_additive_kan_checkpoint.pt,.pt,3041,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/aerokan_phm_critical_gate/optimism_risk_gate.pkl,.pkl,70,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/aerokan_phm_critical_gate/uncertainty_model.pkl,.pkl,240,Keep,Keep,Small frozen guard/uncertainty/policy artifact required by final manifest.,No,No,Kept
+artifacts/aerokan_phm_selective/abstention_model.pkl,.pkl,219,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/aerokan_phm_selective/gate_model.pkl,.pkl,867,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/aerokan_phm_selective/gate_preprocessor.pkl,.pkl,2480,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/aerokan_phm_selective/healthy_baseline_metadata.json,.json,875,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/aerokan_phm_selective/kan_feature_preprocessor.pkl,.pkl,2542,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/aerokan_phm_selective/maintenance_policy.pkl,.pkl,598,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/aerokan_phm_selective/one_sided_kan_checkpoint.pt,.pt,4487,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/aerokan_phm_selective/pruning_mask.json,.json,253,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/aerokan_phm_selective/uncertainty_model.pkl,.pkl,267,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/deep_rul/checkpoints/cv_gru_cv_r1_f1.pt,.pt,147069,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/deep_rul/checkpoints/cv_gru_cv_r1_f2.pt,.pt,147069,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/deep_rul/checkpoints/cv_gru_cv_r1_f3.pt,.pt,147069,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/deep_rul/checkpoints/cv_lstm_cv_r1_f1.pt,.pt,181003,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/deep_rul/checkpoints/cv_lstm_cv_r1_f2.pt,.pt,181003,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/deep_rul/checkpoints/cv_lstm_cv_r1_f3.pt,.pt,181003,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/deep_rul/checkpoints/locked_deep_model.pt,.pt,166553,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/deep_rul/checkpoints/screening_cnn1d.pt,.pt,90237,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/deep_rul/checkpoints/screening_cnn_lstm.pt,.pt,216245,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/deep_rul/checkpoints/screening_gru.pt,.pt,133025,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/deep_rul/checkpoints/screening_lstm.pt,.pt,166959,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/deep_rul/checkpoints/screening_sequence_mlp.pt,.pt,99039,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/deep_rul/checkpoints/screening_tcn.pt,.pt,330365,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/deep_rul_extended/checkpoints/finalist_patch_transformer_10x5_mean_b_cv_r1_f1_seed9501.pt,.pt,391515,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/deep_rul_extended/checkpoints/finalist_patch_transformer_10x5_mean_b_cv_r1_f1_seed9502.pt,.pt,391515,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/deep_rul_extended/checkpoints/finalist_patch_transformer_10x5_mean_b_cv_r1_f2_seed9501.pt,.pt,391515,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/deep_rul_extended/checkpoints/finalist_patch_transformer_10x5_mean_b_cv_r1_f2_seed9502.pt,.pt,391515,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/deep_rul_extended/checkpoints/finalist_patch_transformer_10x5_mean_b_cv_r1_f3_seed9501.pt,.pt,391515,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/deep_rul_extended/checkpoints/finalist_patch_transformer_10x5_mean_b_cv_r1_f3_seed9502.pt,.pt,391515,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/deep_rul_extended/checkpoints/finalist_patch_transformer_5x5_attention_a_cv_r1_f1_seed9501.pt,.pt,341189,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/deep_rul_extended/checkpoints/finalist_patch_transformer_5x5_attention_a_cv_r1_f1_seed9502.pt,.pt,341189,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/deep_rul_extended/checkpoints/finalist_patch_transformer_5x5_attention_a_cv_r1_f2_seed9501.pt,.pt,341189,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/deep_rul_extended/checkpoints/finalist_patch_transformer_5x5_attention_a_cv_r1_f2_seed9502.pt,.pt,341189,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/deep_rul_extended/checkpoints/finalist_patch_transformer_5x5_attention_a_cv_r1_f3_seed9501.pt,.pt,341189,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/deep_rul_extended/checkpoints/finalist_patch_transformer_5x5_attention_a_cv_r1_f3_seed9502.pt,.pt,341189,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/deep_rul_extended/checkpoints/locked_extended_model.pt,.pt,374028,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/deep_rul_extended/checkpoints/stage_a_lstm_phase5_schedule_a.pt,.pt,169743,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/deep_rul_extended/checkpoints/stage_a_lstm_phase5_schedule_b.pt,.pt,169743,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/deep_rul_extended/checkpoints/stage_a_patch_transformer_10x5_mean_b.pt,.pt,377372,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/deep_rul_extended/checkpoints/stage_a_patch_transformer_5x5_attention_a.pt,.pt,326861,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/deep_rul_extended/checkpoints/stage_a_tcn_extended_schedule_a.pt,.pt,435201,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/deep_rul_extended/checkpoints/stage_a_tcn_extended_schedule_b.pt,.pt,544769,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/deep_rul_extended/checkpoints/stage_a_temporal_transformer_learned_attention_b.pt,.pt,406091,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/deep_rul_extended/checkpoints/stage_a_temporal_transformer_sinusoidal_mean_a.pt,.pt,308293,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/final_release/frozen_system_manifest.json,.json,14316,Keep,Keep,Release manifest artifact.,No,No,Kept
+artifacts/final_release/source_artifact_manifest.json,.json,3852,Keep,Keep,Release manifest artifact.,No,No,Kept
+artifacts/physics_guided_rul/checkpoints/finalist_physics_full_safety_fold1_seed9841.pt,.pt,413378,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul/checkpoints/finalist_physics_full_safety_fold1_seed9842.pt,.pt,413826,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul/checkpoints/finalist_physics_full_safety_fold2_seed9841.pt,.pt,413762,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul/checkpoints/finalist_physics_full_safety_fold2_seed9842.pt,.pt,413954,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul/checkpoints/finalist_physics_full_safety_fold3_seed9841.pt,.pt,413570,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul/checkpoints/finalist_physics_full_safety_fold3_seed9842.pt,.pt,414274,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul/checkpoints/finalist_physics_regime_fold1_seed9841.pt,.pt,376769,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul/checkpoints/finalist_physics_regime_fold1_seed9842.pt,.pt,375745,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul/checkpoints/finalist_physics_regime_fold2_seed9841.pt,.pt,376001,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul/checkpoints/finalist_physics_regime_fold2_seed9842.pt,.pt,375745,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul/checkpoints/finalist_physics_regime_fold3_seed9841.pt,.pt,375937,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul/checkpoints/finalist_physics_regime_fold3_seed9842.pt,.pt,375745,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul/checkpoints/final_preprocessor.pkl,.pkl,649045,Keep,Keep,Small frozen inference artifact required by final manifest.,No,No,Kept
+artifacts/physics_guided_rul/checkpoints/final_train_transformed.pkl,.pkl,79675276,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul/checkpoints/locked_physics_guided_model.pt,.pt,376106,Keep,Keep,Small frozen inference artifact required by final manifest.,No,No,Kept
+artifacts/physics_guided_rul/checkpoints/screening_phase5b_reimplementation_baseline.pt,.pt,376250,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul/checkpoints/screening_physics_cycle_rate.pt,.pt,394903,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul/checkpoints/screening_physics_full.pt,.pt,413137,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul/checkpoints/screening_physics_full_safety.pt,.pt,413516,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul/checkpoints/screening_physics_health.pt,.pt,395315,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul/checkpoints/screening_physics_monotonic.pt,.pt,375850,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul/checkpoints/screening_physics_regime.pt,.pt,376763,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul/checkpoints/screening_physics_smooth.pt,.pt,376123,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul/checkpoints/screening_physics_temporal_combined.pt,.pt,394998,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul_failed_20260715_002719/checkpoints/screening_phase5b_reimplementation_baseline.pt,.pt,376186,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul_failed_20260715_002719/checkpoints/screening_physics_cycle_rate.pt,.pt,394903,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul_failed_20260715_002719/checkpoints/screening_physics_full.pt,.pt,413073,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul_failed_20260715_002719/checkpoints/screening_physics_full_safety.pt,.pt,413516,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul_failed_20260715_002719/checkpoints/screening_physics_health.pt,.pt,395251,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul_failed_20260715_002719/checkpoints/screening_physics_monotonic.pt,.pt,375850,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul_failed_20260715_002719/checkpoints/screening_physics_regime.pt,.pt,376699,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul_failed_20260715_002719/checkpoints/screening_physics_smooth.pt,.pt,376123,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul_failed_20260715_002719/checkpoints/screening_physics_temporal_combined.pt,.pt,394934,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul_failed_20260715_013350/checkpoints/finalist_physics_full_safety_fold1_seed9841.pt,.pt,413378,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul_failed_20260715_013350/checkpoints/finalist_physics_full_safety_fold1_seed9842.pt,.pt,413826,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul_failed_20260715_013350/checkpoints/finalist_physics_full_safety_fold2_seed9841.pt,.pt,413762,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul_failed_20260715_013350/checkpoints/finalist_physics_full_safety_fold2_seed9842.pt,.pt,413954,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul_failed_20260715_013350/checkpoints/finalist_physics_full_safety_fold3_seed9841.pt,.pt,413570,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul_failed_20260715_013350/checkpoints/finalist_physics_full_safety_fold3_seed9842.pt,.pt,414274,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul_failed_20260715_013350/checkpoints/finalist_physics_regime_fold1_seed9841.pt,.pt,376769,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul_failed_20260715_013350/checkpoints/finalist_physics_regime_fold1_seed9842.pt,.pt,375745,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul_failed_20260715_013350/checkpoints/finalist_physics_regime_fold2_seed9841.pt,.pt,376001,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul_failed_20260715_013350/checkpoints/finalist_physics_regime_fold2_seed9842.pt,.pt,375745,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul_failed_20260715_013350/checkpoints/finalist_physics_regime_fold3_seed9841.pt,.pt,375937,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul_failed_20260715_013350/checkpoints/finalist_physics_regime_fold3_seed9842.pt,.pt,375745,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul_failed_20260715_013350/checkpoints/locked_physics_guided_model.pt,.pt,374954,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul_failed_20260715_013350/checkpoints/screening_phase5b_reimplementation_baseline.pt,.pt,376250,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul_failed_20260715_013350/checkpoints/screening_physics_cycle_rate.pt,.pt,394903,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul_failed_20260715_013350/checkpoints/screening_physics_full.pt,.pt,413137,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul_failed_20260715_013350/checkpoints/screening_physics_full_safety.pt,.pt,413516,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul_failed_20260715_013350/checkpoints/screening_physics_health.pt,.pt,395315,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul_failed_20260715_013350/checkpoints/screening_physics_monotonic.pt,.pt,375850,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul_failed_20260715_013350/checkpoints/screening_physics_regime.pt,.pt,376763,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul_failed_20260715_013350/checkpoints/screening_physics_smooth.pt,.pt,376123,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul_failed_20260715_013350/checkpoints/screening_physics_temporal_combined.pt,.pt,394998,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul_interrupted_20260714_234348/checkpoints/screening_phase5b_reimplementation_baseline.pt,.pt,376186,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul_interrupted_20260714_234348/checkpoints/screening_physics_monotonic.pt,.pt,375850,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul_refined/abstention_logistic_model.pkl,.pkl,757,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul_refined/locked_uncertainty_policy.pkl,.pkl,1048,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul_safety_refined/locked_maintenance_safety_policy.json,.json,3434,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+artifacts/physics_guided_rul_safety_refined/locked_maintenance_safety_policy.pkl,.pkl,2743,Add to .gitignore,Ignore,Generated model artifact not required for public inference.,No,No,Ignored
+configs/aerokan_rul_corrector.yaml,.yaml,2589,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+configs/critical_gate_aerokan_corrector.yaml,.yaml,2799,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+configs/fd001_alert_generalization.yaml,.yaml,7765,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+configs/fd001_anomaly_calibration.yaml,.yaml,3238,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+configs/fd001_baseline.yaml,.yaml,694,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+configs/fd001_health_anomaly.yaml,.yaml,1381,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+configs/maintenance_safety_policy_refinement.yaml,.yaml,3289,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+configs/multidomain_deep_rul.yaml,.yaml,3733,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+configs/multidomain_phm.yaml,.yaml,5902,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+configs/multidomain_rul_uncertainty.yaml,.yaml,6237,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+configs/multidomain_temporal_optimization.yaml,.yaml,6437,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+configs/physics_guided_temporal_rul.yaml,.yaml,5148,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+configs/physics_guided_temporal_rul_refinement.yaml,.yaml,1618,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+configs/selective_aerokan_safety_corrector.yaml,.yaml,3245,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+dashboard/app.py,.py,3166,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+data/raw/cmapss/Damage Propagation Modeling.pdf,.pdf,434158,Add to .gitignore,Ignore,Raw C-MAPSS dataset should not be staged by default.,Yes,No,Ignored
+data/raw/cmapss/readme.txt,.txt,2487,Add to .gitignore,Ignore,Raw C-MAPSS dataset should not be staged by default.,Yes,No,Ignored
+data/raw/cmapss/RUL_FD001.txt,.txt,529,Add to .gitignore,Ignore,Raw C-MAPSS dataset should not be staged by default.,Yes,No,Ignored
+data/raw/cmapss/RUL_FD002.txt,.txt,1369,Add to .gitignore,Ignore,Raw C-MAPSS dataset should not be staged by default.,Yes,No,Ignored
+data/raw/cmapss/RUL_FD003.txt,.txt,528,Add to .gitignore,Ignore,Raw C-MAPSS dataset should not be staged by default.,Yes,No,Ignored
+data/raw/cmapss/RUL_FD004.txt,.txt,1332,Add to .gitignore,Ignore,Raw C-MAPSS dataset should not be staged by default.,Yes,No,Ignored
+data/raw/cmapss/test_FD001.txt,.txt,2241951,Add to .gitignore,Ignore,Raw C-MAPSS dataset should not be staged by default.,Yes,No,Ignored
+data/raw/cmapss/test_FD002.txt,.txt,5768578,Add to .gitignore,Ignore,Raw C-MAPSS dataset should not be staged by default.,Yes,No,Ignored
+data/raw/cmapss/test_FD003.txt,.txt,2843247,Add to .gitignore,Ignore,Raw C-MAPSS dataset should not be staged by default.,Yes,No,Ignored
+data/raw/cmapss/test_FD004.txt,.txt,6998973,Add to .gitignore,Ignore,Raw C-MAPSS dataset should not be staged by default.,Yes,No,Ignored
+data/raw/cmapss/train_FD001.txt,.txt,3535987,Add to .gitignore,Ignore,Raw C-MAPSS dataset should not be staged by default.,Yes,No,Ignored
+data/raw/cmapss/train_FD002.txt,.txt,9136239,Add to .gitignore,Ignore,Raw C-MAPSS dataset should not be staged by default.,Yes,No,Ignored
+data/raw/cmapss/train_FD003.txt,.txt,4238582,Add to .gitignore,Ignore,Raw C-MAPSS dataset should not be staged by default.,Yes,No,Ignored
+data/raw/cmapss/train_FD004.txt,.txt,10411954,Add to .gitignore,Ignore,Raw C-MAPSS dataset should not be staged by default.,Yes,No,Ignored
+data/raw/cmapss/x.txt,.txt,1143,Add to .gitignore,Ignore,Raw C-MAPSS dataset should not be staged by default.,Yes,No,Ignored
+docs/aeroguard_phm_final_report.md,.md,5639,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+docs/architecture.md,.md,2255,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+docs/references.md,.md,1749,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+docs/archive/README_before_detailed_release.md,.md,6590,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+docs/assets/README_IMAGE_MAPPING.md,.md,4246,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+docs/assets/readme/README_IMAGE_PLAN.md,.md,6015,Keep,Keep,README asset or asset plan.,No,No,Kept
+docs/assets/readme/SCREENSHOT_CHECKLIST.md,.md,1498,Keep,Keep,README asset or asset plan.,No,No,Kept
+docs/assets/readme/architecture/critical_boundary_safety_guard.png,.png,5789750,Keep,Keep,README asset or asset plan.,No,No,Kept
+docs/assets/readme/architecture/final_system_design.png,.png,5612778,Keep,Keep,README asset or asset plan.,No,No,Kept
+docs/assets/readme/architecture/model_development_journey.png,.png,3911414,Keep,Keep,README asset or asset plan.,No,No,Kept
+docs/assets/readme/hero/aeroguard_phm_hero.png,.png,6801018,Keep,Keep,README asset or asset plan.,No,No,Kept
+docs/assets/readme/hero/rul_problem_statement.png,.png,5421019,Keep,Keep,README asset or asset plan.,No,No,Kept
+examples/api_request.json,.json,48462,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+examples/batch_inference_example.py,.py,416,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+examples/sample_engine_history.csv,.csv,15337,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+examples/sample_prediction.json,.json,1441,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+reports/aerokan_phm/abstention_metrics.json,.json,218,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm/benchmark_metrics.json,.json,958,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm/benchmark_metrics_by_subset.csv,.csv,2114,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm/benchmark_predictions.csv,.csv,1799225,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm/benchmark_safety_metrics.json,.json,484,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm/candidate_registry.json,.json,2861,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm/corrected_oof_predictions.csv,.csv,35367250,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm/engineering_feature_registry.json,.json,2991,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm/feature_leakage_audit.json,.json,177,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm/finalist_cross_validation_metrics.csv,.csv,2790,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm/finalist_selection.json,.json,4906,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm/freeze_decision.json,.json,367,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm/kan_curve_stability.csv,.csv,107918,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm/kan_edge_importance.csv,.csv,9615,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm/kan_pruning_results.csv,.csv,169,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm/kan_symbolic_approximations.csv,.csv,3045,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm/local_kan_explanations.json,.json,6485,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm/locked_abstention_policy.json,.json,164,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm/locked_aerokan_model.json,.json,9372,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm/locked_maintenance_policy.json,.json,649,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm/locked_uncertainty_method.json,.json,257,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm/maintenance_policy_candidates.csv,.csv,4732,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm/paired_bootstrap_results.csv,.csv,1449,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm/phase5b_phase5c_phase5d_comparison.csv,.csv,1402,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm/run_summary.json,.json,22693,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm/screening_metrics.csv,.csv,4905,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm/source_artifact_manifest.json,.json,4872,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm/source_validation.json,.json,485,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm/uncertainty_metrics.json,.json,193,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm/figures/active_kan_feature_importance.png,.png,68957,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm/figures/base_vs_corrected_predicted_rul.png,.png,77064,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm/figures/base_vs_corrected_residual_distributions.png,.png,21623,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm/figures/candidate_critical_optimistic_rate.png,.png,55915,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm/figures/candidate_nasa_score.png,.png,59364,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm/figures/candidate_validation_rmse.png,.png,59694,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm/figures/correction_by_operating_regime.png,.png,18028,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm/figures/correction_by_support_category.png,.png,25906,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm/figures/correction_by_true_rul_band.png,.png,24281,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm/figures/correction_magnitude_distribution.png,.png,14056,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm/figures/coverage_vs_nominal_level.png,.png,33810,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm/figures/critical_engine_prediction_comparison.png,.png,35929,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm/figures/critical_miss_proxy_by_candidate.png,.png,56897,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm/figures/fold_to_fold_kan_curve_stability.png,.png,28504,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm/figures/freeze_readiness_summary.png,.png,11607,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm/figures/interval_width_comparison.png,.png,19624,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm/figures/learned_univariate_kan_curves.png,.png,133411,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm/figures/maintenance_recall_vs_workload.png,.png,14302,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm/figures/phase5b_phase5c_phase5d_paired_bootstrap_forest.png,.png,25430,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm/figures/previously_missed_critical_engine_corrections.png,.png,28661,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm/figures/pruning_performance_tradeoff.png,.png,20058,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm/figures/risk_coverage_curve.png,.png,31636,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm/figures/seed_to_seed_curve_stability.png,.png,31586,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm/figures/symbolic_approximation_fidelity.png,.png,11001,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_critical_gate/abstention_policy_audit.json,.json,763,Add to .gitignore,Ignore,Detailed generated experiment output.,No,No,Ignored
+reports/aerokan_phm_critical_gate/benchmark_fixed_policy_metrics.json,.json,374,Keep,Keep,Curated final selected-system evidence.,No,No,Kept
+reports/aerokan_phm_critical_gate/benchmark_metrics.json,.json,1024,Keep,Keep,Curated final selected-system evidence.,No,No,Kept
+reports/aerokan_phm_critical_gate/benchmark_predictions.csv,.csv,368075,Keep,Keep,Curated final selected-system evidence.,No,No,Kept
+reports/aerokan_phm_critical_gate/benchmark_reselected_policy_metrics.json,.json,272,Add to .gitignore,Ignore,Detailed generated experiment output.,No,No,Ignored
+reports/aerokan_phm_critical_gate/corrected_oof_predictions.csv,.csv,35852955,Add to .gitignore,Ignore,Detailed generated experiment output.,No,No,Ignored
+reports/aerokan_phm_critical_gate/correction_candidate_metrics.csv,.csv,2080,Add to .gitignore,Ignore,Detailed generated experiment output.,No,No,Ignored
+reports/aerokan_phm_critical_gate/finalist_cross_validation_metrics.csv,.csv,804,Add to .gitignore,Ignore,Detailed generated experiment output.,No,No,Ignored
+reports/aerokan_phm_critical_gate/fixed_policy_comparison.csv,.csv,2000,Add to .gitignore,Ignore,Detailed generated experiment output.,No,No,Ignored
+reports/aerokan_phm_critical_gate/freeze_decision.json,.json,180,Add to .gitignore,Ignore,Detailed generated experiment output.,No,No,Ignored
+reports/aerokan_phm_critical_gate/gate_candidate_metrics.csv,.csv,2685,Add to .gitignore,Ignore,Detailed generated experiment output.,No,No,Ignored
+reports/aerokan_phm_critical_gate/gate_cascade_metrics.csv,.csv,3336,Add to .gitignore,Ignore,Detailed generated experiment output.,No,No,Ignored
+reports/aerokan_phm_critical_gate/gate_failure_decomposition.csv,.csv,161,Add to .gitignore,Ignore,Detailed generated experiment output.,No,No,Ignored
+reports/aerokan_phm_critical_gate/local_explanations.json,.json,4196,Add to .gitignore,Ignore,Detailed generated experiment output.,No,No,Ignored
+reports/aerokan_phm_critical_gate/locked_abstention_policy.json,.json,145,Add to .gitignore,Ignore,Detailed generated experiment output.,No,No,Ignored
+reports/aerokan_phm_critical_gate/locked_maintenance_policy.json,.json,173,Keep,Keep,Curated final selected-system evidence.,No,No,Kept
+reports/aerokan_phm_critical_gate/locked_uncertainty_method.json,.json,307,Keep,Keep,Curated final selected-system evidence.,No,No,Kept
+reports/aerokan_phm_critical_gate/metric_definition_audit.json,.json,1420,Keep,Keep,Curated final selected-system evidence.,No,No,Kept
+reports/aerokan_phm_critical_gate/one_sided_invariant_audit.csv,.csv,89157,Add to .gitignore,Ignore,Detailed generated experiment output.,No,No,Ignored
+reports/aerokan_phm_critical_gate/paired_bootstrap_results.csv,.csv,2381,Add to .gitignore,Ignore,Detailed generated experiment output.,No,No,Ignored
+reports/aerokan_phm_critical_gate/phase5d1_root_cause_audit.json,.json,7222,Add to .gitignore,Ignore,Detailed generated experiment output.,No,No,Ignored
+reports/aerokan_phm_critical_gate/prebenchmark_lock_manifest.json,.json,5562,Add to .gitignore,Ignore,Detailed generated experiment output.,No,No,Ignored
+reports/aerokan_phm_critical_gate/prediction_alignment_audit.csv,.csv,29601,Add to .gitignore,Ignore,Detailed generated experiment output.,No,No,Ignored
+reports/aerokan_phm_critical_gate/prediction_alignment_summary.json,.json,537,Add to .gitignore,Ignore,Detailed generated experiment output.,No,No,Ignored
+reports/aerokan_phm_critical_gate/run_summary.json,.json,15912,Add to .gitignore,Ignore,Detailed generated experiment output.,No,No,Ignored
+reports/aerokan_phm_critical_gate/safety_target_registry.json,.json,1260,Add to .gitignore,Ignore,Detailed generated experiment output.,No,No,Ignored
+reports/aerokan_phm_critical_gate/source_artifact_manifest.json,.json,5187,Add to .gitignore,Ignore,Detailed generated experiment output.,No,No,Ignored
+reports/aerokan_phm_critical_gate/source_validation.json,.json,301,Add to .gitignore,Ignore,Detailed generated experiment output.,No,No,Ignored
+reports/aerokan_phm_critical_gate/figures/additive_kan_curves.png,.png,13890,Add to .gitignore,Ignore,Detailed generated experiment output.,No,No,Ignored
+reports/aerokan_phm_critical_gate/figures/cascade_recall_vs_activation.png,.png,21028,Add to .gitignore,Ignore,Detailed generated experiment output.,No,No,Ignored
+reports/aerokan_phm_critical_gate/figures/correction_by_gate_combination.png,.png,15867,Add to .gitignore,Ignore,Detailed generated experiment output.,No,No,Ignored
+reports/aerokan_phm_critical_gate/figures/critical_and_optimism_gate_pr_curves.png,.png,34018,Add to .gitignore,Ignore,Detailed generated experiment output.,No,No,Ignored
+reports/aerokan_phm_critical_gate/figures/critical_miss_failure_decomposition.png,.png,16189,Add to .gitignore,Ignore,Detailed generated experiment output.,No,No,Ignored
+reports/aerokan_phm_critical_gate/figures/fixed_policy_critical_misses_by_phase.png,.png,39140,Add to .gitignore,Ignore,Detailed generated experiment output.,No,No,Ignored
+reports/aerokan_phm_critical_gate/figures/fixed_policy_prediction_comparison.png,.png,22379,Add to .gitignore,Ignore,Detailed generated experiment output.,No,No,Ignored
+reports/aerokan_phm_critical_gate/figures/fixed_policy_recall_vs_workload.png,.png,19320,Add to .gitignore,Ignore,Detailed generated experiment output.,No,No,Ignored
+reports/aerokan_phm_critical_gate/figures/freeze_readiness_summary.png,.png,11916,Add to .gitignore,Ignore,Detailed generated experiment output.,No,No,Ignored
+reports/aerokan_phm_critical_gate/figures/gate_activation_by_safety_state.png,.png,20680,Add to .gitignore,Ignore,Detailed generated experiment output.,No,No,Ignored
+reports/aerokan_phm_critical_gate/figures/kan_feature_importance.png,.png,15403,Add to .gitignore,Ignore,Detailed generated experiment output.,No,No,Ignored
+reports/aerokan_phm_critical_gate/figures/paired_bootstrap_forest_plot.png,.png,62559,Add to .gitignore,Ignore,Detailed generated experiment output.,No,No,Ignored
+reports/aerokan_phm_critical_gate/figures/phase5d1_invariant_audit.png,.png,17228,Add to .gitignore,Ignore,Detailed generated experiment output.,No,No,Ignored
+reports/aerokan_phm_critical_gate/figures/policy_specific_critical_recall_matrix.png,.png,43508,Add to .gitignore,Ignore,Detailed generated experiment output.,No,No,Ignored
+reports/aerokan_phm_critical_gate/figures/pruning_fidelity.png,.png,18426,Add to .gitignore,Ignore,Detailed generated experiment output.,No,No,Ignored
+reports/aerokan_phm_critical_gate/figures/reselected_policy_recall_vs_workload.png,.png,31266,Add to .gitignore,Ignore,Detailed generated experiment output.,No,No,Ignored
+reports/aerokan_phm_critical_gate/figures/severe_optimism_before_after_correction.png,.png,22411,Add to .gitignore,Ignore,Detailed generated experiment output.,No,No,Ignored
+reports/aerokan_phm_selective/abstention_metrics.json,.json,233,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/benchmark_metrics.json,.json,1918,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/benchmark_metrics_by_subset.csv,.csv,1853,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/benchmark_predictions.csv,.csv,1843372,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/benchmark_safety_metrics.json,.json,787,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/corrected_oof_predictions.csv,.csv,36783596,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/correction_candidate_registry.json,.json,6824,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/correction_screening_metrics.csv,.csv,17022,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/dangerous_optimism_definition.json,.json,1662,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/feature_leakage_audit.json,.json,272,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/finalist_cross_validation_metrics.csv,.csv,10231,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/freeze_decision.json,.json,372,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/gate_calibration_metrics.csv,.csv,1617,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/gate_candidate_metrics.csv,.csv,1741,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/gate_feature_registry.json,.json,1818,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/kan_curve_stability.csv,.csv,88487,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/kan_edge_importance.csv,.csv,1018,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/kan_pruning_results.csv,.csv,248,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/kan_symbolic_approximations.csv,.csv,2043,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/local_explanations.json,.json,25306,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/locked_abstention_policy.json,.json,252,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/locked_maintenance_policy.json,.json,721,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/locked_uncertainty_method.json,.json,343,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/maintenance_policy_candidates.csv,.csv,5290,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/paired_bootstrap_results.csv,.csv,1655,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/phase5c_phase5d_phase5d1_comparison.csv,.csv,2389,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/prebenchmark_lock_manifest.json,.json,12076,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/run_summary.json,.json,40525,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/selective_correction_metrics.csv,.csv,1573,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/source_artifact_manifest.json,.json,5479,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/source_validation.json,.json,492,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/uncertainty_metrics.json,.json,194,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/figures/additive_kan_feature_importance.png,.png,67369,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/figures/base_vs_selective_corrected_rul.png,.png,38055,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/figures/correction_magnitude_by_gate_probability.png,.png,74274,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/figures/correction_magnitude_by_true_rul_band.png,.png,34889,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/figures/coverage_by_gate_state.png,.png,11882,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/figures/coverage_vs_nominal_level.png,.png,33810,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/figures/critical_correction_distribution.png,.png,15790,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/figures/dangerous_recall_vs_activation_rate.png,.png,16943,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/figures/freeze_readiness_summary.png,.png,12820,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/figures/gate_activation_by_rul_band.png,.png,18265,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/figures/gate_calibration_curve.png,.png,24984,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/figures/gate_failed_critical_engines.png,.png,31421,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/figures/gate_precision_recall_curve.png,.png,21626,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/figures/gate_roc_curve.png,.png,17531,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/figures/kan_curve_stability.png,.png,73487,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/figures/learned_kan_edge_curves.png,.png,135742,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/figures/maintenance_recall_vs_workload.png,.png,27344,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/figures/paired_bootstrap_forest_plot.png,.png,58773,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/figures/phase5c_phase5d_phase5d1_residuals.png,.png,22411,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/figures/previously_missed_critical_engine_corrections.png,.png,28615,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/figures/pruning_fidelity.png,.png,20691,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/figures/risk_coverage_curve.png,.png,32783,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/figures/safe_row_unnecessary_correction_distribution.png,.png,15403,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/aerokan_phm_selective/figures/unchanged_vs_corrected_engine_distribution.png,.png,12684,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul/benchmark_metrics.json,.json,2182,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul/benchmark_predictions.csv,.csv,155850,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul/classical_benchmark_manifest.json,.json,12665,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul/classical_vs_deep.csv,.csv,2091,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul/classical_vs_deep_uncertainty.csv,.csv,1118,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul/cross_validation_splits.json,.json,47816,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul/deep_maintenance_policy_metrics.json,.json,2106,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul/deep_maintenance_recommendations.csv,.csv,170671,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul/deep_model_ranking.csv,.csv,286,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul/deep_model_registry.json,.json,965,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul/deep_uncertainty_cv_metrics.csv,.csv,1958,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul/deep_uncertainty_metrics.json,.json,10985,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul/deep_uncertainty_predictions.csv,.csv,581917,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul/finalist_cross_validation_metrics.csv,.csv,286,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul/final_fit_metadata.json,.json,3572,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul/locked_deep_model.json,.json,552,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul/locked_deep_uncertainty_method.json,.json,1586,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul/metrics_by_regime.csv,.csv,1333,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul/metrics_by_rul_band.csv,.csv,1117,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul/metrics_by_subset.csv,.csv,903,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul/model_efficiency.csv,.csv,1678,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul/run_summary.json,.json,62590,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul/screening_metrics.csv,.csv,842,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul/screening_split.json,.json,12849,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul/sequence_audit.csv,.csv,29463,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul/engine_examples/FD001_0031_deep_example.png,.png,11421,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul/engine_examples/FD001_0048_deep_example.png,.png,12233,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul/engine_examples/FD001_0067_deep_example.png,.png,13740,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul/engine_examples/FD002_0170_deep_example.png,.png,14040,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul/engine_examples/FD003_0016_deep_example.png,.png,13892,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul/engine_examples/FD004_0001_deep_example.png,.png,12404,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul/engine_examples/FD004_0022_deep_example.png,.png,10963,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul/engine_examples/FD004_0179_deep_example.png,.png,11981,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul/figures/abstention_tradeoff.png,.png,22329,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul/figures/best_epoch_by_architecture.png,.png,21593,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul/figures/classical_vs_deep_calibration.png,.png,28495,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul/figures/classical_vs_deep_interval_width.png,.png,28071,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul/figures/classical_vs_deep_performance_by_subset.png,.png,23970,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul/figures/cpu_latency_vs_rmse.png,.png,22900,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul/figures/deep_interval_width_by_subset.png,.png,18571,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul/figures/deep_uncertainty_coverage_vs_nominal.png,.png,45645,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul/figures/error_by_operating_regime.png,.png,19452,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul/figures/error_by_rul_band.png,.png,24434,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul/figures/error_by_sequence_length.png,.png,19708,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul/figures/finalist_cross_validation_comparison.png,.png,12388,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul/figures/mae_by_architecture.png,.png,22516,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul/figures/maintenance_action_distribution.png,.png,47652,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul/figures/nasa_score_by_architecture.png,.png,22740,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul/figures/parameter_count_vs_rmse.png,.png,20810,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul/figures/predicted_vs_true_locked_deep.png,.png,80566,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul/figures/residual_distribution.png,.png,20210,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul/figures/screening_rmse_comparison.png,.png,21443,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul/figures/training_runtime_by_architecture.png,.png,21073,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/abstention_metrics.json,.json,2981,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/benchmark_metrics.json,.json,2173,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/benchmark_predictions.csv,.csv,173053,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/extended_model_ranking.csv,.csv,685,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/extended_model_registry.json,.json,8151,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/finalist_cross_validation_metrics.csv,.csv,2755,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/final_fit_metadata.json,.json,5194,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/locked_extended_model.json,.json,670,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/locked_uncertainty_method.json,.json,1603,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/maintenance_policy_metrics.json,.json,2499,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/maintenance_recommendations.csv,.csv,224072,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/metrics_by_regime.csv,.csv,1339,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/metrics_by_rul_band.csv,.csv,1150,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/metrics_by_subset.csv,.csv,895,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/model_efficiency.csv,.csv,3751,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/model_stability.csv,.csv,685,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/phase5_benchmark_manifest.json,.json,5148,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/phase5_vs_phase5b.csv,.csv,2347,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/phase5_vs_phase5b_uncertainty.csv,.csv,1304,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/run_summary.json,.json,89669,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/screening_metrics.csv,.csv,67112,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/screening_split.json,.json,12849,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/seed_prediction_disagreement.csv,.csv,811444,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/seed_summary.csv,.csv,1113,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/sequence_audit.csv,.csv,31343,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/uncertainty_cv_metrics.csv,.csv,2109,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/uncertainty_metrics.json,.json,10886,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/uncertainty_predictions.csv,.csv,605174,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/engine_examples/FD001_0001_phase5b_example.png,.png,11874,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/engine_examples/FD001_0043_phase5b_example.png,.png,12276,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/engine_examples/FD002_0009_phase5b_example.png,.png,10223,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/engine_examples/FD002_0085_phase5b_example.png,.png,10900,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/engine_examples/FD002_0086_phase5b_example.png,.png,14271,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/engine_examples/FD002_0138_phase5b_example.png,.png,10740,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/engine_examples/FD004_0001_phase5b_example.png,.png,10421,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/engine_examples/FD004_0112_phase5b_example.png,.png,12493,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/engine_examples/FD004_0127_phase5b_example.png,.png,14057,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/engine_examples/FD004_0166_phase5b_example.png,.png,12648,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/figures/abstention_tradeoff.png,.png,20479,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/figures/best_epoch_by_candidate.png,.png,58874,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/figures/coverage_vs_nominal_level.png,.png,41966,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/figures/cpu_latency_vs_rmse.png,.png,24241,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/figures/error_by_operating_regime.png,.png,16853,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/figures/error_by_rul_band.png,.png,19808,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/figures/error_by_sequence_length_group.png,.png,16954,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/figures/finalist_cv_rmse_distributions.png,.png,34791,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/figures/interval_width_by_subset.png,.png,16317,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/figures/maintenance_action_distribution.png,.png,42116,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/figures/mean_rmse_vs_variability.png,.png,21368,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/figures/parameter_count_vs_rmse.png,.png,22825,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/figures/phase5_vs_phase5b_interval_width.png,.png,23150,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/figures/phase5_vs_phase5b_metrics_by_subset.png,.png,21975,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/figures/predicted_vs_true_rul.png,.png,66304,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/figures/representative_engine_trajectories.png,.png,47253,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/figures/residual_distribution.png,.png,16378,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/figures/seed_stability_comparison.png,.png,28578,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/figures/stage_a_nasa_score.png,.png,59351,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/figures/stage_a_validation_rmse.png,.png,57661,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/figures/training_curve_lstm_phase5_schedule_a.png,.png,30635,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/figures/training_curve_lstm_phase5_schedule_b.png,.png,30535,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/figures/training_curve_patch_transformer_10x5_mean_b.png,.png,33420,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/figures/training_curve_patch_transformer_5x5_attention_a.png,.png,40605,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/figures/training_curve_tcn_extended_schedule_a.png,.png,39968,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/figures/training_curve_tcn_extended_schedule_b.png,.png,33299,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/figures/training_curve_temporal_transformer_learned_attention_b.png,.png,35211,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/figures/training_curve_temporal_transformer_sinusoidal_mean_a.png,.png,37681,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/deep_rul_extended/figures/transformer_vs_lstm_comparison.png,.png,15563,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_alert_generalization/bootstrap_confidence_intervals.json,.json,4624,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_alert_generalization/candidate_policy_registry.json,.json,7105,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_alert_generalization/cross_validation_fold_metrics.csv,.csv,82856,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_alert_generalization/cross_validation_policy_ranking.csv,.csv,32728,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_alert_generalization/cross_validation_policy_summary.csv,.csv,32492,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_alert_generalization/cross_validation_splits.json,.json,19954,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_alert_generalization/domain_shift_features.csv,.csv,5664,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_alert_generalization/domain_shift_summary.json,.json,4454,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_alert_generalization/fd001_development_test_engine_summary.csv,.csv,15818,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_alert_generalization/fd001_development_test_metrics.json,.json,1946,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_alert_generalization/fd003_cycle_level_alerts.csv,.csv,2940980,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_alert_generalization/fd003_external_engine_summary.csv,.csv,16037,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_alert_generalization/fd003_external_metrics.json,.json,1898,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_alert_generalization/final_fd001_fit_metadata.json,.json,5950,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_alert_generalization/generalization_conclusion.json,.json,408,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_alert_generalization/health_index_transfer.csv,.csv,20089,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_alert_generalization/health_index_transfer_summary.json,.json,1140,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_alert_generalization/locked_policy.json,.json,3176,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_alert_generalization/run_summary.json,.json,32312,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_alert_generalization/engine_timelines/fd001_engine_001_locked_timeline.png,.png,143167,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_alert_generalization/engine_timelines/fd001_engine_003_locked_timeline.png,.png,174614,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_alert_generalization/engine_timelines/fd001_engine_011_locked_timeline.png,.png,165511,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_alert_generalization/engine_timelines/fd001_engine_034_locked_timeline.png,.png,181686,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_alert_generalization/engine_timelines/fd003_engine_001_locked_timeline.png,.png,124208,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_alert_generalization/engine_timelines/fd003_engine_002_locked_timeline.png,.png,175559,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_alert_generalization/engine_timelines/fd003_engine_007_locked_timeline.png,.png,185043,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_alert_generalization/engine_timelines/fd003_engine_026_locked_timeline.png,.png,164127,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_alert_generalization/figures/bootstrap_confidence_interval_comparison.png,.png,31724,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_alert_generalization/figures/cv_detection_rate_distribution_by_policy.png,.png,69389,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_alert_generalization/figures/cv_false_alarm_rate_distribution_by_policy.png,.png,72493,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_alert_generalization/figures/cv_robust_utility_ranking.png,.png,64778,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_alert_generalization/figures/detection_rate_vs_false_alarm_rate_errorbars.png,.png,33537,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_alert_generalization/figures/detector_score_distribution_shift.png,.png,23271,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_alert_generalization/figures/fd001_vs_fd003_metric_comparison.png,.png,26117,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_alert_generalization/figures/feature_domain_shift_overview.png,.png,35416,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_alert_generalization/figures/health_index_transfer_comparison.png,.png,22512,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_alert_generalization/figures/mean_utility_vs_variability.png,.png,53084,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_alert_generalization/figures/missed_engine_rate_vs_critical_recall.png,.png,28305,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_alert_generalization/figures/per_engine_health_correlation_comparison.png,.png,32687,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_alert_generalization/figures/trajectory_length_comparison.png,.png,20903,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_anomaly_calibration/cycle_level_alerts.csv,.csv,6809700,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_anomaly_calibration/engine_alert_summary.csv,.csv,7044,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_anomaly_calibration/ensemble_operating_points.csv,.csv,24354,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_anomaly_calibration/health_index_generalization.csv,.csv,22817,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_anomaly_calibration/page_hinkley_operating_points.csv,.csv,1791,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_anomaly_calibration/persistence_operating_points.csv,.csv,3922,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_anomaly_calibration/run_summary.json,.json,15161,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_anomaly_calibration/score_calibration.json,.json,1932,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_anomaly_calibration/selected_operating_points.json,.json,2020,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_anomaly_calibration/test_metrics.json,.json,1330,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_anomaly_calibration/threshold_operating_points.csv,.csv,9501,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_anomaly_calibration/validation_metrics.json,.json,1300,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_anomaly_calibration/validation_operating_point_ranking.csv,.csv,35449,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_anomaly_calibration/engine_timelines/test_engine_001_alert_timeline.png,.png,240436,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_anomaly_calibration/engine_timelines/test_engine_003_alert_timeline.png,.png,321012,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_anomaly_calibration/engine_timelines/test_engine_034_alert_timeline.png,.png,342665,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_anomaly_calibration/engine_timelines/test_engine_093_alert_timeline.png,.png,355525,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_anomaly_calibration/figures/detection_vs_false_alarm_rate.png,.png,37182,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_anomaly_calibration/figures/ensemble_method_comparison.png,.png,46499,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_anomaly_calibration/figures/health_correlation_distribution.png,.png,33264,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_anomaly_calibration/figures/health_correlation_vs_length.png,.png,57305,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_anomaly_calibration/figures/health_trajectory_engine_031.png,.png,71257,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_anomaly_calibration/figures/health_trajectory_engine_039.png,.png,78715,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_anomaly_calibration/figures/hysteresis_transition_comparison.png,.png,33000,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_anomaly_calibration/figures/initial_vs_final_health_index.png,.png,46439,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_anomaly_calibration/figures/lead_time_vs_false_alarm_rate.png,.png,40752,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_anomaly_calibration/figures/operational_profile_comparison.png,.png,24854,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_anomaly_calibration/figures/page_hinkley_sensitivity_false_alarm.png,.png,34980,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_anomaly_calibration/figures/persistence_rule_comparison.png,.png,47129,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_anomaly_calibration/figures/threshold_healthy_fpr.png,.png,85888,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_anomaly_calibration/figures/threshold_precision_recall_tradeoff.png,.png,78479,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_anomaly_calibration/figures/validation_test_health_distribution.png,.png,30684,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_anomaly_calibration/figures/voting_rule_comparison.png,.png,23479,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_baseline/correlation_audit.csv,.csv,144,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_baseline/feature_audit.csv,.csv,3014,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_baseline/metrics.json,.json,1245,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_baseline/run_summary.json,.json,4703,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_baseline/test_predictions.csv,.csv,31677,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_baseline/figures/absolute_error_distribution.png,.png,35674,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_baseline/figures/model_comparison.png,.png,34083,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_baseline/figures/predicted_vs_actual_test_rul.png,.png,105122,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_baseline/figures/prediction_error_distribution.png,.png,36402,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_baseline/figures/residual_plot.png,.png,96934,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_baseline/figures/rul_target_trajectories.png,.png,92165,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_baseline/figures/selected_sensor_trajectories.png,.png,573302,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_health_anomaly/correlation_audit.csv,.csv,144,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_health_anomaly/cycle_level_scores.csv,.csv,6741279,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_health_anomaly/engine_level_metrics.json,.json,4643,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_health_anomaly/engine_onset_summary.csv,.csv,43374,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_health_anomaly/feature_audit.csv,.csv,3014,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_health_anomaly/feature_set.json,.json,1438,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_health_anomaly/row_level_metrics.json,.json,4811,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_health_anomaly/run_summary.json,.json,16230,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_health_anomaly/engine_timelines/test_engine_001_timeline.png,.png,148340,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_health_anomaly/engine_timelines/test_engine_002_timeline.png,.png,150733,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_health_anomaly/engine_timelines/test_engine_003_timeline.png,.png,181873,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_health_anomaly/engine_timelines/test_engine_004_timeline.png,.png,176401,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_health_anomaly/figures/anomaly_score_distribution_by_region.png,.png,71935,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_health_anomaly/figures/detection_delay_distribution.png,.png,30712,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_health_anomaly/figures/detection_lead_time_distribution.png,.png,27636,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_health_anomaly/figures/detector_comparison.png,.png,34137,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_health_anomaly/figures/false_alarm_comparison.png,.png,46729,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_health_anomaly/figures/health_index_distribution_by_region.png,.png,36826,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_health_anomaly/figures/health_index_vs_true_rul.png,.png,249462,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_health_anomaly/figures/mean_health_index_normalized_life.png,.png,50562,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_health_anomaly/figures/pca_explained_variance.png,.png,38014,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_health_anomaly/figures/validation_precision_recall_curves.png,.png,57005,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/fd001_health_anomaly/figures/validation_roc_curves.png,.png,69166,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/final_release/aligned_benchmark_predictions.csv,.csv,65840,Keep,Keep,Curated final-release evidence.,No,No,Kept
+reports/final_release/documentation_consistency.json,.json,491,Keep,Keep,Curated final-release evidence.,No,No,Kept
+reports/final_release/efficiency_comparison.csv,.csv,7188,Keep,Keep,Curated final-release evidence.,No,No,Kept
+reports/final_release/fixed_policy_safety_comparison.csv,.csv,1840,Keep,Keep,Curated final-release evidence.,No,No,Kept
+reports/final_release/headline_model_comparison.csv,.csv,1160,Keep,Keep,Curated final-release evidence.,No,No,Kept
+reports/final_release/kan_candidate_comparison.csv,.csv,5286,Keep,Keep,Curated final-release evidence.,No,No,Kept
+reports/final_release/model_name_mapping.csv,.csv,6431,Keep,Keep,Curated final-release evidence.,No,No,Kept
+reports/final_release/model_registry.csv,.csv,29906,Keep,Keep,Curated final-release evidence.,No,No,Kept
+reports/final_release/model_registry.json,.json,66729,Keep,Keep,Curated final-release evidence.,No,No,Kept
+reports/final_release/native_system_comparison.csv,.csv,2174,Keep,Keep,Curated final-release evidence.,No,No,Kept
+reports/final_release/paired_bootstrap_comparison.csv,.csv,9535,Keep,Keep,Curated final-release evidence.,No,No,Kept
+reports/final_release/physics_ablation_comparison.csv,.csv,7518,Keep,Keep,Curated final-release evidence.,No,No,Kept
+reports/final_release/point_prediction_comparison.csv,.csv,2376,Keep,Keep,Curated final-release evidence.,No,No,Kept
+reports/final_release/release_summary.json,.json,50435,Keep,Keep,Curated final-release evidence.,No,No,Kept
+reports/final_release/subset_metrics_comparison.csv,.csv,7598,Keep,Keep,Curated final-release evidence.,No,No,Kept
+reports/final_release/uncertainty_comparison.csv,.csv,1657,Keep,Keep,Curated final-release evidence.,No,No,Kept
+reports/final_release/validation_candidate_comparison.csv,.csv,14900,Keep,Keep,Curated final-release evidence.,No,No,Kept
+reports/final_release/figures/complete_model_family_comparison.png,.png,105545,Keep,Keep,Curated final-release evidence.,No,No,Kept
+reports/final_release/figures/critical_misses_by_final_system.png,.png,108090,Keep,Keep,Curated final-release evidence.,No,No,Kept
+reports/final_release/figures/development_journey_diagram.png,.png,44487,Keep,Keep,Curated final-release evidence.,No,No,Kept
+reports/final_release/figures/efficiency_comparison.png,.png,104137,Keep,Keep,Curated final-release evidence.,No,No,Kept
+reports/final_release/figures/fd001_fd004_subset_comparison.png,.png,24262,Keep,Keep,Curated final-release evidence.,No,No,Kept
+reports/final_release/figures/final_architecture_diagram.png,.png,40684,Keep,Keep,Curated final-release evidence.,No,No,Kept
+reports/final_release/figures/final_readiness_summary.png,.png,34211,Keep,Keep,Curated final-release evidence.,No,No,Kept
+reports/final_release/figures/interval_width_comparison.png,.png,88441,Keep,Keep,Curated final-release evidence.,No,No,Kept
+reports/final_release/figures/kan_candidate_comparison.png,.png,129662,Keep,Keep,Curated final-release evidence.,No,No,Kept
+reports/final_release/figures/model_parameter_count.png,.png,104397,Keep,Keep,Curated final-release evidence.,No,No,Kept
+reports/final_release/figures/nasa_score_comparison.png,.png,109459,Keep,Keep,Curated final-release evidence.,No,No,Kept
+reports/final_release/figures/operational_recall_vs_workload.png,.png,112689,Keep,Keep,Curated final-release evidence.,No,No,Kept
+reports/final_release/figures/paired_bootstrap_confidence_intervals.png,.png,98143,Keep,Keep,Curated final-release evidence.,No,No,Kept
+reports/final_release/figures/physics_ablation_comparison.png,.png,77617,Keep,Keep,Curated final-release evidence.,No,No,Kept
+reports/final_release/figures/point_prediction_mae.png,.png,106363,Keep,Keep,Curated final-release evidence.,No,No,Kept
+reports/final_release/figures/point_prediction_rmse.png,.png,103820,Keep,Keep,Curated final-release evidence.,No,No,Kept
+reports/final_release/figures/selected_vs_rejected_system_diagram.png,.png,38282,Keep,Keep,Curated final-release evidence.,No,No,Kept
+reports/final_release/figures/severe_optimistic_rates.png,.png,109689,Keep,Keep,Curated final-release evidence.,No,No,Kept
+reports/final_release/figures/uncertainty_coverage_vs_nominal.png,.png,89133,Keep,Keep,Curated final-release evidence.,No,No,Kept
+reports/multidomain_phm/bootstrap_confidence_intervals.json,.json,6448,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/multidomain_phm/domain_feature_audit.csv,.csv,45023,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/multidomain_phm/domain_shift_before_after.csv,.csv,4369,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/multidomain_phm/domain_shift_summary.json,.json,312,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/multidomain_phm/fd001_development_engine_summary.csv,.csv,12604,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/multidomain_phm/fd001_development_metrics.json,.json,1740,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/multidomain_phm/fd002_development_engine_summary.csv,.csv,33335,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/multidomain_phm/fd002_development_metrics.json,.json,1900,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/multidomain_phm/fd003_development_engine_summary.csv,.csv,12709,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/multidomain_phm/fd003_development_metrics.json,.json,1809,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/multidomain_phm/fd004_cycle_level_alerts.csv,.csv,38574463,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/multidomain_phm/fd004_external_engine_summary.csv,.csv,35595,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/multidomain_phm/fd004_external_metrics.json,.json,1909,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/multidomain_phm/final_fit_metadata.json,.json,1816,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/multidomain_phm/generalization_conclusion.json,.json,356,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/multidomain_phm/leave_one_domain_out_metrics.csv,.csv,4315,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/multidomain_phm/locked_multidomain_method.json,.json,3009,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/multidomain_phm/method_ranking.csv,.csv,5562,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/multidomain_phm/method_registry.json,.json,3887,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/multidomain_phm/rul_transfer_metrics.json,.json,1199,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/multidomain_phm/rul_transfer_predictions.csv,.csv,68313,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/multidomain_phm/run_summary.json,.json,27520,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/multidomain_phm/validation_method_metrics.csv,.csv,18534,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/multidomain_phm/engine_timelines/fd001_FD001_0001_timeline.png,.png,108265,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/multidomain_phm/engine_timelines/fd001_FD001_0002_timeline.png,.png,117111,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/multidomain_phm/engine_timelines/fd002_FD002_0001_timeline.png,.png,160988,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/multidomain_phm/engine_timelines/fd002_FD002_0002_timeline.png,.png,122960,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/multidomain_phm/engine_timelines/fd003_FD003_0001_timeline.png,.png,136957,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/multidomain_phm/engine_timelines/fd003_FD003_0002_timeline.png,.png,141473,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/multidomain_phm/engine_timelines/fd004_FD004_0001_timeline.png,.png,114927,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/multidomain_phm/engine_timelines/fd004_FD004_0002_timeline.png,.png,154976,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/multidomain_phm/figures/detection_vs_false_alarm_tradeoff.png,.png,28041,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/multidomain_phm/figures/detector_score_distributions_by_subset.png,.png,26657,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/multidomain_phm/figures/development_subset_comparison.png,.png,22296,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/multidomain_phm/figures/domain_shift_after_normalization.png,.png,23203,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/multidomain_phm/figures/fd004_external_metrics.png,.png,23361,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/multidomain_phm/figures/health_index_transfer_comparison.png,.png,25655,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/multidomain_phm/figures/inferred_operating_regimes.png,.png,19617,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/multidomain_phm/figures/leave_one_domain_out_performance.png,.png,23965,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/multidomain_phm/figures/operational_setting_1_distribution_by_subset.png,.png,24439,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/multidomain_phm/figures/operational_setting_2_distribution_by_subset.png,.png,22526,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/multidomain_phm/figures/operational_setting_3_distribution_by_subset.png,.png,24448,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/multidomain_phm/figures/rul_transfer_comparison.png,.png,18609,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/multidomain_phm/figures/sensor_distribution_before_normalization.png,.png,28348,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/multidomain_phm/figures/validation_method_ranking.png,.png,37241,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/abstention_metrics.json,.json,3755,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/benchmark_metrics.json,.json,2404,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/benchmark_predictions.csv,.csv,131107,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/constraint_ablation.csv,.csv,8985,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/cv_predictions.csv,.csv,3232998,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/finalist_cross_validation_metrics.csv,.csv,5228,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/finalist_selection.json,.json,1422,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/finalist_selection_diagnostics.json,.json,1171,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/final_fit_metadata.json,.json,4618,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/locked_physics_model.json,.json,12755,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/locked_uncertainty_method.json,.json,140,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/maintenance_policy_metrics.json,.json,2504,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/maintenance_recommendations.csv,.csv,543110,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/metrics_by_regime.csv,.csv,1369,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/metrics_by_rul_band.csv,.csv,1149,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/metrics_by_subset.csv,.csv,894,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/model_efficiency.csv,.csv,708,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/model_stability.csv,.csv,5427,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/optimistic_error_analysis.csv,.csv,2262,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/pairing_audit.csv,.csv,58521,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/phase5b_benchmark_manifest.json,.json,20177,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/phase5b_vs_physics_guided.csv,.csv,661,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/phase5b_vs_physics_uncertainty.csv,.csv,427,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/physics_candidate_registry.json,.json,13171,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/physics_model_ranking.csv,.csv,7345,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/run_summary.json,.json,61756,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/screening_metrics.csv,.csv,7407,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/screening_split.json,.json,12857,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/trajectory_consistency_metrics.csv,.csv,2,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/uncertainty_cv_metrics.csv,.csv,1979,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/uncertainty_metrics.json,.json,10763,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/uncertainty_predictions.csv,.csv,350040,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/figures/abstention_tradeoff.png,.png,19779,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/figures/candidate_nasa_score.png,.png,48465,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/figures/candidate_validation_rmse.png,.png,47360,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/figures/constraint_violation_comparison.png,.png,58333,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/figures/coverage_vs_nominal_level.png,.png,35371,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/figures/cycle_rate_residual_distribution.png,.png,6219,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/figures/error_by_operating_regime.png,.png,15760,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/figures/error_by_rul_band.png,.png,17448,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/figures/finalist_fold_seed_rmse.png,.png,24732,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/figures/health_score_trajectories.png,.png,6145,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/figures/interval_width_comparison.png,.png,15629,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/figures/low_rul_optimistic_error_comparison.png,.png,47082,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/figures/maintenance_action_distribution.png,.png,34343,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/figures/monotonicity_violation_distribution.png,.png,5710,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/figures/optimistic_error_comparison.png,.png,47774,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/figures/phase5b_vs_physics_guided_metrics.png,.png,6041,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/figures/predicted_vs_true_rul.png,.png,64433,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/figures/residual_distributions.png,.png,15829,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/figures/robust_ranking.png,.png,20035,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/figures/rul_trajectories.png,.png,4822,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/figures/stability_comparison.png,.png,5007,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul/figures/temporal_smoothness_distribution.png,.png,5559,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_failed_20260714_233743/pairing_audit.csv,.csv,58521,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_failed_20260714_233743/phase5b_benchmark_manifest.json,.json,20177,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_failed_20260714_233743/run_summary.json,.json,640,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_failed_20260714_233743/screening_split.json,.json,12857,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_failed_20260715_002719/pairing_audit.csv,.csv,58521,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_failed_20260715_002719/phase5b_benchmark_manifest.json,.json,20177,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_failed_20260715_002719/physics_candidate_registry.json,.json,13171,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_failed_20260715_002719/run_summary.json,.json,1874,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_failed_20260715_002719/screening_metrics.csv,.csv,4357,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_failed_20260715_002719/screening_split.json,.json,12857,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_failed_20260715_013350/constraint_ablation.csv,.csv,8982,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_failed_20260715_013350/finalist_cross_validation_metrics.csv,.csv,5228,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_failed_20260715_013350/finalist_selection.json,.json,1422,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_failed_20260715_013350/finalist_selection_diagnostics.json,.json,1171,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_failed_20260715_013350/final_fit_metadata.json,.json,1167,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_failed_20260715_013350/locked_physics_model.json,.json,12815,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_failed_20260715_013350/model_stability.csv,.csv,5428,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_failed_20260715_013350/pairing_audit.csv,.csv,58521,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_failed_20260715_013350/phase5b_benchmark_manifest.json,.json,20177,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_failed_20260715_013350/physics_candidate_registry.json,.json,13171,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_failed_20260715_013350/physics_model_ranking.csv,.csv,7345,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_failed_20260715_013350/run_summary.json,.json,5391,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_failed_20260715_013350/screening_metrics.csv,.csv,7403,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_failed_20260715_013350/screening_split.json,.json,12857,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_interrupted_20260714_234348/pairing_audit.csv,.csv,58521,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_interrupted_20260714_234348/phase5b_benchmark_manifest.json,.json,20177,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_interrupted_20260714_234348/physics_candidate_registry.json,.json,13171,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_interrupted_20260714_234348/screening_split.json,.json,12857,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_refined/abstention_candidate_metrics.csv,.csv,18594,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_refined/constraint_bootstrap_intervals.csv,.csv,436,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_refined/constraint_metric_audit.json,.json,3064,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_refined/corrected_constraint_metrics.csv,.csv,10742,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_refined/corrected_run_summary.json,.json,62046,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_refined/locked_abstention_policy.json,.json,462,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_refined/locked_maintenance_policy.json,.json,713,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_refined/locked_uncertainty_policy.json,.json,1836,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_refined/maintenance_policy_candidates.csv,.csv,8992,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_refined/phase5b_vs_phase5c_paired_bootstrap.csv,.csv,6288,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_refined/phase5c_refinement_summary.json,.json,10234,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_refined/refined_abstention_metrics.json,.json,762,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_refined/refined_abstention_predictions.csv,.csv,349391,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_refined/refined_maintenance_metrics.json,.json,861,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_refined/refined_maintenance_recommendations.csv,.csv,425234,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_refined/refined_uncertainty_metrics.json,.json,10970,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_refined/refined_uncertainty_predictions.csv,.csv,292950,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_refined/source_artifact_manifest.json,.json,11527,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_refined/source_run_validation.json,.json,1283,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_refined/uncertainty_candidate_metrics.csv,.csv,14590,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_refined/figures/bootstrap_interval_forest_plot.png,.png,31926,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_refined/figures/corrected_monotonicity_violation_distribution.png,.png,14329,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_refined/figures/cycle_rate_residual_by_region.png,.png,41583,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_refined/figures/high_error_enrichment_vs_abstention.png,.png,28161,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_refined/figures/maintenance_action_distribution_after.png,.png,30989,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_refined/figures/maintenance_action_distribution_before_after.png,.png,33696,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_refined/figures/maintenance_policy_confusion_matrix.png,.png,45922,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_refined/figures/phase5b_vs_phase5c_paired_error_difference.png,.png,16301,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_refined/figures/prediction_interval_examples.png,.png,12580,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_refined/figures/regime_consistency_residual_by_pair.png,.png,87710,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_refined/figures/risk_coverage_curve.png,.png,51584,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_refined/figures/selective_rmse_vs_acceptance.png,.png,31246,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_refined/figures/smoothness_residual_distribution.png,.png,16453,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_refined/figures/uncertainty_coverage_vs_nominal.png,.png,41234,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_refined/figures/width_distribution_before_after.png,.png,18539,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_refined/figures/width_vs_coverage_candidates.png,.png,29115,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_safety_refined/action_risk_ordering.csv,.csv,357,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_safety_refined/benchmark_missed_critical_analysis.csv,.csv,4329,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_safety_refined/benchmark_safety_metrics.json,.json,5380,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_safety_refined/benchmark_safety_predictions.csv,.csv,494824,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_safety_refined/critical_threshold_sensitivity.csv,.csv,1495,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_safety_refined/locked_maintenance_safety_policy.json,.json,3434,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_safety_refined/maintenance_policy_candidate_metrics.csv,.csv,140187,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_safety_refined/maintenance_policy_comparison.csv,.csv,896,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_safety_refined/maintenance_policy_cost_sensitivity.csv,.csv,348,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_safety_refined/maintenance_policy_pareto_frontier.csv,.csv,33724,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_safety_refined/maintenance_policy_split_metrics.csv,.csv,1016989,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_safety_refined/maintenance_policy_subgroup_metrics.csv,.csv,5542265,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_safety_refined/phase5c_freeze_decision.json,.json,248,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_safety_refined/policy_split_manifest.csv,.csv,161,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_safety_refined/run_summary.json,.json,18134,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_safety_refined/safety_state_definitions.json,.json,283,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_safety_refined/source_artifact_manifest.json,.json,7855,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_safety_refined/source_artifact_validation.json,.json,886,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_safety_refined/source_validation.json,.json,886,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_safety_refined/validation_missed_critical_analysis.csv,.csv,253,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_safety_refined/figures/action_distribution_comparison.png,.png,17570,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_safety_refined/figures/benchmark_missed_critical_feature_distribution.png,.png,15418,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_safety_refined/figures/critical_recall_confidence_intervals.png,.png,11849,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_safety_refined/figures/critical_recall_vs_urgent_review_rate.png,.png,20222,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_safety_refined/figures/current_vs_refined_confusion_matrices.png,.png,72434,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_safety_refined/figures/error_risk_distribution_by_safety_state.png,.png,38838,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_safety_refined/figures/freeze_readiness_summary.png,.png,15859,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_safety_refined/figures/lower_bound_distribution_by_safety_state.png,.png,34746,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_safety_refined/figures/missed_critical_vs_mandatory_review.png,.png,24503,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_safety_refined/figures/operational_recall_vs_workload.png,.png,21285,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_safety_refined/figures/pareto_frontier.png,.png,17617,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_safety_refined/figures/policy_stability_across_splits.png,.png,17144,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_safety_refined/figures/subgroup_critical_recall_forest.png,.png,72740,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_safety_refined/figures/support_category_vs_assigned_action.png,.png,35420,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_safety_refined/figures/urgent_precision_vs_critical_recall.png,.png,19133,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_safety_refined/figures/validation_missed_critical_feature_distribution.png,.png,8393,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/physics_guided_rul_safety_refined/figures/weighted_cost_vs_workload.png,.png,17059,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/release_readiness/cleanup_inventory.csv,.csv,166820,Keep,Keep,Public release-readiness report.,No,No,Kept
+reports/release_readiness/dependency_audit.csv,.csv,2476,Keep,Keep,Public release-readiness report.,No,No,Kept
+reports/release_readiness/git_staging_preview.txt,.txt,15492,Keep,Keep,Public release-readiness report.,No,No,Kept
+reports/release_readiness/large_files.csv,.csv,829,Keep,Keep,Public release-readiness report.,No,No,Kept
+reports/release_readiness/license_compatibility_audit.csv,.csv,2432,Keep,Keep,Public release-readiness report.,No,No,Kept
+reports/release_readiness/monitoring_demo.json,.json,1833,Keep,Keep,Public release-readiness report.,No,No,Kept
+reports/release_readiness/private_information_audit.json,.json,197,Keep,Keep,Public release-readiness report.,No,No,Kept
+reports/release_readiness/public_release_manifest.json,.json,76974,Keep,Keep,Public release-readiness report.,No,No,Kept
+reports/release_readiness/release_integrity_check.json,.json,62,Keep,Keep,Public release-readiness report.,No,No,Kept
+reports/release_readiness/repository_size_report.json,.json,4330,Keep,Keep,Public release-readiness report.,No,No,Kept
+reports/release_readiness/upstream_reference_audit.csv,.csv,3820,Keep,Keep,Public release-readiness report.,No,No,Kept
+reports/rul_uncertainty/abstention_analysis.csv,.csv,1273,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/rul_uncertainty/abstention_metrics.json,.json,3037,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/rul_uncertainty/bootstrap_confidence_intervals.json,.json,9284,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/rul_uncertainty/calibration_conclusion.json,.json,271,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/rul_uncertainty/calibration_metrics.json,.json,43517,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/rul_uncertainty/calibration_snapshots.csv,.csv,507385,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/rul_uncertainty/coverage_by_regime.csv,.csv,1595,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/rul_uncertainty/coverage_by_rul_band.csv,.csv,1388,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/rul_uncertainty/coverage_by_subset.csv,.csv,1062,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/rul_uncertainty/coverage_by_support_status.csv,.csv,916,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/rul_uncertainty/cross_validation_splits.json,.json,107300,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/rul_uncertainty/cross_validation_uncertainty_metrics.csv,.csv,11421,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/rul_uncertainty/final_uncertainty_fit_metadata.json,.json,6589,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/rul_uncertainty/locked_uncertainty_method.json,.json,1890,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/rul_uncertainty/maintenance_policy_metrics.json,.json,2116,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/rul_uncertainty/maintenance_recommendations.csv,.csv,170892,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/rul_uncertainty/phase3_benchmark_manifest.json,.json,4839,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/rul_uncertainty/run_summary.json,.json,71365,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/rul_uncertainty/support_thresholds.json,.json,264,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/rul_uncertainty/uncertainty_method_ranking.csv,.csv,4359,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/rul_uncertainty/uncertainty_method_registry.json,.json,3907,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/rul_uncertainty/uncertainty_predictions.csv,.csv,263368,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/rul_uncertainty/engine_examples/FD001_0031_uncertainty_example.png,.png,16770,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/rul_uncertainty/engine_examples/FD001_0037_uncertainty_example.png,.png,17550,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/rul_uncertainty/engine_examples/FD001_0097_uncertainty_example.png,.png,20116,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/rul_uncertainty/engine_examples/FD002_0014_uncertainty_example.png,.png,16179,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/rul_uncertainty/engine_examples/FD003_0040_uncertainty_example.png,.png,16617,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/rul_uncertainty/engine_examples/FD003_0097_uncertainty_example.png,.png,20627,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/rul_uncertainty/engine_examples/FD004_0001_uncertainty_example.png,.png,18945,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/rul_uncertainty/engine_examples/FD004_0247_uncertainty_example.png,.png,19897,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/rul_uncertainty/figures/abstention_tradeoff.png,.png,21612,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/rul_uncertainty/figures/conservative_lower_bound_vs_true_rul.png,.png,66496,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/rul_uncertainty/figures/coverage_by_operating_regime.png,.png,13757,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/rul_uncertainty/figures/coverage_by_rul_band.png,.png,21073,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/rul_uncertainty/figures/coverage_by_subset.png,.png,19240,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/rul_uncertainty/figures/coverage_by_support_status.png,.png,25256,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/rul_uncertainty/figures/coverage_vs_nominal_confidence.png,.png,50795,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/rul_uncertainty/figures/cross_validation_coverage_distribution.png,.png,16508,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/rul_uncertainty/figures/error_before_after_abstention.png,.png,15457,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/rul_uncertainty/figures/interval_width_vs_predicted_rul.png,.png,41410,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/rul_uncertainty/figures/interval_width_vs_true_rul.png,.png,49657,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/rul_uncertainty/figures/maintenance_action_distribution.png,.png,48135,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/rul_uncertainty/figures/method_coverage_width_tradeoff.png,.png,38226,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/rul_uncertainty/figures/predicted_vs_true_rul_90_intervals.png,.png,119319,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+reports/rul_uncertainty/figures/residual_distribution.png,.png,18503,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
+requirements/api.txt,.txt,37,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+requirements/constraints.txt,.txt,269,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+requirements/core.txt,.txt,58,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+requirements/dashboard.txt,.txt,22,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+requirements/dev.txt,.txt,53,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+requirements/monitoring.txt,.txt,90,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+requirements/README.md,.md,902,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+scripts/release_integrity_check.py,.py,7388,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+scripts/release_readiness_audit.py,.py,21147,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+scripts/run_monitoring_demo.py,.py,1829,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+scripts/validate_readme.py,.py,11455,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/__init__.py,.py,144,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/anomaly/alerting.py,.py,9356,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/anomaly/ensemble.py,.py,2838,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/anomaly/isolation_forest.py,.py,1563,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/anomaly/one_class_svm.py,.py,2116,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/anomaly/pca_reconstruction.py,.py,2353,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/anomaly/persistence.py,.py,3447,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/anomaly/policy_registry.py,.py,8482,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/anomaly/score_calibration.py,.py,4680,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/anomaly/__init__.py,.py,45,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/api/app.py,.py,5059,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/api/__init__.py,.py,33,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/data/columns.py,.py,1897,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/data/loader.py,.py,3562,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/data/multi_subset.py,.py,4776,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/data/operating_regimes.py,.py,3062,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/data/targets.py,.py,2828,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/data/validation.py,.py,5228,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/data/__init__.py,.py,65,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/deep/checkpoints.py,.py,660,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/deep/early_stopping.py,.py,845,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/deep/extended_training.py,.py,13929,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/deep/inference.py,.py,957,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/deep/reproducibility.py,.py,725,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/deep/sampling.py,.py,2611,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/deep/seed_evaluation.py,.py,2142,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/deep/sequence_dataset.py,.py,2095,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/deep/training.py,.py,9141,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/deep/windowing.py,.py,7895,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/deep/__init__.py,.py,49,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/deep/models/attention_pooling.py,.py,3546,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/deep/models/cnn1d.py,.py,1096,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/deep/models/cnn_lstm.py,.py,944,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/deep/models/common.py,.py,1886,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/deep/models/gru.py,.py,813,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/deep/models/lstm.py,.py,817,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/deep/models/patch_transformer.py,.py,6190,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/deep/models/physics_guided_patch_transformer.py,.py,6496,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/deep/models/positional_encoding.py,.py,3118,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/deep/models/sequence_mlp.py,.py,949,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/deep/models/tcn.py,.py,1691,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/deep/models/temporal_transformer.py,.py,3992,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/deep/models/__init__.py,.py,1029,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/deep/physics/candidate_registry.py,.py,7557,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/deep/physics/composite_loss.py,.py,14346,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/deep/physics/health_targets.py,.py,4350,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/deep/physics/loss_components.py,.py,5654,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/deep/physics/paired_sequences.py,.py,8968,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/deep/physics/regime_consistency.py,.py,20947,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/deep/physics/temporal_constraints.py,.py,9114,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/deep/physics/violation_metrics.py,.py,6869,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/deep/physics/__init__.py,.py,711,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/evaluation/alert_metrics.py,.py,1413,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/evaluation/anomaly_metrics.py,.py,6922,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/evaluation/bootstrap.py,.py,4880,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/evaluation/constraint_ablation.py,.py,1415,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/evaluation/coverage_analysis.py,.py,3610,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/evaluation/deep_rul_metrics.py,.py,1849,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/evaluation/domain_shift.py,.py,6526,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/evaluation/generalization_metrics.py,.py,9450,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/evaluation/group_cross_validation.py,.py,3569,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/evaluation/health_metrics.py,.py,2132,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/evaluation/leave_one_domain_out.py,.py,4263,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/evaluation/metrics.py,.py,4002,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/evaluation/model_efficiency.py,.py,3718,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/evaluation/operating_point_metrics.py,.py,2146,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/evaluation/physics_guided_rul_metrics.py,.py,3196,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/evaluation/temporal_model_stability.py,.py,2702,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/evaluation/transfer_metrics.py,.py,6828,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/evaluation/uncertainty_metrics.py,.py,3072,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/evaluation/__init__.py,.py,50,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/features/condition_normalization.py,.py,6442,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/features/domain_features.py,.py,4728,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/features/preprocessing.py,.py,9059,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/features/__init__.py,.py,39,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/health/pca_health_index.py,.py,3794,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/health/smoothing.py,.py,1677,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/health/__init__.py,.py,41,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/inference/artifact_loader.py,.py,2650,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/inference/cli.py,.py,3776,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/inference/explanations.py,.py,1227,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/inference/maintenance.py,.py,986,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/inference/monitoring.py,.py,2451,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/inference/predictor.py,.py,10883,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/inference/preprocessing.py,.py,5445,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/inference/safety_guard.py,.py,884,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/inference/schemas.py,.py,3052,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/inference/uncertainty.py,.py,731,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/inference/__init__.py,.py,168,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/inference/__pycache__/artifact_loader.cpython-311.pyc,.pyc,5511,Remove,Remove,Generated Python/test cache.,No,Yes,Removed or ignored
+src/aeroguard/inference/__pycache__/explanations.cpython-311.pyc,.pyc,1745,Remove,Remove,Generated Python/test cache.,No,Yes,Removed or ignored
+src/aeroguard/inference/__pycache__/maintenance.cpython-311.pyc,.pyc,1619,Remove,Remove,Generated Python/test cache.,No,Yes,Removed or ignored
+src/aeroguard/inference/__pycache__/monitoring.cpython-311.pyc,.pyc,3511,Remove,Remove,Generated Python/test cache.,No,Yes,Removed or ignored
+src/aeroguard/inference/__pycache__/predictor.cpython-311.pyc,.pyc,17700,Remove,Remove,Generated Python/test cache.,No,Yes,Removed or ignored
+src/aeroguard/inference/__pycache__/preprocessing.cpython-311.pyc,.pyc,9622,Remove,Remove,Generated Python/test cache.,No,Yes,Removed or ignored
+src/aeroguard/inference/__pycache__/safety_guard.cpython-311.pyc,.pyc,1520,Remove,Remove,Generated Python/test cache.,No,Yes,Removed or ignored
+src/aeroguard/inference/__pycache__/schemas.cpython-311.pyc,.pyc,3844,Remove,Remove,Generated Python/test cache.,No,Yes,Removed or ignored
+src/aeroguard/inference/__pycache__/uncertainty.cpython-311.pyc,.pyc,1618,Remove,Remove,Generated Python/test cache.,No,Yes,Removed or ignored
+src/aeroguard/inference/__pycache__/__init__.cpython-311.pyc,.pyc,368,Remove,Remove,Generated Python/test cache.,No,Yes,Removed or ignored
+src/aeroguard/kan/interpretability.py,.py,3213,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/kan/kan_linear.py,.py,3253,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/kan/pruning.py,.py,1169,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/kan/regularization.py,.py,993,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/kan/sparse_kan.py,.py,3069,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/kan/spline_basis.py,.py,3206,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/kan/symbolic_approximation.py,.py,2363,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/kan/__init__.py,.py,351,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/maintenance/uncertainty_policy.py,.py,3357,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/models/baseline_rul.py,.py,1575,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/models/__init__.py,.py,37,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/onset/onset_detection.py,.py,4076,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/onset/page_hinkley.py,.py,1821,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/onset/__init__.py,.py,45,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/pipelines/build_final_release.py,.py,84189,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/pipelines/calibrate_fd001_anomaly_alerts.py,.py,60225,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/pipelines/optimize_multidomain_temporal_rul.py,.py,60641,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/pipelines/refine_maintenance_safety_policy.py,.py,74191,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/pipelines/refine_physics_guided_temporal_rul.py,.py,98446,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/pipelines/train_aerokan_rul_corrector.py,.py,82655,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/pipelines/train_critical_gate_aerokan_corrector.py,.py,67471,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/pipelines/train_fd001_baseline.py,.py,23322,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/pipelines/train_fd001_health_anomaly.py,.py,40729,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/pipelines/train_multidomain_deep_rul.py,.py,57797,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/pipelines/train_multidomain_phm.py,.py,47677,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/pipelines/train_multidomain_rul_uncertainty.py,.py,54150,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/pipelines/train_physics_guided_temporal_rul.py,.py,187147,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/pipelines/train_selective_aerokan_safety_corrector.py,.py,109291,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/pipelines/validate_fd001_alert_generalization.py,.py,61061,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/pipelines/__init__.py,.py,47,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/uncertainty/abstention.py,.py,3805,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/uncertainty/conformal.py,.py,8038,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/uncertainty/interval_calibration.py,.py,1271,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/uncertainty/quantile_regression.py,.py,3619,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/uncertainty/support.py,.py,5901,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/uncertainty/tree_quantiles.py,.py,1859,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/uncertainty/__init__.py,.py,51,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+src/aeroguard/__pycache__/__init__.cpython-311.pyc,.pyc,317,Remove,Remove,Generated Python/test cache.,No,Yes,Removed or ignored
+tests/integration/test_aerokan_rul_corrector_smoke.py,.py,366,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/integration/test_critical_gate_aerokan_corrector_smoke.py,.py,452,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/integration/test_fd001_alert_generalization_smoke.py,.py,9226,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/integration/test_fd001_anomaly_calibration_smoke.py,.py,10051,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/integration/test_fd001_health_anomaly_smoke.py,.py,4208,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/integration/test_fd001_pipeline_smoke.py,.py,2894,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/integration/test_maintenance_safety_policy_refinement_smoke.py,.py,522,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/integration/test_multidomain_deep_rul_smoke.py,.py,10030,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/integration/test_multidomain_phm_smoke.py,.py,8797,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/integration/test_multidomain_rul_uncertainty_smoke.py,.py,8567,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/integration/test_multidomain_temporal_optimization_smoke.py,.py,11193,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/integration/test_phase6_final_release_smoke.py,.py,1823,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/integration/test_physics_guided_temporal_rul_refinement_smoke.py,.py,523,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/integration/test_physics_guided_temporal_rul_smoke.py,.py,2766,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/integration/test_selective_aerokan_safety_corrector_smoke.py,.py,508,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_abstention.py,.py,1593,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_aerokan_kan.py,.py,3078,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_aerokan_pipeline.py,.py,3745,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_alert_hysteresis.py,.py,3476,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_anomaly_ensemble.py,.py,1699,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_anomaly_metrics.py,.py,1656,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_anomaly_persistence.py,.py,2241,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_attention_masking.py,.py,1185,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_cmapss_loader.py,.py,2039,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_condition_normalization.py,.py,2092,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_conformal.py,.py,1854,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_critical_gate_aerokan_corrector.py,.py,10884,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_deep_inference.py,.py,807,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_deep_model_shapes.py,.py,1120,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_deep_rul_metrics.py,.py,1384,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_deep_training_utils.py,.py,2097,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_domain_shift.py,.py,1631,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_engine_balanced_sampling.py,.py,1431,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_engine_bootstrap.py,.py,1591,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_extended_training.py,.py,2389,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_final_release.py,.py,11632,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_group_cross_validation.py,.py,1371,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_health_targets.py,.py,1183,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_leave_one_domain_out.py,.py,1726,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_maintenance_safety_policy_refinement.py,.py,6373,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_metrics.py,.py,2045,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_multi_subset_loader.py,.py,2723,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_operating_point_metrics.py,.py,1260,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_operating_regimes.py,.py,1394,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_page_hinkley.py,.py,1959,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_paired_sequences.py,.py,2330,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_patch_transformer.py,.py,1396,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_pca_health_index.py,.py,854,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_pca_reconstruction.py,.py,866,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_physics_candidate_registry.py,.py,1488,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_physics_composite_loss.py,.py,2910,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_physics_full_run_orchestration.py,.py,29440,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_physics_guided_patch_transformer.py,.py,3318,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_physics_guided_temporal_rul_refinement.py,.py,14408,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_physics_loss_components.py,.py,1485,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_physics_violation_metrics.py,.py,1614,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_policy_registry.py,.py,3205,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_positional_encoding.py,.py,1028,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_quantile_regression.py,.py,1045,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_readme_release.py,.py,8422,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_regime_consistency.py,.py,7436,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_rul_targets.py,.py,2226,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_score_calibration.py,.py,957,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_seed_evaluation.py,.py,1190,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_selective_aerokan_safety_corrector.py,.py,13946,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_sequence_dataset.py,.py,985,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_sequence_windowing.py,.py,3956,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_support_score.py,.py,999,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_tcn_causality.py,.py,530,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_temporal_constraints.py,.py,2660,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_temporal_model_stability.py,.py,839,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_temporal_transformer.py,.py,1326,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_tree_quantiles.py,.py,1124,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_uncertainty_maintenance_policy.py,.py,1703,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/unit/test_uncertainty_metrics.py,.py,895,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept

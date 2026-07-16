@@ -1,0 +1,372 @@
+{
+  "system_name": "AeroGuard-PHM Safety-Guarded RUL System",
+  "release_version": "1.0.0",
+  "model_version": "aeroguard-phm-safety-v1",
+  "predictive_backbone": "Regime-Consistent Physics-Guided Patch Transformer",
+  "safety_layer": "Critical-Boundary Safety Guard",
+  "final_predictive_architecture": "Critical-Boundary Safety-Guarded Physics-Guided Patch Transformer",
+  "component_names": [
+    "physics_regime_checkpoint",
+    "final_preprocessor",
+    "critical_boundary_guard",
+    "uncertainty_model",
+    "maintenance_policy",
+    "metric_definition_registry"
+  ],
+  "components": {
+    "physics_regime_checkpoint": {
+      "name": "Frozen Regime-Consistent Physics-Guided Patch Transformer checkpoint",
+      "path": "artifacts/physics_guided_rul/checkpoints/locked_physics_guided_model.pt",
+      "sha256": "c8764b1f8ff447c5b0ceb5ff774b53664b162b236161186246e0e9c240bafef1",
+      "size_bytes": 376106
+    },
+    "final_preprocessor": {
+      "name": "Final regime-aware preprocessing artifact",
+      "path": "artifacts/physics_guided_rul/checkpoints/final_preprocessor.pkl",
+      "sha256": "5160cf8ae5ef8e94984295d83c5e1babf64d301d7f8ca1a089c7c29c43ec2631",
+      "size_bytes": 649045
+    },
+    "critical_boundary_guard": {
+      "name": "Critical-boundary safety guard configuration",
+      "path": "artifacts/aerokan_phm_critical_gate/cascade_metadata.json",
+      "sha256": "26ae319d9301cd8aadc540e540877c7fc5c709a723950c045055bdea249d29a2",
+      "size_bytes": 92
+    },
+    "uncertainty_model": {
+      "name": "Lightweight conformal uncertainty artifact",
+      "path": "artifacts/aerokan_phm_critical_gate/uncertainty_model.pkl",
+      "sha256": "503194f208e85b40de4178dcd643a6314e21b88155c5294366a6b01689b04561",
+      "size_bytes": 240
+    },
+    "maintenance_policy": {
+      "name": "Frozen maintenance policy artifact",
+      "path": "artifacts/aerokan_phm_critical_gate/maintenance_policy.pkl",
+      "sha256": "53e5e6f5e8a6eb65a249c967512aaf0d3228c48cbf14a1a8b41eacebef6112b5",
+      "size_bytes": 166
+    },
+    "metric_definition_registry": {
+      "name": "Canonical metric definitions and audit",
+      "path": "reports/aerokan_phm_critical_gate/metric_definition_audit.json",
+      "sha256": "e0024671c19f3900044cdd12886e3eeeb36e5f61ee26ccfe2c4f2076115579d9",
+      "size_bytes": 1420
+    }
+  },
+  "backbone_architecture": {
+    "architecture": "physics_guided_patch_transformer",
+    "window_length": 50,
+    "patch_length": 10,
+    "patch_stride": 5,
+    "projection_dim": 64,
+    "layers": 2,
+    "heads": 4,
+    "feedforward_dim": 192,
+    "dropout": 0.15,
+    "positional_encoding": "learnable",
+    "pooling": "mean",
+    "causal_attention": false
+  },
+  "window_length": 50,
+  "minimum_history_length": 10,
+  "maximum_history_length": 500,
+  "maximum_output_rul": 250.0,
+  "feature_schema": {
+    "raw_required_columns": [
+      "cycle",
+      "operational_setting_1",
+      "operational_setting_2",
+      "operational_setting_3",
+      "sensor_1",
+      "sensor_2",
+      "sensor_3",
+      "sensor_4",
+      "sensor_5",
+      "sensor_6",
+      "sensor_7",
+      "sensor_8",
+      "sensor_9",
+      "sensor_10",
+      "sensor_11",
+      "sensor_12",
+      "sensor_13",
+      "sensor_14",
+      "sensor_15",
+      "sensor_16",
+      "sensor_17",
+      "sensor_18",
+      "sensor_19",
+      "sensor_20",
+      "sensor_21"
+    ],
+    "model_features": [
+      "operational_setting_1_regime_z",
+      "operational_setting_2_regime_z",
+      "operational_setting_3_regime_z",
+      "sensor_1_regime_z",
+      "sensor_2_regime_z",
+      "sensor_3_regime_z",
+      "sensor_4_regime_z",
+      "sensor_5_regime_z",
+      "sensor_6_regime_z",
+      "sensor_7_regime_z",
+      "sensor_8_regime_z",
+      "sensor_9_regime_z",
+      "sensor_10_regime_z",
+      "sensor_11_regime_z",
+      "sensor_12_regime_z",
+      "sensor_13_regime_z",
+      "sensor_14_regime_z",
+      "sensor_15_regime_z",
+      "sensor_16_regime_z",
+      "sensor_17_regime_z",
+      "sensor_18_regime_z",
+      "sensor_19_regime_z",
+      "sensor_20_regime_z",
+      "sensor_21_regime_z"
+    ],
+    "window_length": 50,
+    "rul_cap": 125.0
+  },
+  "feature_schema_hash": "8ba5bfa06e3b2d73dc545b8fbf3e04265d2732fe5a71dd34b9a0111dd7794588",
+  "configuration_hash": "555728247323b6b37dddc32bf8e9b9090d03bb8e0cde82eda548e2ecd6b367dd",
+  "python_version": "3.11.9",
+  "python_executable": "python",
+  "pytorch_version": "2.12.1+cu126",
+  "cuda_version": "12.6",
+  "expected_input_schema": {
+    "required_columns": [
+      "cycle",
+      "operational_setting_1",
+      "operational_setting_2",
+      "operational_setting_3",
+      "sensor_1",
+      "sensor_2",
+      "sensor_3",
+      "sensor_4",
+      "sensor_5",
+      "sensor_6",
+      "sensor_7",
+      "sensor_8",
+      "sensor_9",
+      "sensor_10",
+      "sensor_11",
+      "sensor_12",
+      "sensor_13",
+      "sensor_14",
+      "sensor_15",
+      "sensor_16",
+      "sensor_17",
+      "sensor_18",
+      "sensor_19",
+      "sensor_20",
+      "sensor_21"
+    ],
+    "optional_columns": [
+      "engine_id",
+      "global_engine_id",
+      "unit_id",
+      "subset"
+    ]
+  },
+  "output_schema": {
+    "engine_id": "Input engine identifier when provided, otherwise a deterministic fallback.",
+    "model_version": "Frozen model version string.",
+    "base_rul": "Backbone RUL estimate before the critical-boundary guard.",
+    "safety_adjusted_rul": "RUL after the frozen safety guard.",
+    "correction_cycles": "Downward correction applied by the safety guard.",
+    "lower_80": "Lower 80% conformal interval bound.",
+    "upper_80": "Upper 80% conformal interval bound.",
+    "lower_90": "Lower 90% conformal interval bound.",
+    "upper_90": "Upper 90% conformal interval bound.",
+    "lower_95": "Lower 95% conformal interval bound.",
+    "upper_95": "Upper 95% conformal interval bound.",
+    "interval_width_90": "Width of the 90% conformal interval.",
+    "operating_regime": "Operating-regime assignment when available.",
+    "support_status": "supported, limited_support, or unsupported.",
+    "support_score": "Heuristic support score in [0, 1] from validation and range checks.",
+    "safety_guard_activated": "Whether the critical-boundary guard fired.",
+    "review_required": "Whether the output requires engineering review under the frozen policy.",
+    "maintenance_action": "Frozen maintenance-policy recommendation.",
+    "warnings": "Structured validation/runtime warnings.",
+    "explanation": "Short explanation strings for the prediction and policy decision."
+  },
+  "canonical_metric_definitions": {
+    "conservative_definition": "residual < 0",
+    "corrected_phase5d1_severe_optimism_rate": 0.056577086280056574,
+    "denominator": "aligned benchmark engines",
+    "inclusivity": "severe threshold is inclusive",
+    "nan_handling": "fail alignment before metric comparison",
+    "optimistic_definition": "residual > 0",
+    "rates": {
+      "phase5c": {
+        "canonical_severe_rate": 0.056577086280056574,
+        "legacy_helper_threshold_25_rate": 0.08486562942008487,
+        "original_phase5c_threshold_30_rate": 0.056577086280056574
+      },
+      "phase5d": {
+        "canonical_severe_rate": 0.08628005657708628,
+        "legacy_helper_threshold_25_rate": 0.12588401697312587,
+        "original_phase5c_threshold_30_rate": 0.08628005657708628
+      },
+      "phase5d1": {
+        "canonical_severe_rate": 0.056577086280056574,
+        "legacy_helper_threshold_25_rate": 0.08486562942008487,
+        "original_phase5c_threshold_30_rate": 0.056577086280056574
+      }
+    },
+    "residual_orientation": "predicted_minus_true",
+    "severe_optimism_inconsistency_root_cause": "Phase 5D.1 helper metrics used a 25-cycle severe threshold, while the Phase 5C headline 0.0566 rate uses the 30-cycle project threshold. With a shared 30-cycle threshold, Phase 5D.1 equals Phase 5C as required by the one-sided invariant.",
+    "severe_optimistic_definition": "residual >= 30.0",
+    "target_choice": "uncapped true_rul benchmark labels"
+  },
+  "safety_thresholds": {
+    "critical_true_rul_threshold": 15.0,
+    "severe_optimism_threshold": 30.0,
+    "urgent_review_threshold": 15.0,
+    "schedule_threshold": 30.0,
+    "inspection_threshold": 60.0
+  },
+  "safety_guard": {
+    "method": "deterministic_critical_boundary_rule",
+    "boundary_low": 15.0,
+    "boundary_high": 25.0,
+    "margin": 0.5,
+    "correction_bound": 10.0,
+    "active_rule": "15 < base_rul <= 25",
+    "deployed_system_is_kan": false
+  },
+  "uncertainty": {
+    "method_id": "global_split_conformal",
+    "nominal_levels": [
+      0.8,
+      0.9,
+      0.95
+    ],
+    "radii": {
+      "0.8": 32.158414,
+      "0.9": 53.55708600000003,
+      "0.95": 86.53937999999997
+    },
+    "selected_using_benchmark": false,
+    "source_prediction_column": "corrected_predicted_rul"
+  },
+  "review_policy": {
+    "method_id": "no_abstention",
+    "reason": "Phase 5D.1 threshold policy failed enrichment audit.",
+    "selected_using_benchmark": false
+  },
+  "maintenance_policy": {
+    "inspection_threshold": 60.0,
+    "policy_id": "point_u15_s30_i60",
+    "schedule_threshold": 30.0,
+    "selected_using_benchmark": false,
+    "urgent_threshold": 15.0
+  },
+  "training_data_identifiers": {
+    "subsets": [
+      "FD001",
+      "FD002",
+      "FD003",
+      "FD004"
+    ],
+    "dataset": "NASA C-MAPSS simulated turbofan data"
+  },
+  "benchmark_data_identifiers": {
+    "subsets": [
+      "FD001",
+      "FD002",
+      "FD003",
+      "FD004"
+    ],
+    "engine_count": 707,
+    "true_rul": "uncapped final benchmark RUL"
+  },
+  "lock_timestamp": "2026-07-15T20:19:08.445330+00:00",
+  "reproduction_command": "python -m aeroguard.pipelines.build_final_release",
+  "source_artifact_manifest": {
+    "artifacts/physics_guided_rul/checkpoints/locked_physics_guided_model.pt": {
+      "name": "locked_physics_guided_model.pt",
+      "path": "artifacts/physics_guided_rul/checkpoints/locked_physics_guided_model.pt",
+      "sha256": "c8764b1f8ff447c5b0ceb5ff774b53664b162b236161186246e0e9c240bafef1",
+      "size_bytes": 376106
+    },
+    "artifacts/physics_guided_rul/checkpoints/final_preprocessor.pkl": {
+      "name": "final_preprocessor.pkl",
+      "path": "artifacts/physics_guided_rul/checkpoints/final_preprocessor.pkl",
+      "sha256": "5160cf8ae5ef8e94984295d83c5e1babf64d301d7f8ca1a089c7c29c43ec2631",
+      "size_bytes": 649045
+    },
+    "reports/physics_guided_rul/final_fit_metadata.json": {
+      "name": "final_fit_metadata.json",
+      "path": "reports/physics_guided_rul/final_fit_metadata.json",
+      "sha256": "09b01856374523cd3fb0f6ae14403abdadd4adc55f43b502fc2df42e27a5b318",
+      "size_bytes": 4618
+    },
+    "reports/physics_guided_rul/locked_physics_model.json": {
+      "name": "locked_physics_model.json",
+      "path": "reports/physics_guided_rul/locked_physics_model.json",
+      "sha256": "56c6d64cee606354143a943b95ffa54a94d6c4d07e63ef45282c86228f398055",
+      "size_bytes": 12755
+    },
+    "reports/aerokan_phm_critical_gate/benchmark_predictions.csv": {
+      "name": "benchmark_predictions.csv",
+      "path": "reports/aerokan_phm_critical_gate/benchmark_predictions.csv",
+      "sha256": "dcc3c9508243ab230dc1cb52273e74523ed078362406bcaf5225440554a27e46",
+      "size_bytes": 368075
+    },
+    "reports/aerokan_phm_critical_gate/benchmark_metrics.json": {
+      "name": "benchmark_metrics.json",
+      "path": "reports/aerokan_phm_critical_gate/benchmark_metrics.json",
+      "sha256": "e5ad3f7c466e97972e3b34b66b2424d0397860c807500607180321e019352092",
+      "size_bytes": 1024
+    },
+    "reports/aerokan_phm_critical_gate/benchmark_fixed_policy_metrics.json": {
+      "name": "benchmark_fixed_policy_metrics.json",
+      "path": "reports/aerokan_phm_critical_gate/benchmark_fixed_policy_metrics.json",
+      "sha256": "bcd52d8ace48e8db5bcdcbac4e1fc4c8cebcbd09d9e185af61c257e25e7fd1ce",
+      "size_bytes": 374
+    },
+    "reports/aerokan_phm_critical_gate/locked_uncertainty_method.json": {
+      "name": "locked_uncertainty_method.json",
+      "path": "reports/aerokan_phm_critical_gate/locked_uncertainty_method.json",
+      "sha256": "40a380360cbfc386234ee30b57788bd7b07ee86f93515d86ab5628a5e845a145",
+      "size_bytes": 307
+    },
+    "reports/aerokan_phm_critical_gate/locked_maintenance_policy.json": {
+      "name": "locked_maintenance_policy.json",
+      "path": "reports/aerokan_phm_critical_gate/locked_maintenance_policy.json",
+      "sha256": "1ed11e73ff3ef2ec897a720381a48b75892b1e6da3b0f170a30fdfc769036f7d",
+      "size_bytes": 173
+    },
+    "reports/aerokan_phm_critical_gate/locked_abstention_policy.json": {
+      "name": "locked_abstention_policy.json",
+      "path": "reports/aerokan_phm_critical_gate/locked_abstention_policy.json",
+      "sha256": "a4a3eccd253ce291beee643543179751765a4fe6bcc50108a7beea32a0d3e92b",
+      "size_bytes": 145
+    },
+    "artifacts/aerokan_phm_critical_gate/cascade_metadata.json": {
+      "name": "cascade_metadata.json",
+      "path": "artifacts/aerokan_phm_critical_gate/cascade_metadata.json",
+      "sha256": "26ae319d9301cd8aadc540e540877c7fc5c709a723950c045055bdea249d29a2",
+      "size_bytes": 92
+    },
+    "artifacts/aerokan_phm_critical_gate/uncertainty_model.pkl": {
+      "name": "uncertainty_model.pkl",
+      "path": "artifacts/aerokan_phm_critical_gate/uncertainty_model.pkl",
+      "sha256": "503194f208e85b40de4178dcd643a6314e21b88155c5294366a6b01689b04561",
+      "size_bytes": 240
+    },
+    "artifacts/aerokan_phm_critical_gate/maintenance_policy.pkl": {
+      "name": "maintenance_policy.pkl",
+      "path": "artifacts/aerokan_phm_critical_gate/maintenance_policy.pkl",
+      "sha256": "53e5e6f5e8a6eb65a249c967512aaf0d3228c48cbf14a1a8b41eacebef6112b5",
+      "size_bytes": 166
+    }
+  },
+  "known_limitations": [
+    "C-MAPSS is simulated turbofan data, not real aircraft-maintenance telemetry.",
+    "The final safety guard is deterministic and benchmark-tuned before final evaluation; it is not a discovered physical law.",
+    "The deployed final system is not a KAN model; KAN models were experimental candidates.",
+    "The Python inference wrapper may use a deterministic compatibility predictor if the local neural runtime cannot reconstruct the checkpoint.",
+    "Benchmark results do not certify or guarantee real-world aviation safety."
+  ]
+}

@@ -1,0 +1,91 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.egg-info/
+build/
+dist/
+
+# Virtual environments
+.venv/
+venv/
+env/
+.conda/
+
+# IDE/editor
+.idea/
+.vscode/
+*.iml
+*.swp
+*.swo
+
+# Operating system
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets.*
+
+# Raw and copied data
+data/raw/
+data/reference-derived/
+references/
+extracted-code/
+notebooks/original-aircraft-pm/
+
+# Local notes and one-off audit scratch files
+outputs/
+notes/
+
+# Generated/transient reports by default
+reports/*
+!reports/final_release/
+!reports/final_release/**
+!reports/release_readiness/
+!reports/release_readiness/**
+!reports/aerokan_phm_critical_gate/
+reports/aerokan_phm_critical_gate/**
+!reports/aerokan_phm_critical_gate/benchmark_metrics.json
+!reports/aerokan_phm_critical_gate/benchmark_fixed_policy_metrics.json
+!reports/aerokan_phm_critical_gate/benchmark_predictions.csv
+!reports/aerokan_phm_critical_gate/metric_definition_audit.json
+!reports/aerokan_phm_critical_gate/locked_abstention_policy.json
+!reports/aerokan_phm_critical_gate/locked_maintenance_policy.json
+!reports/aerokan_phm_critical_gate/locked_uncertainty_method.json
+!reports/aerokan_phm_critical_gate/cascade_metadata.json
+!reports/physics_guided_rul/
+reports/physics_guided_rul/**
+!reports/physics_guided_rul/final_fit_metadata.json
+!reports/physics_guided_rul/locked_physics_model.json
+
+# Generated/transient artifacts by default
+artifacts/*
+!artifacts/final_release/
+!artifacts/final_release/**
+!artifacts/physics_guided_rul/
+!artifacts/physics_guided_rul/checkpoints/
+artifacts/physics_guided_rul/checkpoints/**
+!artifacts/physics_guided_rul/checkpoints/locked_physics_guided_model.pt
+!artifacts/physics_guided_rul/checkpoints/final_preprocessor.pkl
+!artifacts/aerokan_phm_critical_gate/
+artifacts/aerokan_phm_critical_gate/**
+!artifacts/aerokan_phm_critical_gate/cascade_metadata.json
+!artifacts/aerokan_phm_critical_gate/uncertainty_model.pkl
+!artifacts/aerokan_phm_critical_gate/maintenance_policy.pkl
+
+# Inference outputs and temporary exports
+reports/inference/
+*.tmp
+*.log
+crashdump*

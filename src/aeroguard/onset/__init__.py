@@ -1,0 +1,1 @@
+"""Degradation-onset detection utilities."""

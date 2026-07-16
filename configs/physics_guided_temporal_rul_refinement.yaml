@@ -1,0 +1,66 @@
+source_phase5c:
+  reports_dir: reports/physics_guided_rul
+  artifacts_dir: artifacts/physics_guided_rul
+  expected_locked_candidate: physics_regime
+
+source_phase5b:
+  reports_dir: reports/deep_rul_extended
+  artifacts_dir: artifacts/deep_rul_extended
+
+outputs:
+  reports_dir: reports/physics_guided_rul_refined
+  artifacts_dir: artifacts/physics_guided_rul_refined
+  overwrite_existing: false
+
+constraint_audit:
+  rul_matching_tolerance: 5.0
+  maximum_regime_pairs: 20000
+  monotonic_tolerance: 0.5
+  rate_threshold_quantile: 0.95
+  smoothness_threshold_quantile: 0.95
+  regime_threshold_quantile: 0.95
+  bootstrap_iterations: 1000
+  bootstrap_seed: 10501
+  smoke_bootstrap_iterations: 25
+
+policy_selection:
+  development_fraction: 0.70
+  split_seeds: [10501, 10502, 10503]
+  group_by_engine: true
+
+uncertainty:
+  nominal_levels: [0.80, 0.90, 0.95]
+  minimum_group_size: 40
+  maximum_undercoverage: 0.02
+  maximum_instability: 0.08
+  shrinkage_weight: 0.50
+
+abstention:
+  high_error_threshold: 25.0
+  diagnostic_high_error_thresholds: [20.0, 25.0, 30.0]
+  maximum_abstention_rate: 0.15
+  minimum_error_enrichment: 1.10
+  require_accepted_rmse_improvement: true
+  allow_no_abstention: true
+
+maintenance:
+  critical_rul_max: 15
+  near_term_rul_max: 30
+  inspection_rul_max: 60
+  healthy_rul_min: 125
+  optimize_on_validation_only: true
+  critical_recall_floor: 0.95
+  cost_matrix:
+    missed_critical: 100.0
+    delayed_near_term: 35.0
+    unnecessary_urgent: 8.0
+    early_inspection: 2.0
+    wrong_noncritical_action: 4.0
+
+bootstrap:
+  paired_iterations: 2000
+  seed: 10601
+  smoke_iterations: 50
+
+figures:
+  dpi: 140

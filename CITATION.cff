@@ -1,0 +1,40 @@
+cff-version: 1.2.0
+message: "If you use AeroGuard-PHM, cite this repository and the underlying NASA C-MAPSS dataset."
+title: "AeroGuard-PHM: Safety-Guarded Remaining Useful Life Prediction for Turbofan Predictive Maintenance"
+version: "1.0.0"
+date-released: "2026-07-16"
+authors:
+  - family-names: "Yarroju"
+    given-names: "Rithvik"
+license: "Apache-2.0"
+abstract: "A production-style turbofan predictive-maintenance system combining a regime-consistent physics-guided Patch Transformer, calibrated uncertainty, deterministic safety guarding, maintenance decision support, FastAPI inference and Streamlit demonstration tooling."
+keywords:
+  - predictive maintenance
+  - remaining useful life
+  - turbofan engines
+  - C-MAPSS
+  - uncertainty quantification
+  - conformal prediction
+  - safety guard
+references:
+  - type: dataset
+    title: "NASA C-MAPSS Turbofan Engine Degradation Simulation Data Set"
+    publisher: "NASA Prognostics Center of Excellence"
+  - type: article
+    title: "A Time Series is Worth 64 Words: Long-term Forecasting with Transformers"
+    authors:
+      - family-names: "Nie"
+        given-names: "Yuqi"
+      - family-names: "Nguyen"
+        given-names: "Nam H."
+      - family-names: "Sinthong"
+        given-names: "Phanwadee"
+      - family-names: "Kalagnanam"
+        given-names: "Jayant"
+    year: 2023
+  - type: article
+    title: "KAN: Kolmogorov-Arnold Networks"
+    year: 2024
+  - type: book
+    title: "Algorithmic Learning in a Random World"
+    year: 2005

@@ -1,0 +1,80 @@
+{
+  "artifacts/physics_guided_rul/checkpoints/locked_physics_guided_model.pt": {
+    "name": "locked_physics_guided_model.pt",
+    "path": "artifacts/physics_guided_rul/checkpoints/locked_physics_guided_model.pt",
+    "sha256": "c8764b1f8ff447c5b0ceb5ff774b53664b162b236161186246e0e9c240bafef1",
+    "size_bytes": 376106
+  },
+  "artifacts/physics_guided_rul/checkpoints/final_preprocessor.pkl": {
+    "name": "final_preprocessor.pkl",
+    "path": "artifacts/physics_guided_rul/checkpoints/final_preprocessor.pkl",
+    "sha256": "5160cf8ae5ef8e94984295d83c5e1babf64d301d7f8ca1a089c7c29c43ec2631",
+    "size_bytes": 649045
+  },
+  "reports/physics_guided_rul/final_fit_metadata.json": {
+    "name": "final_fit_metadata.json",
+    "path": "reports/physics_guided_rul/final_fit_metadata.json",
+    "sha256": "09b01856374523cd3fb0f6ae14403abdadd4adc55f43b502fc2df42e27a5b318",
+    "size_bytes": 4618
+  },
+  "reports/physics_guided_rul/locked_physics_model.json": {
+    "name": "locked_physics_model.json",
+    "path": "reports/physics_guided_rul/locked_physics_model.json",
+    "sha256": "56c6d64cee606354143a943b95ffa54a94d6c4d07e63ef45282c86228f398055",
+    "size_bytes": 12755
+  },
+  "reports/aerokan_phm_critical_gate/benchmark_predictions.csv": {
+    "name": "benchmark_predictions.csv",
+    "path": "reports/aerokan_phm_critical_gate/benchmark_predictions.csv",
+    "sha256": "dcc3c9508243ab230dc1cb52273e74523ed078362406bcaf5225440554a27e46",
+    "size_bytes": 368075
+  },
+  "reports/aerokan_phm_critical_gate/benchmark_metrics.json": {
+    "name": "benchmark_metrics.json",
+    "path": "reports/aerokan_phm_critical_gate/benchmark_metrics.json",
+    "sha256": "e5ad3f7c466e97972e3b34b66b2424d0397860c807500607180321e019352092",
+    "size_bytes": 1024
+  },
+  "reports/aerokan_phm_critical_gate/benchmark_fixed_policy_metrics.json": {
+    "name": "benchmark_fixed_policy_metrics.json",
+    "path": "reports/aerokan_phm_critical_gate/benchmark_fixed_policy_metrics.json",
+    "sha256": "bcd52d8ace48e8db5bcdcbac4e1fc4c8cebcbd09d9e185af61c257e25e7fd1ce",
+    "size_bytes": 374
+  },
+  "reports/aerokan_phm_critical_gate/locked_uncertainty_method.json": {
+    "name": "locked_uncertainty_method.json",
+    "path": "reports/aerokan_phm_critical_gate/locked_uncertainty_method.json",
+    "sha256": "40a380360cbfc386234ee30b57788bd7b07ee86f93515d86ab5628a5e845a145",
+    "size_bytes": 307
+  },
+  "reports/aerokan_phm_critical_gate/locked_maintenance_policy.json": {
+    "name": "locked_maintenance_policy.json",
+    "path": "reports/aerokan_phm_critical_gate/locked_maintenance_policy.json",
+    "sha256": "1ed11e73ff3ef2ec897a720381a48b75892b1e6da3b0f170a30fdfc769036f7d",
+    "size_bytes": 173
+  },
+  "reports/aerokan_phm_critical_gate/locked_abstention_policy.json": {
+    "name": "locked_abstention_policy.json",
+    "path": "reports/aerokan_phm_critical_gate/locked_abstention_policy.json",
+    "sha256": "a4a3eccd253ce291beee643543179751765a4fe6bcc50108a7beea32a0d3e92b",
+    "size_bytes": 145
+  },
+  "artifacts/aerokan_phm_critical_gate/cascade_metadata.json": {
+    "name": "cascade_metadata.json",
+    "path": "artifacts/aerokan_phm_critical_gate/cascade_metadata.json",
+    "sha256": "26ae319d9301cd8aadc540e540877c7fc5c709a723950c045055bdea249d29a2",
+    "size_bytes": 92
+  },
+  "artifacts/aerokan_phm_critical_gate/uncertainty_model.pkl": {
+    "name": "uncertainty_model.pkl",
+    "path": "artifacts/aerokan_phm_critical_gate/uncertainty_model.pkl",
+    "sha256": "503194f208e85b40de4178dcd643a6314e21b88155c5294366a6b01689b04561",
+    "size_bytes": 240
+  },
+  "artifacts/aerokan_phm_critical_gate/maintenance_policy.pkl": {
+    "name": "maintenance_policy.pkl",
+    "path": "artifacts/aerokan_phm_critical_gate/maintenance_policy.pkl",
+    "sha256": "53e5e6f5e8a6eb65a249c967512aaf0d3228c48cbf14a1a8b41eacebef6112b5",
+    "size_bytes": 166
+  }
+}

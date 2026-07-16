@@ -1,0 +1,239 @@
+dataset_dir: data/raw/cmapss
+training_subsets: [FD001, FD002, FD003, FD004]
+benchmark_test_subsets: [FD001, FD002, FD003, FD004]
+phase5_config_path: configs/multidomain_deep_rul.yaml
+phase5_results_path: reports/deep_rul
+phase5_checkpoint_path: artifacts/deep_rul/checkpoints/locked_deep_model.pt
+random_seed: 9201
+
+execution_profile: auto
+device: auto
+deterministic_algorithms: false
+window_length: 50
+window_stride: 2
+minimum_valid_history: 10
+maximum_windows_per_engine: 100
+sampling_method: engine_balanced_uniform
+validation_snapshot_positions: [0.20, 0.40, 0.60, 0.80, 1.00]
+rul_bands:
+  - {label: "0_15", lower: 0, upper: 15}
+  - {label: "16_30", lower: 15.000001, upper: 30}
+  - {label: "31_60", lower: 30.000001, upper: 60}
+  - {label: "61_125", lower: 60.000001, upper: 125}
+  - {label: "above_125", lower: 125.000001, upper: null}
+
+training_target: rul_capped
+rul_cap: 125
+healthy_rul_threshold: 125
+critical_rul_threshold: 30
+include_cycle_as_feature: false
+features_to_exclude: []
+near_constant_threshold: 0.0
+correlation_threshold: 0.999
+operating_condition_method: regime_standardization
+number_of_operating_regimes: 6
+residualization_ridge_alpha: 1.0
+
+screening_validation_fraction: 0.20
+screening_seed: 9301
+maximum_candidate_count: 8
+finalist_count: 3
+finalist_cv_folds: 3
+finalist_cv_seed: 9401
+finalist_seeds: [9501, 9502, 9503]
+maximum_seed_run_count: 27
+
+execution_limits:
+  gpu_laptop_safe:
+    finalist_count: 2
+    finalist_seed_count: 2
+    stage_a_epoch_cap: 16
+    finalist_epoch_cap: 10
+    reason: "6GB laptop GPU profile keeps the bounded Phase 5B run practical."
+  cpu_safe:
+    finalist_count: 2
+    finalist_seed_count: 1
+    stage_a_epoch_cap: 8
+    finalist_epoch_cap: 6
+    reason: "CPU profile reduces finalist seeds and epoch caps."
+
+training_schedules:
+  schedule_a:
+    learning_rate: 0.001
+    max_epochs: 30
+    minimum_epochs: 5
+    early_stopping_patience: 8
+    scheduler: plateau
+    scheduler_factor: 0.5
+    scheduler_patience: 3
+    min_learning_rate: 0.000001
+  schedule_b:
+    learning_rate: 0.0005
+    max_epochs: 50
+    minimum_epochs: 5
+    early_stopping_patience: 10
+    scheduler: plateau
+    scheduler_factor: 0.5
+    scheduler_patience: 4
+    min_learning_rate: 0.000001
+  schedule_c:
+    learning_rate: 0.00025
+    max_epochs: 50
+    minimum_epochs: 5
+    early_stopping_patience: 10
+    scheduler: cosine
+    min_learning_rate: 0.000001
+
+optimizer: adamw
+weight_decay: 0.0001
+loss: smooth_l1
+gradient_clip_norm: 5.0
+batch_size: 256
+num_workers: 0
+mixed_precision: auto
+severe_optimistic_threshold: 30
+parameter_budget:
+  default: 1000000
+  absolute_max: 2000000
+latency_feasibility_threshold_ms: 10.0
+latency_repetitions: 100
+
+transformer_defaults:
+  projection_dims: [48, 64]
+  layer_counts: [2]
+  head_counts: [4]
+  feedforward_dims: [128, 192]
+  dropout_values: [0.10, 0.15]
+  positional_encoding_methods: [sinusoidal, learnable]
+  pooling_methods: [mean, attention, final]
+  causal_attention: false
+patch_options:
+  patch_lengths: [5, 10]
+  patch_strides: [5, 10]
+
+model_registry:
+  - model_id: lstm_phase5_schedule_a
+    architecture: lstm
+    schedule_id: schedule_a
+    hidden_dim: 80
+    layers: 1
+    dropout: 0.10
+  - model_id: lstm_phase5_schedule_b
+    architecture: lstm
+    schedule_id: schedule_b
+    hidden_dim: 80
+    layers: 1
+    dropout: 0.10
+  - model_id: tcn_extended_schedule_a
+    architecture: tcn
+    schedule_id: schedule_a
+    hidden_dim: 64
+    dropout: 0.10
+    kernel_size: 3
+    dilations: [1, 2, 4, 8]
+  - model_id: tcn_extended_schedule_b
+    architecture: tcn
+    schedule_id: schedule_b
+    hidden_dim: 72
+    dropout: 0.10
+    kernel_size: 3
+    dilations: [1, 2, 4, 8]
+  - model_id: temporal_transformer_sinusoidal_mean_a
+    architecture: temporal_transformer
+    schedule_id: schedule_a
+    projection_dim: 64
+    layers: 2
+    heads: 4
+    feedforward_dim: 128
+    dropout: 0.10
+    positional_encoding: sinusoidal
+    pooling: mean
+    causal_attention: false
+  - model_id: temporal_transformer_learned_attention_b
+    architecture: temporal_transformer
+    schedule_id: schedule_b
+    projection_dim: 64
+    layers: 2
+    heads: 4
+    feedforward_dim: 192
+    dropout: 0.15
+    positional_encoding: learnable
+    pooling: attention
+    causal_attention: false
+  - model_id: patch_transformer_5x5_attention_a
+    architecture: patch_transformer
+    schedule_id: schedule_a
+    patch_length: 5
+    patch_stride: 5
+    projection_dim: 64
+    layers: 2
+    heads: 4
+    feedforward_dim: 128
+    dropout: 0.10
+    positional_encoding: sinusoidal
+    pooling: attention
+    causal_attention: false
+  - model_id: patch_transformer_10x5_mean_b
+    architecture: patch_transformer
+    schedule_id: schedule_b
+    patch_length: 10
+    patch_stride: 5
+    projection_dim: 64
+    layers: 2
+    heads: 4
+    feedforward_dim: 192
+    dropout: 0.15
+    positional_encoding: learnable
+    pooling: mean
+    causal_attention: false
+
+robust_selection_weights:
+  mean_rmse: 1.0
+  rmse_std: 0.5
+  nasa_score: 0.02
+  optimistic_rate: 10.0
+improvement_classification:
+  clear_min_rmse_reduction_fraction: 0.03
+  moderate_min_rmse_reduction_fraction: 0.01
+  comparable_abs_rmse_delta_fraction: 0.01
+  max_nasa_score_increase_fraction: 0.10
+  max_optimistic_rate_increase: 0.10
+  max_latency_increase_fraction: 2.0
+
+nominal_coverage_levels: [0.80, 0.90, 0.95]
+conformal_methods:
+  - global_grouped_conformal
+  - predicted_rul_band_conformal
+predicted_rul_bands:
+  - {label: "0_15", lower: 0, upper: 15}
+  - {label: "16_30", lower: 15.000001, upper: 30}
+  - {label: "31_60", lower: 30.000001, upper: 60}
+  - {label: "61_125", lower: 60.000001, upper: 125}
+  - {label: "above_125", lower: 125.000001, upper: null}
+coverage_tolerance: 0.03
+
+support_settings:
+  support_percentile_range: [0.01, 0.99]
+  limited_feature_exceedance: 0.05
+  out_feature_exceedance: 0.20
+  limited_robust_distance: 3.0
+  out_robust_distance: 6.0
+  regime_distance_quantile: 0.99
+abstention_settings:
+  max_feature_exceedance_fraction: 0.20
+  max_regime_distance: 6.0
+  max_interval_width_ratio: 2.5
+  min_plausible_rul: 0
+  max_plausible_rul: 250
+  abstain_on_quantile_crossing: true
+  high_error_threshold: 30
+maintenance_thresholds:
+  urgent_review_max: 15
+  schedule_maintenance_max: 30
+  plan_inspection_max: 60
+
+checkpoint_dir: artifacts/deep_rul_extended/checkpoints
+output_dir: reports/deep_rul_extended
+representative_engine_count: 10
+plotting:
+  scatter_sample_rows: 5000

@@ -1,0 +1,29 @@
+{
+  "forbidden_public_phrase_hits": [
+    {
+      "rule_id": "forbidden_phrase_01",
+      "hits": []
+    },
+    {
+      "rule_id": "forbidden_phrase_02",
+      "hits": []
+    },
+    {
+      "rule_id": "forbidden_phrase_03",
+      "hits": []
+    },
+    {
+      "rule_id": "forbidden_phrase_04",
+      "hits": []
+    },
+    {
+      "rule_id": "forbidden_phrase_05",
+      "hits": []
+    },
+    {
+      "rule_id": "forbidden_phrase_06",
+      "hits": []
+    }
+  ],
+  "readme_headline_rows": 5
+}

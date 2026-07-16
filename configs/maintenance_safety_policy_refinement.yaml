@@ -1,0 +1,104 @@
+source:
+  phase5c_reports: reports/physics_guided_rul
+  phase5c_artifacts: artifacts/physics_guided_rul
+  refined_reports: reports/physics_guided_rul_refined
+  refined_artifacts: artifacts/physics_guided_rul_refined
+  expected_model_id: physics_regime
+  expected_uncertainty_method: predicted_rul_band_mondrian
+  expected_abstention_policy: logistic_high_error_0.15
+
+outputs:
+  reports_dir: reports/physics_guided_rul_safety_refined
+  artifacts_dir: artifacts/physics_guided_rul_safety_refined
+  overwrite_existing: false
+
+safety_states:
+  critical_max_rul: 15
+  near_term_max_rul: 30
+  inspection_max_rul: 60
+  monitoring_max_rul: 90
+  critical_threshold_sensitivity: [10, 15, 20]
+
+actions:
+  continue_monitoring: CONTINUE_MONITORING
+  plan_inspection: PLAN_INSPECTION
+  schedule_maintenance: SCHEDULE_MAINTENANCE
+  urgent_review: URGENT_ENGINEERING_REVIEW
+  abstain_review: ABSTAIN_AND_REVIEW
+
+policy_selection:
+  outer_seeds: [11501, 11502, 11503, 11504, 11505]
+  development_fraction: 0.70
+  group_by_engine: true
+  minimum_critical_recall: 0.90
+  maximum_missed_critical_rate: 0.10
+  minimum_urgent_precision: 0.45
+  maximum_urgent_rate: 0.30
+  maximum_total_review_rate: 0.40
+  minimum_supported_subgroup_recall: 0.75
+  minimum_subgroup_critical_count: 10
+
+policy_grid:
+  point_critical_thresholds: [10, 15, 20, 25, 30]
+  point_maintenance_thresholds: [30, 40, 50, 60]
+  point_inspection_thresholds: [60, 75, 90]
+  lower_bound_critical_thresholds: [0, 5, 10, 15, 20, 30]
+  lower_bound_maintenance_thresholds: [20, 30, 40, 50]
+  lower_bound_inspection_thresholds: [50, 60, 75, 90]
+  guard_thresholds: [35, 45, 60, 75, 90]
+  risk_thresholds: [0.10, 0.15, 0.20, 0.25, 0.30, 0.50]
+  width_quantiles: [0.80, 0.90, 0.95]
+  monotone_weights:
+    - {rul: 0.40, lower_bound: 0.30, risk: 0.20, support: 0.10, degradation: 0.00}
+    - {rul: 0.35, lower_bound: 0.35, risk: 0.20, support: 0.10, degradation: 0.00}
+  monotone_urgent_thresholds: [0.55, 0.65, 0.75]
+  monotone_schedule_thresholds: [0.35, 0.45]
+  maximum_tree_depth: 3
+  minimum_tree_leaf_size: 20
+
+abstention_interaction:
+  mandatory_review_for_abstention: true
+  count_abstention_as_operational_detection: true
+
+support_fallback:
+  low_support_rarity_quantile: 0.90
+  high_width_quantile: 0.90
+  low_lower_bound_threshold: 20.0
+
+cost_matrices:
+  base:
+    critical_as_monitor: 100.0
+    critical_as_inspection: 75.0
+    critical_as_schedule: 25.0
+    critical_as_abstain_review: 8.0
+    healthy_as_urgent: 8.0
+    healthy_as_abstain_review: 5.0
+    noncritical_as_review: 2.0
+  conservative:
+    critical_as_monitor: 150.0
+    critical_as_inspection: 100.0
+    critical_as_schedule: 40.0
+    critical_as_abstain_review: 6.0
+    healthy_as_urgent: 8.0
+    healthy_as_abstain_review: 5.0
+    noncritical_as_review: 2.0
+  higher_false_alarm_cost:
+    critical_as_monitor: 100.0
+    critical_as_inspection: 75.0
+    critical_as_schedule: 25.0
+    critical_as_abstain_review: 8.0
+    healthy_as_urgent: 20.0
+    healthy_as_abstain_review: 12.0
+    noncritical_as_review: 6.0
+
+bootstrap:
+  iterations: 2000
+  seed: 11601
+  smoke_iterations: 50
+
+freeze:
+  minimum_operational_critical_recall: 0.90
+  minimum_direct_urgent_recall: 0.80
+  maximum_total_review_rate: 0.40
+  minimum_recall_lcb: 0.75
+  minimum_supported_subgroup_recall: 0.75

@@ -1,0 +1,16 @@
+package,group,installed_version,source,needed_for,evidence,decision
+joblib,core,1.5.3,current aerostat-ai environment,Frozen artifact loading,Imported by aeroguard.inference.artifact_loader,keep direct dependency
+numpy,core,2.4.6,current aerostat-ai environment,Inference and validation arrays,Imported throughout src/aeroguard,keep direct dependency
+pandas,core,2.3.3,current aerostat-ai environment,CSV input and inference output frames,Imported by inference API dashboard and evaluation modules,keep direct dependency
+scikit-learn,core,1.9.0,current aerostat-ai environment,Preprocessor and policy artifacts plus classical utilities,Imported by retained source and required to unpickle sklearn artifacts,keep direct dependency
+torch,core,2.12.1+cu126,current aerostat-ai environment,Frozen neural checkpoint inference,Imported by deep models and predictor,keep direct dependency with public constraint torch==2.12.1
+fastapi,api,0.139.0,current aerostat-ai environment,FastAPI service,Imported by src/aeroguard/api/app.py,keep optional api dependency
+pydantic,api,2.13.4,current aerostat-ai environment,FastAPI request models,Imported by src/aeroguard/api/app.py,keep optional api dependency
+uvicorn,api,0.50.2,current aerostat-ai environment,Local API server command,Documented service runner,keep optional api dependency
+streamlit,dashboard,1.59.0,current aerostat-ai environment,Streamlit dashboard,Imported by dashboard/app.py,keep optional dashboard dependency
+matplotlib,dev,3.11.0,current aerostat-ai environment,Release figures and pipeline smoke tests,Imported by retained pipeline/release scripts,keep development dependency
+PyYAML,dev,6.0.3,current aerostat-ai environment,Config loading in pipeline smoke tests,Imported as yaml by retained pipelines/tests,keep development dependency
+pytest,dev,9.1.1,current aerostat-ai environment,Unit and integration tests,Used by tests and CI,keep development dependency
+scipy,excluded,1.17.1,current aerostat-ai environment,Transitive sklearn dependency only,No direct import found under src dashboard scripts or tests,do not list as direct dependency
+plotly,excluded,6.8.0,current aerostat-ai environment,Not used by dashboard,No direct import found under retained source,do not list as direct dependency
+ruff,excluded,0.15.20,current aerostat-ai environment,Optional style linting only,Existing codebase has historical style findings and release CI uses targeted integrity checks instead,do not list as direct dependency

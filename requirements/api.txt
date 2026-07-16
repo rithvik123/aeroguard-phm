@@ -1,0 +1,4 @@
+-r core.txt
+fastapi
+pydantic
+uvicorn

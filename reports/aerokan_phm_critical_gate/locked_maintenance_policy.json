@@ -1,0 +1,7 @@
+{
+  "inspection_threshold": 60.0,
+  "policy_id": "point_u15_s30_i60",
+  "schedule_threshold": 30.0,
+  "selected_using_benchmark": false,
+  "urgent_threshold": 15.0
+}

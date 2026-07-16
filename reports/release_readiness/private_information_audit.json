@@ -1,0 +1,8 @@
+{
+  "total_private_path_hits": 0,
+  "public_documentation_private_path_hits": [],
+  "private_path_hits": [],
+  "likely_secret_count": 0,
+  "secret_scan_result": "pass",
+  "secret_hits": []
+}

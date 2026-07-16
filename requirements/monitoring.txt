@@ -1,0 +1,3 @@
+-r core.txt
+
+# The local monitoring demonstration uses AeroGuard-PHM core inference only.

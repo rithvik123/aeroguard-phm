@@ -1,0 +1,6 @@
+{
+  "bound": 10.0,
+  "boundary_high": 25.0,
+  "boundary_low": 15.0,
+  "margin": 0.5
+}

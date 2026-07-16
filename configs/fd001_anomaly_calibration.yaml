@@ -1,0 +1,134 @@
+dataset_dir: data/raw/cmapss
+subset: FD001
+baseline_config_path: configs/fd001_baseline.yaml
+phase2_config_path: configs/fd001_health_anomaly.yaml
+random_seed: 42
+validation_fraction: 0.2
+
+healthy_rul_threshold: 125
+critical_rul_threshold: 30
+
+calibration_method: empirical_percentile
+calibration_quantiles:
+  lower: 0.01
+  upper: 0.99
+epsilon: 1.0e-9
+clip_calibrated_scores: true
+
+candidate_detector_thresholds: [0.90, 0.925, 0.95, 0.975, 0.99, 0.995]
+candidate_fusion_methods:
+  - mean
+  - median
+  - max
+  - weighted_mean
+  - rank_average
+candidate_fusion_weights:
+  - pca_reconstruction: 0.33
+    isolation_forest: 0.33
+    one_class_svm: 0.34
+  - pca_reconstruction: 0.20
+    isolation_forest: 0.40
+    one_class_svm: 0.40
+  - pca_reconstruction: 0.10
+    isolation_forest: 0.45
+    one_class_svm: 0.45
+  - pca_reconstruction: 0.40
+    isolation_forest: 0.30
+    one_class_svm: 0.30
+  - pca_reconstruction: 0.00
+    isolation_forest: 0.50
+    one_class_svm: 0.50
+candidate_voting_rules:
+  - any_one
+  - at_least_two
+  - all_three
+voting_detector_threshold: 0.95
+
+default_persistence:
+  consecutive: 5
+persistence_base_threshold: 0.95
+candidate_consecutive_persistence_values: [3, 5, 8]
+candidate_k_of_n_rules:
+  - k: 3
+    n: 5
+  - k: 4
+    n: 6
+  - k: 5
+    n: 8
+score_duration_rules:
+  - duration: 3
+    threshold: 0.95
+  - duration: 5
+    threshold: 0.95
+
+hysteresis:
+  enter_thresholds: [0.95]
+  exit_thresholds: [0.85]
+  min_enter_duration: 3
+  min_clear_duration: 3
+selected_hysteresis:
+  enter_threshold: 0.95
+  exit_threshold: 0.85
+  min_enter_duration: 3
+  min_clear_duration: 3
+
+page_hinkley_candidates:
+  - primary_signal: smoothed_health_index
+    direction: decrease
+    delta: 0.002
+    threshold: 0.18
+    min_observations: 20
+    reset_after_detection: false
+  - primary_signal: smoothed_health_index
+    direction: decrease
+    delta: 0.004
+    threshold: 0.24
+    min_observations: 25
+    reset_after_detection: false
+  - primary_signal: smoothed_health_index
+    direction: decrease
+    delta: 0.006
+    threshold: 0.32
+    min_observations: 30
+    reset_after_detection: false
+
+utility_profiles:
+  safety_first:
+    detection_reward: 2.0
+    early_warning_reward: 1.0
+    missed_engine_penalty: 2.0
+    false_alarm_engine_penalty: 0.8
+    healthy_fpr_penalty: 0.8
+    instability_penalty: 0.4
+    late_after_critical_penalty: 0.8
+  balanced:
+    detection_reward: 1.5
+    early_warning_reward: 0.7
+    missed_engine_penalty: 1.2
+    false_alarm_engine_penalty: 1.0
+    healthy_fpr_penalty: 1.0
+    instability_penalty: 0.5
+    late_after_critical_penalty: 0.5
+  low_false_alarm:
+    detection_reward: 1.0
+    early_warning_reward: 0.4
+    missed_engine_penalty: 0.8
+    false_alarm_engine_penalty: 2.0
+    healthy_fpr_penalty: 2.5
+    instability_penalty: 0.8
+    late_after_critical_penalty: 0.4
+primary_utility_profile: balanced
+
+operational_alert_thresholds:
+  monitor_score: 0.80
+  warning_score: 0.90
+  critical_score: 0.98
+  warning_health_index_max: 0.55
+  critical_health_index_max: 0.35
+use_rul_predictions_in_alerts: false
+
+output_dir: reports/fd001_anomaly_calibration
+results_note_path: notes/fd001_anomaly_calibration_results.md
+representative_timeline_count: 4
+plotting:
+  scatter_sample_rows: 5000

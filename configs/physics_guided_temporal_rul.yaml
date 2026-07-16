@@ -1,0 +1,192 @@
+general:
+  dataset_dir: data/raw/cmapss
+  training_subsets: [FD001, FD002, FD003, FD004]
+  benchmark_test_subsets: [FD001, FD002, FD003, FD004]
+  phase5b_config_path: configs/multidomain_temporal_optimization.yaml
+  phase5b_results_path: reports/deep_rul_extended
+  phase5b_checkpoint_path: artifacts/deep_rul_extended/checkpoints/locked_extended_model.pt
+  output_dir: reports/physics_guided_rul
+  checkpoint_dir: artifacts/physics_guided_rul/checkpoints
+  overwrite_existing: false
+  resume_existing: false
+  fail_fast_candidates: false
+  random_seed: 9801
+  device: auto
+  execution_profile: code_only_safe
+  deterministic_algorithms: false
+
+sequence:
+  window_length: 50
+  window_stride: 2
+  minimum_valid_history: 10
+  maximum_windows_per_engine: 100
+  patch_length: 10
+  patch_stride: 5
+  feature_count: 24
+  feature_metadata_source: phase5b_preprocessor
+  rul_cap: 125
+  training_target: rul_capped
+  operating_condition_method: regime_standardization
+
+model:
+  projection_dim: 64
+  transformer_layers: 2
+  attention_heads: 4
+  feedforward_dim: 192
+  dropout: 0.15
+  positional_encoding: learnable
+  pooling: mean
+  causal_attention: false
+  health_head_enabled: true
+  rate_head_enabled: true
+  output_activation: softplus
+  parameter_budget: 1000000
+
+warm_start:
+  enabled: true
+  checkpoint_path: artifacts/deep_rul_extended/checkpoints/locked_extended_model.pt
+  load_encoder_only: true
+  strict: false
+
+pairing:
+  adjacent_pair_enabled: true
+  fixed_gap_pair_enabled: true
+  triplet_enabled: true
+  allowed_cycle_gaps: [1, 2, 5]
+  maximum_adjacent_pairs_per_engine: 24
+  maximum_fixed_gap_pairs_per_engine: 24
+  maximum_triplets_per_engine: 12
+  pair_seed: 9811
+  sampling_method: uniform
+
+regime_consistency:
+  enabled: true
+  rul_matching_tolerance: 5.0
+  maximum_regime_pairs: 20000
+  maximum_regime_anchors: 10000
+  maximum_partners_per_anchor: 2
+  maximum_pairs_per_regime_combination: 4000
+  latent_distance: cosine
+  pair_seed: 9821
+  allow_empty_pairs: false
+  lazy_build: true
+  cache_bounded_pairs: true
+
+losses:
+  lambda_data: 1.0
+  lambda_monotonic: 0.0
+  lambda_rate: 0.0
+  lambda_smooth: 0.0
+  lambda_health: 0.0
+  lambda_health_monotonic: 0.0
+  lambda_regime: 0.0
+  lambda_nonnegative: 0.0
+  lambda_optimistic: 0.0
+  data_loss: smooth_l1
+  rate_loss: smooth_l1
+  smooth_loss: smooth_l1
+  health_loss: mse
+  optimistic_loss: mae
+  monotonic_tolerance: 1.0
+  rate_tolerance: 2.0
+  smoothness_tolerance: 3.0
+  health_monotonic_tolerance: 0.02
+  regime_tolerance: 0.05
+  regime_metric: cosine
+  regime_formulation: latent
+  severe_optimistic_threshold: 30.0
+  severe_optimistic_multiplier: 2.0
+  normalize_monotonic_by_gap: false
+  include_rate_head_loss: false
+  mask_rate_plateau: true
+  allow_missing_optional_batches: false
+
+candidate_registry:
+  maximum_candidate_count: 10
+  use_default_registry: true
+  definitions: null
+
+later_experiment:
+  screening_split:
+    validation_fraction: 0.20
+    seed: 9831
+  validation_snapshot_positions: [0.20, 0.40, 0.60, 0.80, 1.00]
+  finalist_count: 2
+  cv_folds: 3
+  seeds: [9841, 9842]
+  maximum_epochs: 30
+  patience: 8
+  optimizer: adamw
+  batch_size: 256
+  num_workers: 0
+  mixed_precision: auto
+  gradient_clip_norm: 5.0
+  training_schedules:
+    schedule_a:
+      learning_rate: 0.001
+      weight_decay: 0.0001
+      max_epochs: 20
+      minimum_epochs: 5
+      early_stopping_patience: 6
+      scheduler: plateau
+    schedule_b:
+      learning_rate: 0.0005
+      weight_decay: 0.0001
+      max_epochs: 30
+      minimum_epochs: 5
+      early_stopping_patience: 8
+      scheduler: plateau
+  robust_selection_weights:
+    normalized_RMSE: 1.0
+    normalized_NASA: 0.02
+    severe_optimistic_rate: 10.0
+    low_RUL_optimistic_rate: 10.0
+    monotonic_violation_rate: 2.0
+    rate_violation_rate: 2.0
+    normalized_RMSE_std: 0.5
+    normalized_parameter_count: 0.1
+    normalized_CPU_latency: 0.1
+
+uncertainty:
+  nominal_levels: [0.80, 0.90, 0.95]
+  conformal_methods: [global_grouped_conformal, predicted_rul_band_conformal]
+  predicted_rul_bands:
+    - {label: "0_15", lower: 0, upper: 15}
+    - {label: "16_30", lower: 15.000001, upper: 30}
+    - {label: "31_60", lower: 30.000001, upper: 60}
+    - {label: "61_125", lower: 60.000001, upper: 125}
+    - {label: "above_125", lower: 125.000001, upper: null}
+  coverage_tolerance: 0.03
+
+safety:
+  low_rul_threshold: 30.0
+  severe_optimistic_threshold: 30.0
+  support_settings:
+    support_percentile_range: [0.01, 0.99]
+    limited_feature_exceedance: 0.05
+    out_feature_exceedance: 0.20
+  abstention_settings:
+    max_feature_exceedance_fraction: 0.20
+    max_interval_width_ratio: 2.5
+    min_plausible_rul: 0
+    max_plausible_rul: 250
+  maintenance_thresholds:
+    urgent_review_max: 15
+    schedule_maintenance_max: 30
+    plan_inspection_max: 60
+
+smoke_test:
+  enabled: true
+  synthetic_engine_count: 4
+  synthetic_regime_count: 2
+  synthetic_cycles_per_engine: 10
+  synthetic_feature_count: 5
+  smoke_epochs: 2
+  smoke_batch_size: 8
+  learning_rate: 0.001
+  projection_dim: 16
+  transformer_layers: 1
+  attention_heads: 4
+  feedforward_dim: 32
+  dropout: 0.0
+  smoke_output_directory: reports/physics_guided_rul/smoke

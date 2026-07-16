@@ -1,0 +1,65 @@
+model_id,display_name,development_stage,selection_status
+classical_random_forest,Random Forest RUL Baseline,Phase 4 provenance,baseline
+sequence_mlp,Sequence MLP RUL Baseline,Phase 5 provenance,not selected
+cnn1d,Temporal CNN RUL Baseline,Phase 5 provenance,not selected
+lstm,LSTM RUL Baseline,Phase 5 provenance,not selected
+gru,GRU RUL Baseline,Phase 5 provenance,not selected
+tcn,Temporal Convolutional RUL Baseline,Phase 5 provenance,not selected
+cnn_lstm,CNN-LSTM RUL Baseline,Phase 5 provenance,not selected
+lstm_phase5_schedule_a,LSTM Candidate - Schedule A,Phase 5B provenance,not selected
+lstm_phase5_schedule_b,LSTM Candidate - Schedule B,Phase 5B provenance,not selected
+tcn_extended_schedule_a,Temporal CNN Candidate - Schedule A,Phase 5B provenance,not selected
+tcn_extended_schedule_b,Temporal CNN Candidate - Schedule B,Phase 5B provenance,not selected
+temporal_transformer_sinusoidal_mean_a,Temporal Transformer - Sinusoidal Mean Pooling,Phase 5B provenance,not selected
+temporal_transformer_learned_attention_b,Temporal Transformer - Learned Attention Pooling,Phase 5B provenance,not selected
+patch_transformer_5x5_attention_a,Patch Transformer — 5×5 Patches with Attention Pooling,Phase 5B provenance,not selected
+patch_transformer_10x5_mean_b,Patch Transformer — 10×5 Patches with Mean Pooling,Phase 5B provenance,baseline
+phase5b_reimplementation_baseline,Patch Transformer Reimplementation Baseline,Phase 5C provenance,not selected
+physics_monotonic,Monotonicity-Guided Patch Transformer,Phase 5C provenance,not selected
+physics_cycle_rate,Cycle-Rate-Guided Patch Transformer,Phase 5C provenance,not selected
+physics_smooth,Smoothness-Guided Patch Transformer,Phase 5C provenance,not selected
+physics_health,Health-Guided Patch Transformer,Phase 5C provenance,not selected
+physics_regime,Regime-Consistent Physics-Guided Patch Transformer,Phase 5C provenance,selected backbone
+physics_temporal_combined,Temporally Combined Physics-Guided Patch Transformer,Phase 5C provenance,not selected
+physics_full,Full Physics-Guided Patch Transformer,Phase 5C provenance,not selected
+physics_full_safety,Full Physics-and-Safety Patch Transformer,Phase 5C provenance,not selected
+phase5c_frozen_baseline,Regime-Consistent Physics-Guided Patch Transformer,Phase 5D provenance,not selected
+linear_ridge_residual,Linear Residual Corrector,Phase 5D provenance,not selected
+small_mlp_residual,MLP Residual Corrector,Phase 5D provenance,not selected
+direct_additive_kan_rul,Direct Additive KAN RUL Head,Phase 5D provenance,not selected
+sparse_kan_residual_bound10,Sparse Additive KAN Residual Corrector (Bound 10),Phase 5D provenance,not selected
+sparse_kan_residual_bound20,Sparse Additive KAN Residual Corrector (Bound 20),Phase 5D provenance,not selected
+sparse_kan_residual_bound30,Sparse Additive KAN Residual Corrector (Bound 30),Phase 5D provenance,not selected
+safety_weighted_sparse_kan,Safety-Weighted Sparse KAN Corrector,Phase 5D provenance,not selected
+regime_aware_sparse_kan,Regime-Aware KAN Corrector,Phase 5D provenance,not selected
+two_layer_compact_kan_h4,AeroKAN-PHM Compact Residual Corrector (h=4),Phase 5D provenance,not selected
+two_layer_compact_kan_h8,AeroKAN-PHM Compact Residual Corrector,Phase 5D provenance,"experimental, not final selected"
+phase5c_exact_fallback,Frozen Physics-Guided Baseline Fallback,Phase 5D.1 provenance,not selected
+constant_downward_bound5,Constant Downward Bound5,Phase 5D.1 provenance,not selected
+linear_nonnegative_bound5,Linear Nonnegative Bound5,Phase 5D.1 provenance,not selected
+mlp_magnitude_bound5,MLP Magnitude Bound5,Phase 5D.1 provenance,not selected
+single_layer_sparse_additive_kan_bound5,Single Layer Sparse Additive KAN Bound5,Phase 5D.1 provenance,not selected
+safety_weighted_sparse_additive_kan_bound5,Safety Weighted Sparse Additive KAN Bound5,Phase 5D.1 provenance,not selected
+regime_shrinkage_additive_kan_bound5,Regime Shrinkage Additive KAN Bound5,Phase 5D.1 provenance,not selected
+constant_downward_bound10,Constant Downward Bound10,Phase 5D.1 provenance,not selected
+linear_nonnegative_bound10,Linear Nonnegative Bound10,Phase 5D.1 provenance,not selected
+mlp_magnitude_bound10,MLP Magnitude Bound10,Phase 5D.1 provenance,not selected
+single_layer_sparse_additive_kan_bound10,Single Layer Sparse Additive KAN Bound10,Phase 5D.1 provenance,not selected
+safety_weighted_sparse_additive_kan_bound10,Safety Weighted Sparse Additive KAN Bound10,Phase 5D.1 provenance,not selected
+regime_shrinkage_additive_kan_bound10,Regime Shrinkage Additive KAN Bound10,Phase 5D.1 provenance,not selected
+constant_downward_bound15,Constant Downward Bound15,Phase 5D.1 provenance,not selected
+linear_nonnegative_bound15,Linear Nonnegative Bound15,Phase 5D.1 provenance,not selected
+mlp_magnitude_bound15,MLP Magnitude Bound15,Phase 5D.1 provenance,not selected
+single_layer_sparse_additive_kan_bound15,Single Layer Sparse Additive KAN Bound15,Phase 5D.1 provenance,not selected
+safety_weighted_sparse_additive_kan_bound15,Safety Weighted Sparse Additive KAN Bound15,Phase 5D.1 provenance,not selected
+regime_shrinkage_additive_kan_bound15,Regime Shrinkage Additive KAN Bound15,Phase 5D.1 provenance,not selected
+constant_downward_bound20,Constant Downward Bound20,Phase 5D.1 provenance,not selected
+linear_nonnegative_bound20,Linear Nonnegative Bound20,Phase 5D.1 provenance,not selected
+mlp_magnitude_bound20,MLP Magnitude Bound20,Phase 5D.1 provenance,not selected
+single_layer_sparse_additive_kan_bound20,Single Layer Sparse Additive KAN Bound20,Phase 5D.1 provenance,not selected
+safety_weighted_sparse_additive_kan_bound20,Safety Weighted Sparse Additive KAN Bound20,Phase 5D.1 provenance,not selected
+regime_shrinkage_additive_kan_bound20,Regime Shrinkage Additive KAN Bound20,Phase 5D.1 provenance,not selected
+phase5d_two_layer_one_sided_control_bound20,Selective One-Sided AeroKAN Safety Corrector,Phase 5D.1 provenance,selected experimental safety corrector
+selective_one_sided_aerokan_safety_corrector,Selective One-Sided AeroKAN Safety Corrector,Phase 5D.1 provenance,"experimental, not final selected"
+critical_boundary_safety_guarded_transformer,Critical-Boundary Safety-Guarded Physics-Guided Transformer,Phase 5D.2 provenance,final selected system
+aeroguard_phm_safety_guarded_rul_system,AeroGuard-PHM Safety-Guarded RUL System,Phase 6 release provenance,final selected system

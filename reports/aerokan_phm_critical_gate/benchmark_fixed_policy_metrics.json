@@ -1,0 +1,12 @@
+{
+  "abstain_review_count": 0,
+  "critical_miss_count": 1,
+  "direct_urgent_recall": 0.9901960784313726,
+  "new_fixed_policy_misses": 0,
+  "operational_recall": 0.9901960784313726,
+  "phase5c_misses_corrected": 24,
+  "phase5c_misses_remaining": 1,
+  "review_workload": 0.19236209335219237,
+  "total_review_count": 136,
+  "urgent_precision": 0.7426470588235294
+}

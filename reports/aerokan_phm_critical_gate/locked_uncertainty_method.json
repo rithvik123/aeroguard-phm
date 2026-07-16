@@ -1,0 +1,15 @@
+{
+  "method_id": "global_split_conformal",
+  "nominal_levels": [
+    0.8,
+    0.9,
+    0.95
+  ],
+  "radii": {
+    "0.8": 32.158414,
+    "0.9": 53.55708600000003,
+    "0.95": 86.53937999999997
+  },
+  "selected_using_benchmark": false,
+  "source_prediction_column": "corrected_predicted_rul"
+}
