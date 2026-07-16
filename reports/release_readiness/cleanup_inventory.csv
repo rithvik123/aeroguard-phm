@@ -810,7 +810,7 @@ reports/physics_guided_rul_safety_refined/figures/support_category_vs_assigned_a
 reports/physics_guided_rul_safety_refined/figures/urgent_precision_vs_critical_recall.png,.png,19133,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
 reports/physics_guided_rul_safety_refined/figures/validation_missed_critical_feature_distribution.png,.png,8393,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
 reports/physics_guided_rul_safety_refined/figures/weighted_cost_vs_workload.png,.png,17059,Add to .gitignore,Ignore,Generated intermediate report output.,No,No,Ignored
-reports/release_readiness/cleanup_inventory.csv,.csv,160964,Keep,Keep,Public release-readiness report.,No,No,Kept
+reports/release_readiness/cleanup_inventory.csv,.csv,161392,Keep,Keep,Public release-readiness report.,No,No,Kept
 reports/release_readiness/dependency_audit.csv,.csv,2476,Keep,Keep,Public release-readiness report.,No,No,Kept
 reports/release_readiness/frozen_hash_mismatch_investigation.json,.json,4309,Keep,Keep,Public release-readiness report.,No,No,Kept
 reports/release_readiness/git_staging_preview.txt,.txt,16040,Keep,Keep,Public release-readiness report.,No,No,Kept
@@ -818,7 +818,7 @@ reports/release_readiness/large_files.csv,.csv,829,Keep,Keep,Public release-read
 reports/release_readiness/license_compatibility_audit.csv,.csv,2432,Keep,Keep,Public release-readiness report.,No,No,Kept
 reports/release_readiness/monitoring_demo.json,.json,1833,Keep,Keep,Public release-readiness report.,No,No,Kept
 reports/release_readiness/private_information_audit.json,.json,197,Keep,Keep,Public release-readiness report.,No,No,Kept
-reports/release_readiness/public_release_manifest.json,.json,74093,Keep,Keep,Public release-readiness report.,No,No,Kept
+reports/release_readiness/public_release_manifest.json,.json,74263,Keep,Keep,Public release-readiness report.,No,No,Kept
 reports/release_readiness/release_integrity_check.json,.json,62,Keep,Keep,Public release-readiness report.,No,No,Kept
 reports/release_readiness/repository_size_report.json,.json,4330,Keep,Keep,Public release-readiness report.,No,No,Kept
 reports/release_readiness/upstream_reference_audit.csv,.csv,3820,Keep,Keep,Public release-readiness report.,No,No,Kept
@@ -1015,7 +1015,7 @@ tests/integration/test_multidomain_deep_rul_smoke.py,.py,10030,Keep,Keep,"Projec
 tests/integration/test_multidomain_phm_smoke.py,.py,8797,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
 tests/integration/test_multidomain_rul_uncertainty_smoke.py,.py,8567,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
 tests/integration/test_multidomain_temporal_optimization_smoke.py,.py,11193,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
-tests/integration/test_phase6_final_release_smoke.py,.py,1823,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
+tests/integration/test_phase6_final_release_smoke.py,.py,2217,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
 tests/integration/test_physics_guided_temporal_rul_refinement_smoke.py,.py,523,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
 tests/integration/test_physics_guided_temporal_rul_smoke.py,.py,2766,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
 tests/integration/test_selective_aerokan_safety_corrector_smoke.py,.py,508,Keep,Keep,"Project source, config, docs, tests or curated example.",No,No,Kept
